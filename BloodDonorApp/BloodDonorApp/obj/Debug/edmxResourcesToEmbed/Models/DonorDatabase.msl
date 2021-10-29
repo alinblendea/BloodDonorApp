@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BloodDonorModelStoreContainer" CdmEntityContainer="BloodDonorEntities">
+    <EntitySetMapping Name="Cerere_Donare">
+      <EntityTypeMapping TypeName="BloodDonorModel.Cerere_Donare">
+        <MappingFragment StoreEntitySet="Cerere_Donare">
+          <ScalarProperty Name="id_cerere" ColumnName="id_cerere" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
+          <ScalarProperty Name="trombocite" ColumnName="trombocite" />
+          <ScalarProperty Name="globule_rosii" ColumnName="globule_rosii" />
+          <ScalarProperty Name="plasma" ColumnName="plasma" />
+          <ScalarProperty Name="id_medic" ColumnName="id_medic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chestionar_Medical">
+      <EntityTypeMapping TypeName="BloodDonorModel.Chestionar_Medical">
+        <MappingFragment StoreEntitySet="Chestionar_Medical">
+          <ScalarProperty Name="id_chestionar" ColumnName="id_chestionar" />
+          <ScalarProperty Name="greutate" ColumnName="greutate" />
+          <ScalarProperty Name="puls" ColumnName="puls" />
+          <ScalarProperty Name="tensiune" ColumnName="tensiune" />
+          <ScalarProperty Name="interventii_chirurgicale_recente" ColumnName="interventii_chirurgicale_recente" />
+          <ScalarProperty Name="sarcina" ColumnName="sarcina" />
+          <ScalarProperty Name="consum_grasimi" ColumnName="consum_grasimi" />
+          <ScalarProperty Name="tratament" ColumnName="tratament" />
+          <ScalarProperty Name="alte_boli" ColumnName="alte_boli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Componente_Punga">
+      <EntityTypeMapping TypeName="BloodDonorModel.Componente_Punga">
+        <MappingFragment StoreEntitySet="Componente_Punga">
+          <ScalarProperty Name="id_punga" ColumnName="id_punga" />
+          <ScalarProperty Name="trombocite" ColumnName="trombocite" />
+          <ScalarProperty Name="globule_rosii" ColumnName="globule_rosii" />
+          <ScalarProperty Name="plasma" ColumnName="plasma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donators">
+      <EntityTypeMapping TypeName="BloodDonorModel.Donator">
+        <MappingFragment StoreEntitySet="Donator">
+          <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="domiciliu" ColumnName="domiciliu" />
+          <ScalarProperty Name="resedinta" ColumnName="resedinta" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="id_chestionar" ColumnName="id_chestionar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medics">
+      <EntityTypeMapping TypeName="BloodDonorModel.Medic">
+        <MappingFragment StoreEntitySet="Medic">
+          <ScalarProperty Name="id_medic" ColumnName="id_medic" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="id_spital" ColumnName="id_spital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacients">
+      <EntityTypeMapping TypeName="BloodDonorModel.Pacient">
+        <MappingFragment StoreEntitySet="Pacient">
+          <ScalarProperty Name="cnp_pacient" ColumnName="cnp_pacient" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
+          <ScalarProperty Name="id_spital" ColumnName="id_spital" />
+          <ScalarProperty Name="id_cerere" ColumnName="id_cerere" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal_Recoltare">
+      <EntityTypeMapping TypeName="BloodDonorModel.Personal_Recoltare">
+        <MappingFragment StoreEntitySet="Personal_Recoltare">
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Punga_Sange">
+      <EntityTypeMapping TypeName="BloodDonorModel.Punga_Sange">
+        <MappingFragment StoreEntitySet="Punga_Sange">
+          <ScalarProperty Name="id_punga" ColumnName="id_punga" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
+          <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
+          <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spitals">
+      <EntityTypeMapping TypeName="BloodDonorModel.Spital">
+        <MappingFragment StoreEntitySet="Spital">
+          <ScalarProperty Name="id_spital" ColumnName="id_spital" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="judet" ColumnName="judet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BloodDonorModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BloodDonorModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BloodDonorModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BloodDonorModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BloodDonorModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BloodDonorModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BloodDonorModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BloodDonorModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BloodDonorModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BloodDonorModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

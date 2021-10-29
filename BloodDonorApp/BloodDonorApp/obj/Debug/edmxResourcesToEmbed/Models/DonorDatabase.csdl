@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BloodDonorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cerere_Donare">
+    <Key>
+      <PropertyRef Name="id_cerere" />
+    </Key>
+    <Property Name="id_cerere" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="trombocite" Type="Boolean" Nullable="false" />
+    <Property Name="globule_rosii" Type="Boolean" Nullable="false" />
+    <Property Name="plasma" Type="Boolean" Nullable="false" />
+    <Property Name="id_medic" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pacients" Relationship="Self.FK_Pacient_Cerere_Donare" FromRole="Cerere_Donare" ToRole="Pacient" />
+  </EntityType>
+  <EntityType Name="Chestionar_Medical">
+    <Key>
+      <PropertyRef Name="id_chestionar" />
+    </Key>
+    <Property Name="id_chestionar" Type="Int32" Nullable="false" />
+    <Property Name="greutate" Type="Int32" Nullable="false" />
+    <Property Name="puls" Type="Int32" Nullable="false" />
+    <Property Name="tensiune" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="interventii_chirurgicale_recente" Type="Boolean" Nullable="false" />
+    <Property Name="sarcina" Type="Boolean" Nullable="false" />
+    <Property Name="consum_grasimi" Type="Boolean" Nullable="false" />
+    <Property Name="tratament" Type="Boolean" Nullable="false" />
+    <Property Name="alte_boli" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Donators" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Chestionar_Medical" ToRole="Donator" />
+  </EntityType>
+  <EntityType Name="Componente_Punga">
+    <Key>
+      <PropertyRef Name="id_punga" />
+    </Key>
+    <Property Name="id_punga" Type="Int32" Nullable="false" />
+    <Property Name="trombocite" Type="Boolean" Nullable="false" />
+    <Property Name="globule_rosii" Type="Boolean" Nullable="false" />
+    <Property Name="plasma" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Componente_Punga_Punga_Sange" FromRole="Componente_Punga" ToRole="Punga_Sange" />
+  </EntityType>
+  <EntityType Name="Donator">
+    <Key>
+      <PropertyRef Name="cnp_donator" />
+    </Key>
+    <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="domiciliu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="resedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="telefon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_chestionar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Donator" ToRole="Chestionar_Medical" />
+    <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Donator" ToRole="Punga_Sange" />
+  </EntityType>
+  <EntityType Name="Medic">
+    <Key>
+      <PropertyRef Name="id_medic" />
+    </Key>
+    <Property Name="id_medic" Type="Int32" Nullable="false" />
+    <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_spital" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Spital" Relationship="Self.FK_Medic_Spital" FromRole="Medic" ToRole="Spital" />
+  </EntityType>
+  <EntityType Name="Pacient">
+    <Key>
+      <PropertyRef Name="cnp_pacient" />
+    </Key>
+    <Property Name="cnp_pacient" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_spital" Type="Int32" Nullable="false" />
+    <Property Name="id_cerere" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cerere_Donare" Relationship="Self.FK_Pacient_Cerere_Donare" FromRole="Pacient" ToRole="Cerere_Donare" />
+    <NavigationProperty Name="Spital" Relationship="Self.FK_Pacient_Spital" FromRole="Pacient" ToRole="Spital" />
+  </EntityType>
+  <EntityType Name="Personal_Recoltare">
+    <Key>
+      <PropertyRef Name="id_personal" />
+    </Key>
+    <Property Name="id_personal" Type="Int32" Nullable="false" />
+    <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Personal_Recoltare" FromRole="Personal_Recoltare" ToRole="Punga_Sange" />
+  </EntityType>
+  <EntityType Name="Punga_Sange">
+    <Key>
+      <PropertyRef Name="id_punga" />
+    </Key>
+    <Property Name="id_punga" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_personal" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Componente_Punga" Relationship="Self.FK_Componente_Punga_Punga_Sange" FromRole="Punga_Sange" ToRole="Componente_Punga" />
+    <NavigationProperty Name="Donator" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Punga_Sange" ToRole="Donator" />
+    <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Punga_Sange_Personal_Recoltare" FromRole="Punga_Sange" ToRole="Personal_Recoltare" />
+  </EntityType>
+  <EntityType Name="Spital">
+    <Key>
+      <PropertyRef Name="id_spital" />
+    </Key>
+    <Property Name="id_spital" Type="Int32" Nullable="false" />
+    <Property Name="denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="judet" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Medics" Relationship="Self.FK_Medic_Spital" FromRole="Spital" ToRole="Medic" />
+    <NavigationProperty Name="Pacients" Relationship="Self.FK_Pacient_Spital" FromRole="Spital" ToRole="Pacient" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Pacient_Cerere_Donare">
+    <End Role="Cerere_Donare" Type="Self.Cerere_Donare" Multiplicity="1" />
+    <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cerere_Donare">
+        <PropertyRef Name="id_cerere" />
+      </Principal>
+      <Dependent Role="Pacient">
+        <PropertyRef Name="id_cerere" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donator_Chestionar_Medical">
+    <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="1" />
+    <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chestionar_Medical">
+        <PropertyRef Name="id_chestionar" />
+      </Principal>
+      <Dependent Role="Donator">
+        <PropertyRef Name="id_chestionar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Componente_Punga_Punga_Sange">
+    <End Role="Punga_Sange" Type="Self.Punga_Sange" Multiplicity="1" />
+    <End Role="Componente_Punga" Type="Self.Componente_Punga" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Punga_Sange">
+        <PropertyRef Name="id_punga" />
+      </Principal>
+      <Dependent Role="Componente_Punga">
+        <PropertyRef Name="id_punga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Punga_Sange_Donator">
+    <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
+    <End Role="Punga_Sange" Type="Self.Punga_Sange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donator">
+        <PropertyRef Name="cnp_donator" />
+      </Principal>
+      <Dependent Role="Punga_Sange">
+        <PropertyRef Name="cnp_donator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medic_Spital">
+    <End Role="Spital" Type="Self.Spital" Multiplicity="1" />
+    <End Role="Medic" Type="Self.Medic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spital">
+        <PropertyRef Name="id_spital" />
+      </Principal>
+      <Dependent Role="Medic">
+        <PropertyRef Name="id_spital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pacient_Spital">
+    <End Role="Spital" Type="Self.Spital" Multiplicity="1" />
+    <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spital">
+        <PropertyRef Name="id_spital" />
+      </Principal>
+      <Dependent Role="Pacient">
+        <PropertyRef Name="id_spital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Punga_Sange_Personal_Recoltare">
+    <End Role="Personal_Recoltare" Type="Self.Personal_Recoltare" Multiplicity="1" />
+    <End Role="Punga_Sange" Type="Self.Punga_Sange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Recoltare">
+        <PropertyRef Name="id_personal" />
+      </Principal>
+      <Dependent Role="Punga_Sange">
+        <PropertyRef Name="id_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BloodDonorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" />
+    <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" />
+    <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" />
+    <EntitySet Name="Donators" EntityType="Self.Donator" />
+    <EntitySet Name="Medics" EntityType="Self.Medic" />
+    <EntitySet Name="Pacients" EntityType="Self.Pacient" />
+    <EntitySet Name="Personal_Recoltare" EntityType="Self.Personal_Recoltare" />
+    <EntitySet Name="Punga_Sange" EntityType="Self.Punga_Sange" />
+    <EntitySet Name="Spitals" EntityType="Self.Spital" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Pacient_Cerere_Donare" Association="Self.FK_Pacient_Cerere_Donare">
+      <End Role="Cerere_Donare" EntitySet="Cerere_Donare" />
+      <End Role="Pacient" EntitySet="Pacients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donator_Chestionar_Medical" Association="Self.FK_Donator_Chestionar_Medical">
+      <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
+      <End Role="Donator" EntitySet="Donators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
+      <End Role="Punga_Sange" EntitySet="Punga_Sange" />
+      <End Role="Componente_Punga" EntitySet="Componente_Punga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Punga_Sange_Donator" Association="Self.FK_Punga_Sange_Donator">
+      <End Role="Donator" EntitySet="Donators" />
+      <End Role="Punga_Sange" EntitySet="Punga_Sange" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medic_Spital" Association="Self.FK_Medic_Spital">
+      <End Role="Spital" EntitySet="Spitals" />
+      <End Role="Medic" EntitySet="Medics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pacient_Spital" Association="Self.FK_Pacient_Spital">
+      <End Role="Spital" EntitySet="Spitals" />
+      <End Role="Pacient" EntitySet="Pacients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Punga_Sange_Personal_Recoltare" Association="Self.FK_Punga_Sange_Personal_Recoltare">
+      <End Role="Personal_Recoltare" EntitySet="Personal_Recoltare" />
+      <End Role="Punga_Sange" EntitySet="Punga_Sange" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BloodDonorModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BloodDonorModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
