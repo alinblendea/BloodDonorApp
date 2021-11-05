@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:BloodDonorApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background.jpg" Stretch="Fill" />
+    </Window.Background>
     <Grid>
         
     </Grid>
