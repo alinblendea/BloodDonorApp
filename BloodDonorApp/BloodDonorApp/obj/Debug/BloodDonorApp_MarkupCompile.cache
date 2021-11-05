@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\App.xaml
-11151548125
+344235587
 259362905
-20-146221227
+221931678361
 18-526727460
-MainWindow.xaml;
+MainWindow.xaml;Views\DonorWindow.xaml;Views\MedicWindow.xaml;
 
 False
 
