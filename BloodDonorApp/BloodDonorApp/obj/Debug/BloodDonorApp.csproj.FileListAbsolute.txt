@@ -24,3 +24,15 @@ D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\Blo
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\StaffWindow.g.cs
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\StaffWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CheckDonationsWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\DonateWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CheckDonationsWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\DonateWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CheckPartsWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\RequestWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CheckPartsWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\RequestWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\ApproveWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\ChangeStatusWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\ApproveWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\ChangeStatusWindow.baml
