@@ -21,3 +21,6 @@ D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\Blo
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\MedicWindow.g.cs
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\DonorWindow.baml
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\MedicWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\StaffWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\StaffWindow.baml

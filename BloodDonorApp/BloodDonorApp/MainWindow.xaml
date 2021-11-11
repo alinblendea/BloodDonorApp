@@ -1,15 +1,26 @@
 ﻿<Window x:Class="BloodDonorApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BloodDonorApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+         xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        Title="Blood Donor" Height="450" Width="800" Icon="/Images/icon.png">
     <Window.Background>
         <ImageBrush ImageSource="/Images/background.jpg" Stretch="Fill" />
     </Window.Background>
+    <Window.DataContext>
+        <local:MainWindowVM/>
+    </Window.DataContext>
     <Grid>
-        
+        <Button Margin="197,272,465.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="1">
+            <Image Source="/Images/Buttons/donorButton.png" Width="134"></Image>
+        </Button>
+        <Button Margin="333,272,320.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="2">
+            <Image Source="/Images/Buttons/medicButton.png"></Image>
+        </Button>
+        <Button Margin="478,272,188.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="3">
+            <Image Source="/Images/Buttons/staffButton.png" Height="40" Width="127"></Image>
+        </Button>
+        <Button Margin="344,350,332.6,28" Command="{Binding OpenWindowCommand}" CommandParameter="4">
+            <Image Source="/Images/Buttons/exitButton.png" Width="71"></Image>
+        </Button>
     </Grid>
 </Window>

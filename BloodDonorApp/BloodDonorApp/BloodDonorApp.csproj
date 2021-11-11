@@ -62,11 +62,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helpers\BaseVM.cs" />
+    <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="Views\DonorWindow.xaml.cs">
       <DependentUpon>DonorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MedicWindow.xaml.cs">
       <DependentUpon>MedicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffWindow.xaml.cs">
+      <DependentUpon>StaffWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MedicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +189,10 @@
     <Resource Include="Images\background1.jpg" />
     <Resource Include="Images\icon.png" />
     <Resource Include="Images\mainPageText.png" />
+    <Resource Include="Images\Buttons\donorButton.png" />
+    <Resource Include="Images\Buttons\exitButton.png" />
+    <Resource Include="Images\Buttons\medicButton.png" />
+    <Resource Include="Images\Buttons\staffButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DonorDatabase.Context.cs</LastGenOutput>
@@ -193,6 +207,8 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
