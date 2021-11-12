@@ -3,10 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BloodDonorApp.Views"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        xmlns:localConverter="clr-namespace:BloodDonorApp.Converters"
         mc:Ignorable="d"
-        Title="DonateWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Blood Donor - Donate" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Window.DataContext>
+        <local:MedicalFormVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <localConverter:MedicalFormConvert x:Key="medicalFormConvert" />
+        </StackPanel.Resources>
+        <WrapPanel>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
+                <Image Source="/Images/Buttons/addButton.png" Width="90"></Image>
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource medicalFormConvert}">
+                        <Binding ElementName="txtCnp" Path="Text"/>
+                        <Binding ElementName="txtName" Path="Text"/>
+                        <Binding ElementName="txtDomiciliu" Path="Text"/>
+                        <Binding ElementName="txtResedinta" Path="Text"/>
+                        <Binding ElementName="txtMail" Path="Text"/>
+                        <Binding ElementName="txtPhone" Path="Text"/>
+                        <Binding ElementName="txtFormID" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+                <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="120" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Cnp donator:</Label>
+            <TextBox Name="txtCnp" Width="152" HorizontalAlignment="Left"
+                     Text ="" />
+            <Label Width="89" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Nume:</Label>
+            <TextBox Name="txtName" Width="141" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="122" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Domiciliu:</Label>
+            <TextBox Name="txtDomiciliu" Width="150" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="91" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Resedinta:</Label>
+            <TextBox Name="txtResedinta" Width="137" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Mail:"/>
+            <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Nr tel:"/>
+            <TextBox x:Name="txtPhone" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="130" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="ID Chestionar:"/>
+            <TextBox x:Name="txtFormID" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+
+        <WrapPanel>
+            <Label Name="lblMessage" Content="{Binding Message}" Height="30" FontSize="15" Foreground="Blue"/>
+        </WrapPanel>
+    </StackPanel>
 </Window>
