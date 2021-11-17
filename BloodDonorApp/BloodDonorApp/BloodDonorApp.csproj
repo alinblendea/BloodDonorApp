@@ -63,8 +63,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Converters\AccountConvert.cs" />
+    <Compile Include="Converters\DonorAccountConvert.cs" />
+    <Compile Include="Converters\MedicAccountConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
+    <Compile Include="Converters\StaffAccountConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
     <Compile Include="Models\Actions\DonorAccountActions.cs" />
     <Compile Include="Models\Actions\MedicAccountActions.cs" />
@@ -127,10 +129,12 @@
     <Compile Include="ViewModels\DonorAccountVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="ViewModels\MedicAccountVM.cs" />
     <Compile Include="ViewModels\MedicalFormVM.cs" />
     <Compile Include="ViewModels\MedicWindowVM.cs" />
     <Compile Include="ViewModels\DonorPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\MedicPreLoginWindowVM.cs" />
+    <Compile Include="ViewModels\StaffAccountVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
     <Compile Include="Views\ApproveWindow.xaml.cs">
@@ -175,14 +179,14 @@
     <Compile Include="Views\MedicPreLoginWindow.xaml.cs">
       <DependentUpon>MedicPreLoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegisterWindow.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StaffLoginWindow.xaml.cs">
       <DependentUpon>StaffLoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StaffPreLoginWindow.xaml.cs">
       <DependentUpon>StaffPreLoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RegisterWindow.xaml.cs">
-      <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RequestWindow.xaml.cs">
       <DependentUpon>RequestWindow.xaml</DependentUpon>
@@ -261,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StaffLoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -268,10 +276,6 @@
     <Page Include="Views\StaffPreLoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\RegisterWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RequestWindow.xaml">
       <SubType>Designer</SubType>

@@ -12,9 +12,9 @@ DEBUG;TRACE
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\App.xaml
 211594435303
 259362905
-59307834855
+63-618792456
 18-526727460
-MainWindow.xaml;Views\ApproveWindow.xaml;Views\ChangeStatusWindow.xaml;Views\CheckDonationsWindow.xaml;Views\CheckPartsWindow.xaml;Views\DonateWindow.xaml;Views\DonorLoginWindow.xaml;Views\DonorRegisterWindow.xaml;Views\DonorWindow.xaml;Views\LoginWindow.xaml;Views\MedicLoginWindow.xaml;Views\MedicRegisterWindow.xaml;Views\MedicWindow.xaml;Views\DonorPreLoginWindow.xaml;Views\MedicPreLoginWindow.xaml;Views\StaffLoginWindow.xaml;Views\StaffPreLoginWindow.xaml;Views\RegisterWindow.xaml;Views\RequestWindow.xaml;Views\StaffRegisterWindow.xaml;Views\StaffWindow.xaml;
+MainWindow.xaml;Views\ApproveWindow.xaml;Views\ChangeStatusWindow.xaml;Views\CheckDonationsWindow.xaml;Views\CheckPartsWindow.xaml;Views\DonateWindow.xaml;Views\DonorLoginWindow.xaml;Views\DonorRegisterWindow.xaml;Views\DonorWindow.xaml;Views\LoginWindow.xaml;Views\MedicLoginWindow.xaml;Views\MedicRegisterWindow.xaml;Views\MedicWindow.xaml;Views\DonorPreLoginWindow.xaml;Views\MedicPreLoginWindow.xaml;Views\RegisterWindow.xaml;Views\StaffLoginWindow.xaml;Views\StaffPreLoginWindow.xaml;Views\RequestWindow.xaml;Views\StaffRegisterWindow.xaml;Views\StaffWindow.xaml;
 
-True
+False
 

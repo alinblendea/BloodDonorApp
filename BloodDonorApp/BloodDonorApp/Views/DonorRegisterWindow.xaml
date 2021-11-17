@@ -15,7 +15,7 @@
     </Window.DataContext>
     <StackPanel>
         <StackPanel.Resources>
-            <localConverter:AccountConvert x:Key="accountConvert" />
+            <localConverter:DonorAccountConvert x:Key="accountConvert" />
         </StackPanel.Resources>
         <WrapPanel Margin="0,50,0,0">
             <Image Source="/Images/newDonorAccount.png" HorizontalAlignment="Center"></Image>

@@ -8,13 +8,13 @@ using BloodDonorApp.ViewModels;
 
 namespace BloodDonorApp.Converters
 {
-    class AccountConvert : IMultiValueConverter
+    class StaffAccountConvert : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (values[0] != null && values[1] != null && values[2] != null)
             {
-                return new DonorAccountVM()
+                return new StaffAccountVM()
                 {
                     Email = values[0].ToString(),
                     Password = values[1].ToString(),
@@ -28,7 +28,7 @@ namespace BloodDonorApp.Converters
         }
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
         {
-            DonorAccountVM pers = value as DonorAccountVM;
+            StaffAccountVM pers = value as StaffAccountVM;
             object[] result = new object[4] { pers.Email, pers.Password, pers.ConfirmPassword, pers.Type };
             return result;
         }
