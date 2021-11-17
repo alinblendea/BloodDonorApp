@@ -66,88 +66,6 @@
     <Compile Include="Converters\MedicalFormConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
-    <Compile Include="ViewModels\DonorWindowVM.cs" />
-    <Compile Include="ViewModels\MainWindowVM.cs" />
-    <Compile Include="ViewModels\MedicalFormVM.cs" />
-    <Compile Include="ViewModels\MedicWindowVM.cs" />
-    <Compile Include="ViewModels\StaffWindowVM.cs" />
-    <Compile Include="Views\ApproveWindow.xaml.cs">
-      <DependentUpon>ApproveWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ChangeStatusWindow.xaml.cs">
-      <DependentUpon>ChangeStatusWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CheckDonationsWindow.xaml.cs">
-      <DependentUpon>CheckDonationsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CheckPartsWindow.xaml.cs">
-      <DependentUpon>CheckPartsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DonateWindow.xaml.cs">
-      <DependentUpon>DonateWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DonorWindow.xaml.cs">
-      <DependentUpon>DonorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MedicWindow.xaml.cs">
-      <DependentUpon>MedicWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RequestWindow.xaml.cs">
-      <DependentUpon>RequestWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\StaffWindow.xaml.cs">
-      <DependentUpon>StaffWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\ApproveWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ChangeStatusWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CheckDonationsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CheckPartsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DonateWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DonorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MedicWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RequestWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StaffWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Models\Cerere_Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
@@ -155,6 +73,9 @@
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Componente_Punga.cs">
+      <DependentUpon>DonorDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cont.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Donator.cs">
@@ -199,6 +120,168 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DonorWindowVM.cs" />
+    <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="ViewModels\MedicalFormVM.cs" />
+    <Compile Include="ViewModels\MedicWindowVM.cs" />
+    <Compile Include="ViewModels\DonorPreLoginWindowVM.cs" />
+    <Compile Include="ViewModels\MedicPreLoginWindowVM.cs" />
+    <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
+    <Compile Include="ViewModels\StaffWindowVM.cs" />
+    <Compile Include="Views\ApproveWindow.xaml.cs">
+      <DependentUpon>ApproveWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangeStatusWindow.xaml.cs">
+      <DependentUpon>ChangeStatusWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CheckDonationsWindow.xaml.cs">
+      <DependentUpon>CheckDonationsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CheckPartsWindow.xaml.cs">
+      <DependentUpon>CheckPartsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonateWindow.xaml.cs">
+      <DependentUpon>DonateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorLoginWindow.xaml.cs">
+      <DependentUpon>DonorLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorRegisterWindow.xaml.cs">
+      <DependentUpon>DonorRegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorWindow.xaml.cs">
+      <DependentUpon>DonorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedicLoginWindow.xaml.cs">
+      <DependentUpon>MedicLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedicRegisterWindow.xaml.cs">
+      <DependentUpon>MedicRegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedicWindow.xaml.cs">
+      <DependentUpon>MedicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorPreLoginWindow.xaml.cs">
+      <DependentUpon>DonorPreLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedicPreLoginWindow.xaml.cs">
+      <DependentUpon>MedicPreLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffLoginWindow.xaml.cs">
+      <DependentUpon>StaffLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffPreLoginWindow.xaml.cs">
+      <DependentUpon>StaffPreLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterWindow.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RequestWindow.xaml.cs">
+      <DependentUpon>RequestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffRegisterWindow.xaml.cs">
+      <DependentUpon>StaffRegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffWindow.xaml.cs">
+      <DependentUpon>StaffWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\ApproveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangeStatusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckDonationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckPartsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonorLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonorRegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MedicLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MedicRegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MedicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonorPreLoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MedicPreLoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffPreLoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RequestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffRegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -250,10 +333,17 @@
     <Resource Include="Images\Buttons\approveDonorsButton.png" />
     <Resource Include="Images\Buttons\changeStatusButton.png" />
     <Resource Include="Images\Buttons\addButton.png" />
+    <Resource Include="Images\Buttons\loginButton.png" />
+    <Resource Include="Images\Buttons\registerButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DonorDatabase.Context.cs</LastGenOutput>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
+      <LastGenOutput>DonorDatabase.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\DonorDatabase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -261,9 +351,5 @@
       <LastGenOutput>DonorDatabase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

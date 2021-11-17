@@ -33,21 +33,21 @@ namespace BloodDonorApp.ViewModels
             {
                 case "1":
                     MainWindow mainWindow = (Application.Current.MainWindow as MainWindow);
-                    Application.Current.MainWindow = new DonorWindow();
+                    Application.Current.MainWindow = new DonorPreLoginWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow.Close();
                     break;
 
                 case "2":
                     MainWindow mainWindow2 = (Application.Current.MainWindow as MainWindow);
-                    Application.Current.MainWindow = new MedicWindow();
+                    Application.Current.MainWindow = new MedicPreLoginWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow2.Close();
                     break;
 
                 case "3":
                     MainWindow mainWindow3 = (Application.Current.MainWindow as MainWindow);
-                    Application.Current.MainWindow = new StaffWindow();
+                    Application.Current.MainWindow = new StaffPreLoginWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow3.Close();
                     break;

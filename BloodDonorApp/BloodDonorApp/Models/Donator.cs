@@ -26,8 +26,10 @@ namespace BloodDonorApp.Models
         public string email { get; set; }
         public string telefon { get; set; }
         public int id_chestionar { get; set; }
+        public Nullable<int> id_cont { get; set; }
     
         public virtual Chestionar_Medical Chestionar_Medical { get; set; }
+        public virtual Cont Cont { get; set; }
         public virtual ICollection<Punga_Sange> Punga_Sange { get; set; }
     }
 }

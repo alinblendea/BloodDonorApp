@@ -35,6 +35,15 @@
     <Property Name="globule_rosii" Type="bit" Nullable="false" />
     <Property Name="plasma" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Cont">
+    <Key>
+      <PropertyRef Name="id_cont" />
+    </Key>
+    <Property Name="id_cont" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
   <EntityType Name="Donator">
     <Key>
       <PropertyRef Name="cnp_donator" />
@@ -43,9 +52,10 @@
     <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="domiciliu" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="resedinta" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="30" />
+    <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="telefon" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="id_chestionar" Type="int" Nullable="false" />
+    <Property Name="id_cont" Type="int" />
   </EntityType>
   <EntityType Name="Medic">
     <Key>
@@ -54,6 +64,8 @@
     <Property Name="id_medic" Type="int" Nullable="false" />
     <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="id_spital" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="id_cont" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pacient">
     <Key>
@@ -71,6 +83,8 @@
     </Key>
     <Property Name="id_personal" Type="int" Nullable="false" />
     <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="id_cont" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Punga_Sange">
     <Key>
@@ -124,6 +138,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Donator_Cont">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+    <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="Donator">
+        <PropertyRef Name="id_cont" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medic_Cont">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+    <End Role="Medic" Type="Self.Medic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="Medic">
+        <PropertyRef Name="id_cont" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Medic_Spital">
     <End Role="Spital" Type="Self.Spital" Multiplicity="1" />
     <End Role="Medic" Type="Self.Medic" Multiplicity="*" />
@@ -157,6 +195,18 @@
       </Principal>
       <Dependent Role="Pacient">
         <PropertyRef Name="id_spital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Recoltare_Cont">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+    <End Role="Personal_Recoltare" Type="Self.Personal_Recoltare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="Personal_Recoltare">
+        <PropertyRef Name="id_cont" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -219,6 +269,7 @@
     <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cont" EntityType="Self.Cont" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donator" EntityType="Self.Donator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medic" EntityType="Self.Medic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
@@ -234,6 +285,14 @@
       <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
       <End Role="Donator" EntitySet="Donator" />
     </AssociationSet>
+    <AssociationSet Name="FK_Donator_Cont" Association="Self.FK_Donator_Cont">
+      <End Role="Cont" EntitySet="Cont" />
+      <End Role="Donator" EntitySet="Donator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medic_Cont" Association="Self.FK_Medic_Cont">
+      <End Role="Cont" EntitySet="Cont" />
+      <End Role="Medic" EntitySet="Medic" />
+    </AssociationSet>
     <AssociationSet Name="FK_Medic_Spital" Association="Self.FK_Medic_Spital">
       <End Role="Spital" EntitySet="Spital" />
       <End Role="Medic" EntitySet="Medic" />
@@ -245,6 +304,10 @@
     <AssociationSet Name="FK_Pacient_Spital" Association="Self.FK_Pacient_Spital">
       <End Role="Spital" EntitySet="Spital" />
       <End Role="Pacient" EntitySet="Pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Recoltare_Cont" Association="Self.FK_Personal_Recoltare_Cont">
+      <End Role="Cont" EntitySet="Cont" />
+      <End Role="Personal_Recoltare" EntitySet="Personal_Recoltare" />
     </AssociationSet>
     <AssociationSet Name="FK_Punga_Sange_Donator" Association="Self.FK_Punga_Sange_Donator">
       <End Role="Donator" EntitySet="Donator" />

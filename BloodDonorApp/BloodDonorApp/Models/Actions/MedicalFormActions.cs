@@ -37,7 +37,7 @@ namespace BloodDonorApp.Models.Actions
                 }
                 else
                 {
-                    context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, id_chestionar = medicalFormVM.FormId });
+                    context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, id_chestionar = medicalFormVM.FormId, id_cont = 0 });
                     context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = medicalFormVM.FormId, greutate = 0, puls = 0, tensiune = "0/0", interventii_chirurgicale_recente = false, sarcina = false, alte_boli = false, consum_grasimi = false, tratament = false });
                     context.SaveChanges();
                     medicalFormContext.Message = "";

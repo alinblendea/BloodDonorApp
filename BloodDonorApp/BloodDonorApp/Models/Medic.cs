@@ -17,7 +17,10 @@ namespace BloodDonorApp.Models
         public int id_medic { get; set; }
         public string nume { get; set; }
         public int id_spital { get; set; }
+        public string email { get; set; }
+        public int id_cont { get; set; }
     
+        public virtual Cont Cont { get; set; }
         public virtual Spital Spital { get; set; }
     }
 }

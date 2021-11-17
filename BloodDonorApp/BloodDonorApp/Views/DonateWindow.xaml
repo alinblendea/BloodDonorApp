@@ -29,6 +29,15 @@
                         <Binding ElementName="txtMail" Path="Text"/>
                         <Binding ElementName="txtPhone" Path="Text"/>
                         <Binding ElementName="txtFormID" Path="Text"/>
+                        
+                        <Binding ElementName="txtGreutate" Path="Text"/>
+                        <Binding ElementName="txtPuls" Path="Text"/>
+                        <Binding ElementName="txtTensiune" Path="Text"/>
+                        <Binding ElementName="txtICR" Path="Text"/>
+                        <Binding ElementName="txtSarcina" Path="Text"/>
+                        <Binding ElementName="txtAlteBoli" Path="Text"/>
+                        <Binding ElementName="txtConsumGrasimi" Path="Text"/>
+                        <Binding ElementName="txtTratament" Path="Text"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>
@@ -38,19 +47,19 @@
             </Button>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="120" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Cnp donator:</Label>
+            <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Cnp donator:</Label>
             <TextBox Name="txtCnp" Width="152" HorizontalAlignment="Left"
                      Text ="" />
-            <Label Width="89" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Nume:</Label>
-            <TextBox Name="txtName" Width="141" HorizontalAlignment="Left"
+            <Label Width="99" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Nume:</Label>
+            <TextBox Name="txtName" Width="145" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="122" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Domiciliu:</Label>
+            <Label Width="165" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Domiciliu:</Label>
             <TextBox Name="txtDomiciliu" Width="150" HorizontalAlignment="Left"
                          Text ="" />
-            <Label Width="91" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Resedinta:</Label>
-            <TextBox Name="txtResedinta" Width="137" HorizontalAlignment="Left"
+            <Label Width="101" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Resedinta:</Label>
+            <TextBox Name="txtResedinta" Width="144" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
@@ -62,6 +71,39 @@
                          Text ="" />
             <Label Width="130" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="ID Chestionar:"/>
             <TextBox x:Name="txtFormID" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Greutate:"/>
+            <TextBox x:Name="txtGreutate" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Puls:"/>
+            <TextBox x:Name="txtPuls" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="130" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tensiune:"/>
+            <TextBox x:Name="txtTensiune" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="277" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Interventii Chirurgicale Recente:"/>
+            <TextBox x:Name="txtICR" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="135" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Sarcina:"/>
+            <TextBox x:Name="txtSarcina" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="154" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Alte boli:"/>
+            <TextBox x:Name="txtAlteBoli" Width="150" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="157" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Consum Grasimi:"/>
+            <TextBox x:Name="txtConsumGrasimi" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="114" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tratament:"/>
+            <TextBox x:Name="txtTratament" Width="146" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
 

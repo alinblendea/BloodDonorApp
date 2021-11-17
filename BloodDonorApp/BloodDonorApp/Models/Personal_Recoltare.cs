@@ -21,7 +21,10 @@ namespace BloodDonorApp.Models
     
         public int id_personal { get; set; }
         public string nume { get; set; }
+        public string email { get; set; }
+        public int id_cont { get; set; }
     
+        public virtual Cont Cont { get; set; }
         public virtual ICollection<Punga_Sange> Punga_Sange { get; set; }
     }
 }

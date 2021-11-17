@@ -39,6 +39,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Conts">
+      <EntityTypeMapping TypeName="BloodDonorModel.Cont">
+        <MappingFragment StoreEntitySet="Cont">
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="parola" ColumnName="parola" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Donators">
       <EntityTypeMapping TypeName="BloodDonorModel.Donator">
         <MappingFragment StoreEntitySet="Donator">
@@ -49,6 +59,7 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="telefon" ColumnName="telefon" />
           <ScalarProperty Name="id_chestionar" ColumnName="id_chestionar" />
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -58,6 +69,8 @@
           <ScalarProperty Name="id_medic" ColumnName="id_medic" />
           <ScalarProperty Name="nume" ColumnName="nume" />
           <ScalarProperty Name="id_spital" ColumnName="id_spital" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -77,6 +90,8 @@
         <MappingFragment StoreEntitySet="Personal_Recoltare">
           <ScalarProperty Name="id_personal" ColumnName="id_personal" />
           <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

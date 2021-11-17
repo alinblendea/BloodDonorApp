@@ -40,6 +40,15 @@
           <Property Name="globule_rosii" Type="bit" Nullable="false" />
           <Property Name="plasma" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Cont">
+          <Key>
+            <PropertyRef Name="id_cont" />
+          </Key>
+          <Property Name="id_cont" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Donator">
           <Key>
             <PropertyRef Name="cnp_donator" />
@@ -48,9 +57,10 @@
           <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="domiciliu" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="resedinta" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="telefon" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="id_chestionar" Type="int" Nullable="false" />
+          <Property Name="id_cont" Type="int" />
         </EntityType>
         <EntityType Name="Medic">
           <Key>
@@ -59,6 +69,8 @@
           <Property Name="id_medic" Type="int" Nullable="false" />
           <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="id_spital" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_cont" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Pacient">
           <Key>
@@ -76,6 +88,8 @@
           </Key>
           <Property Name="id_personal" Type="int" Nullable="false" />
           <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_cont" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Punga_Sange">
           <Key>
@@ -129,6 +143,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Donator_Cont">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+          <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="id_cont" />
+            </Principal>
+            <Dependent Role="Donator">
+              <PropertyRef Name="id_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medic_Cont">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+          <End Role="Medic" Type="Self.Medic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="id_cont" />
+            </Principal>
+            <Dependent Role="Medic">
+              <PropertyRef Name="id_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Medic_Spital">
           <End Role="Spital" Type="Self.Spital" Multiplicity="1" />
           <End Role="Medic" Type="Self.Medic" Multiplicity="*" />
@@ -162,6 +200,18 @@
             </Principal>
             <Dependent Role="Pacient">
               <PropertyRef Name="id_spital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Recoltare_Cont">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+          <End Role="Personal_Recoltare" Type="Self.Personal_Recoltare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="id_cont" />
+            </Principal>
+            <Dependent Role="Personal_Recoltare">
+              <PropertyRef Name="id_cont" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -224,6 +274,7 @@
           <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cont" EntityType="Self.Cont" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donator" EntityType="Self.Donator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medic" EntityType="Self.Medic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
@@ -239,6 +290,14 @@
             <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
             <End Role="Donator" EntitySet="Donator" />
           </AssociationSet>
+          <AssociationSet Name="FK_Donator_Cont" Association="Self.FK_Donator_Cont">
+            <End Role="Cont" EntitySet="Cont" />
+            <End Role="Donator" EntitySet="Donator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medic_Cont" Association="Self.FK_Medic_Cont">
+            <End Role="Cont" EntitySet="Cont" />
+            <End Role="Medic" EntitySet="Medic" />
+          </AssociationSet>
           <AssociationSet Name="FK_Medic_Spital" Association="Self.FK_Medic_Spital">
             <End Role="Spital" EntitySet="Spital" />
             <End Role="Medic" EntitySet="Medic" />
@@ -250,6 +309,10 @@
           <AssociationSet Name="FK_Pacient_Spital" Association="Self.FK_Pacient_Spital">
             <End Role="Spital" EntitySet="Spital" />
             <End Role="Pacient" EntitySet="Pacient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Recoltare_Cont" Association="Self.FK_Personal_Recoltare_Cont">
+            <End Role="Cont" EntitySet="Cont" />
+            <End Role="Personal_Recoltare" EntitySet="Personal_Recoltare" />
           </AssociationSet>
           <AssociationSet Name="FK_Punga_Sange_Donator" Association="Self.FK_Punga_Sange_Donator">
             <End Role="Donator" EntitySet="Donator" />
@@ -303,6 +366,18 @@
           <Property Name="plasma" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Componente_Punga_Punga_Sange" FromRole="Componente_Punga" ToRole="Punga_Sange" />
         </EntityType>
+        <EntityType Name="Cont">
+          <Key>
+            <PropertyRef Name="id_cont" />
+          </Key>
+          <Property Name="id_cont" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parola" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Donators" Relationship="Self.FK_Donator_Cont" FromRole="Cont" ToRole="Donator" />
+          <NavigationProperty Name="Medics" Relationship="Self.FK_Medic_Cont" FromRole="Cont" ToRole="Medic" />
+          <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Personal_Recoltare_Cont" FromRole="Cont" ToRole="Personal_Recoltare" />
+        </EntityType>
         <EntityType Name="Donator">
           <Key>
             <PropertyRef Name="cnp_donator" />
@@ -311,10 +386,12 @@
           <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="domiciliu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="resedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_chestionar" Type="Int32" Nullable="false" />
+          <Property Name="id_cont" Type="Int32" />
           <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Donator" ToRole="Chestionar_Medical" />
+          <NavigationProperty Name="Cont" Relationship="Self.FK_Donator_Cont" FromRole="Donator" ToRole="Cont" />
           <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Donator" ToRole="Punga_Sange" />
         </EntityType>
         <EntityType Name="Medic">
@@ -324,6 +401,9 @@
           <Property Name="id_medic" Type="Int32" Nullable="false" />
           <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_spital" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_cont" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cont" Relationship="Self.FK_Medic_Cont" FromRole="Medic" ToRole="Cont" />
           <NavigationProperty Name="Spital" Relationship="Self.FK_Medic_Spital" FromRole="Medic" ToRole="Spital" />
         </EntityType>
         <EntityType Name="Pacient">
@@ -344,6 +424,9 @@
           </Key>
           <Property Name="id_personal" Type="Int32" Nullable="false" />
           <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_cont" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cont" Relationship="Self.FK_Personal_Recoltare_Cont" FromRole="Personal_Recoltare" ToRole="Cont" />
           <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Personal_Recoltare" FromRole="Personal_Recoltare" ToRole="Punga_Sange" />
         </EntityType>
         <EntityType Name="Punga_Sange">
@@ -415,6 +498,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Donator_Cont">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+          <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="id_cont" />
+            </Principal>
+            <Dependent Role="Donator">
+              <PropertyRef Name="id_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medic_Cont">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+          <End Role="Medic" Type="Self.Medic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="id_cont" />
+            </Principal>
+            <Dependent Role="Medic">
+              <PropertyRef Name="id_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Recoltare_Cont">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+          <End Role="Personal_Recoltare" Type="Self.Personal_Recoltare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="id_cont" />
+            </Principal>
+            <Dependent Role="Personal_Recoltare">
+              <PropertyRef Name="id_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Punga_Sange_Donator">
           <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
           <End Role="Punga_Sange" Type="Self.Punga_Sange" Multiplicity="*" />
@@ -467,6 +586,7 @@
           <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" />
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" />
           <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" />
+          <EntitySet Name="Conts" EntityType="Self.Cont" />
           <EntitySet Name="Donators" EntityType="Self.Donator" />
           <EntitySet Name="Medics" EntityType="Self.Medic" />
           <EntitySet Name="Pacients" EntityType="Self.Pacient" />
@@ -485,6 +605,18 @@
           <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
             <End Role="Punga_Sange" EntitySet="Punga_Sange" />
             <End Role="Componente_Punga" EntitySet="Componente_Punga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donator_Cont" Association="Self.FK_Donator_Cont">
+            <End Role="Cont" EntitySet="Conts" />
+            <End Role="Donator" EntitySet="Donators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medic_Cont" Association="Self.FK_Medic_Cont">
+            <End Role="Cont" EntitySet="Conts" />
+            <End Role="Medic" EntitySet="Medics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Recoltare_Cont" Association="Self.FK_Personal_Recoltare_Cont">
+            <End Role="Cont" EntitySet="Conts" />
+            <End Role="Personal_Recoltare" EntitySet="Personal_Recoltare" />
           </AssociationSet>
           <AssociationSet Name="FK_Punga_Sange_Donator" Association="Self.FK_Punga_Sange_Donator">
             <End Role="Donator" EntitySet="Donators" />
@@ -588,6 +720,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Conts">
+            <EntityTypeMapping TypeName="BloodDonorModel.Cont">
+              <MappingFragment StoreEntitySet="Cont">
+                <ScalarProperty Name="id_cont" ColumnName="id_cont" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="parola" ColumnName="parola" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Donators">
             <EntityTypeMapping TypeName="BloodDonorModel.Donator">
               <MappingFragment StoreEntitySet="Donator">
@@ -598,6 +740,7 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefon" ColumnName="telefon" />
                 <ScalarProperty Name="id_chestionar" ColumnName="id_chestionar" />
+                <ScalarProperty Name="id_cont" ColumnName="id_cont" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -607,6 +750,8 @@
                 <ScalarProperty Name="id_medic" ColumnName="id_medic" />
                 <ScalarProperty Name="nume" ColumnName="nume" />
                 <ScalarProperty Name="id_spital" ColumnName="id_spital" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_cont" ColumnName="id_cont" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -626,6 +771,8 @@
               <MappingFragment StoreEntitySet="Personal_Recoltare">
                 <ScalarProperty Name="id_personal" ColumnName="id_personal" />
                 <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_cont" ColumnName="id_cont" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
