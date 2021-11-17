@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BloodDonorApp.Views
+namespace BloodDonorApp.Views.Register
 {
     /// <summary>
-    /// Interaction logic for DonorRegisterWindow.xaml
+    /// Interaction logic for StaffRegisterWindow.xaml
     /// </summary>
-    public partial class DonorRegisterWindow : Window
+    public partial class StaffRegisterWindow : Window
     {
-        public DonorRegisterWindow()
+        public StaffRegisterWindow()
         {
             InitializeComponent();
         }

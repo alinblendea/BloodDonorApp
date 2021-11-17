@@ -7,8 +7,9 @@ using System.Windows.Input;
 using BloodDonorApp.Commands;
 using BloodDonorApp.Helpers;
 using BloodDonorApp.Models.Actions;
+using BloodDonorApp.Models.Actions.Account;
 
-namespace BloodDonorApp.ViewModels
+namespace BloodDonorApp.ViewModels.Account
 {
     class DonorAccountVM : BaseVM
     {

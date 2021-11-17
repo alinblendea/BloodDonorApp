@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using BloodDonorApp.ViewModels;
+using BloodDonorApp.ViewModels.Account;
 
-namespace BloodDonorApp.Converters
+namespace BloodDonorApp.Converters.Account
 {
     class DonorAccountConvert : IMultiValueConverter
     {

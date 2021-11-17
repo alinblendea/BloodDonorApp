@@ -63,15 +63,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Converters\DonorAccountConvert.cs" />
-    <Compile Include="Converters\MedicAccountConvert.cs" />
+    <Compile Include="Converters\Account\DonorAccountConvert.cs" />
+    <Compile Include="Converters\Account\MedicAccountConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
-    <Compile Include="Converters\StaffAccountConvert.cs" />
+    <Compile Include="Converters\Account\StaffAccountConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
-    <Compile Include="Models\Actions\DonorAccountActions.cs" />
-    <Compile Include="Models\Actions\MedicAccountActions.cs" />
+    <Compile Include="Models\Actions\Account\DonorAccountActions.cs" />
+    <Compile Include="Models\Actions\Account\MedicAccountActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
-    <Compile Include="Models\Actions\StaffAccountActions.cs" />
+    <Compile Include="Models\Actions\Account\StaffAccountActions.cs" />
     <Compile Include="Models\Cerere_Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
@@ -126,15 +126,15 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\DonorAccountVM.cs" />
+    <Compile Include="ViewModels\Account\DonorAccountVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
-    <Compile Include="ViewModels\MedicAccountVM.cs" />
+    <Compile Include="ViewModels\Account\MedicAccountVM.cs" />
     <Compile Include="ViewModels\MedicalFormVM.cs" />
     <Compile Include="ViewModels\MedicWindowVM.cs" />
     <Compile Include="ViewModels\DonorPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\MedicPreLoginWindowVM.cs" />
-    <Compile Include="ViewModels\StaffAccountVM.cs" />
+    <Compile Include="ViewModels\Account\StaffAccountVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
     <Compile Include="Views\ApproveWindow.xaml.cs">
@@ -155,7 +155,7 @@
     <Compile Include="Views\DonorLoginWindow.xaml.cs">
       <DependentUpon>DonorLoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DonorRegisterWindow.xaml.cs">
+    <Compile Include="Views\Register\DonorRegisterWindow.xaml.cs">
       <DependentUpon>DonorRegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DonorWindow.xaml.cs">
@@ -167,7 +167,7 @@
     <Compile Include="Views\MedicLoginWindow.xaml.cs">
       <DependentUpon>MedicLoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MedicRegisterWindow.xaml.cs">
+    <Compile Include="Views\Register\MedicRegisterWindow.xaml.cs">
       <DependentUpon>MedicRegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MedicWindow.xaml.cs">
@@ -179,9 +179,6 @@
     <Compile Include="Views\MedicPreLoginWindow.xaml.cs">
       <DependentUpon>MedicPreLoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterWindow.xaml.cs">
-      <DependentUpon>RegisterWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\StaffLoginWindow.xaml.cs">
       <DependentUpon>StaffLoginWindow.xaml</DependentUpon>
     </Compile>
@@ -191,7 +188,7 @@
     <Compile Include="Views\RequestWindow.xaml.cs">
       <DependentUpon>RequestWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StaffRegisterWindow.xaml.cs">
+    <Compile Include="Views\Register\StaffRegisterWindow.xaml.cs">
       <DependentUpon>StaffRegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StaffWindow.xaml.cs">
@@ -233,7 +230,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DonorRegisterWindow.xaml">
+    <Page Include="Views\Register\DonorRegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,7 +246,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MedicRegisterWindow.xaml">
+    <Page Include="Views\Register\MedicRegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,10 +262,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\RegisterWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\StaffLoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,7 +274,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StaffRegisterWindow.xaml">
+    <Page Include="Views\Register\StaffRegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

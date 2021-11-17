@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using BloodDonorApp.Commands;
+using BloodDonorApp.Views.Register;
 using BloodDonorApp.Views;
 
 namespace BloodDonorApp.ViewModels

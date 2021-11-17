@@ -7,16 +7,17 @@ using System.Windows.Input;
 using BloodDonorApp.Commands;
 using BloodDonorApp.Helpers;
 using BloodDonorApp.Models.Actions;
+using BloodDonorApp.Models.Actions.Account;
 
-namespace BloodDonorApp.ViewModels
+namespace BloodDonorApp.ViewModels.Account
 {
-    class StaffAccountVM : BaseVM
+    class MedicAccountVM : BaseVM
     {
-        StaffAccountActions pAct;
+        MedicAccountActions pAct;
 
-        public StaffAccountVM()
+        public MedicAccountVM()
         {
-            pAct = new StaffAccountActions(this);
+            pAct = new MedicAccountActions(this);
         }
 
         #region Data Members

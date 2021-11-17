@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using BloodDonorApp.Helpers;
-using BloodDonorApp.ViewModels;
+using BloodDonorApp.ViewModels.Account;
+using BloodDonorApp.Views.Register;
 using BloodDonorApp.Views;
 
-namespace BloodDonorApp.Models.Actions
+namespace BloodDonorApp.Models.Actions.Account
 {
     class StaffAccountActions : BaseVM
     {
