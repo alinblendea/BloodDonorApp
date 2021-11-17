@@ -63,9 +63,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\AccountConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
+    <Compile Include="Models\Actions\DonorAccountActions.cs" />
+    <Compile Include="Models\Actions\MedicAccountActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
+    <Compile Include="Models\Actions\StaffAccountActions.cs" />
     <Compile Include="Models\Cerere_Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
@@ -120,6 +124,7 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DonorAccountVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\MedicalFormVM.cs" />
@@ -340,6 +345,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\newDonorAccount.png" />
+    <Resource Include="Images\newMedicAccount.png" />
+    <Resource Include="Images\newStaffAccount.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

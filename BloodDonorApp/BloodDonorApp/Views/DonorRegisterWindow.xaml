@@ -3,10 +3,54 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BloodDonorApp.Views"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        xmlns:localConverter="clr-namespace:BloodDonorApp.Converters"
         mc:Ignorable="d"
-        Title="DonorRegisterWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Blood Donor - New Donor" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Window.DataContext>
+        <local:DonorAccountVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <localConverter:AccountConvert x:Key="accountConvert" />
+        </StackPanel.Resources>
+        <WrapPanel Margin="0,50,0,0">
+            <Image Source="/Images/newDonorAccount.png" HorizontalAlignment="Center"></Image>
+            
+        </WrapPanel>
+        <WrapPanel Margin="250,30,0,0">
+            <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Email:"/>
+            <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+        <WrapPanel Margin="250,10,0,0">
+            <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Password:"/>
+            <TextBox x:Name="txtPassword" Width="146" HorizontalAlignment="Left"
+                         MaxLength="25" Text="" />
+        </WrapPanel>
+        <WrapPanel Margin="250,10,0,0">
+            <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Confirm Password:"/>
+            <TextBox x:Name="txtConfirmPassword" Width="146" HorizontalAlignment="Left"
+                          MaxLength="25" Text="" />
+        </WrapPanel>
+        <WrapPanel  Margin="280,10,0,0">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
+                <Image Source="/Images/Buttons/registerButton.png" Width="90"></Image>
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource accountConvert}">
+                        <Binding ElementName="txtMail" Path="Text"/>
+                        <Binding ElementName="txtPassword" Path="Text"/>
+                        <Binding ElementName="txtConfirmPassword" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+                <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+            </Button>
+        </WrapPanel>
+    </StackPanel>
 </Window>
