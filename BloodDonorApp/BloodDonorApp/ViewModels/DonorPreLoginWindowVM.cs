@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Input;
 using BloodDonorApp.Commands;
 using BloodDonorApp.Views.Register;
+using BloodDonorApp.Views.LoginMenu;
+using BloodDonorApp.Views.Login;
 using BloodDonorApp.Views;
 
 namespace BloodDonorApp.ViewModels

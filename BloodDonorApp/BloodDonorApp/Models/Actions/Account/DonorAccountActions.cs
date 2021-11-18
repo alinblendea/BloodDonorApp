@@ -8,6 +8,8 @@ using System.Windows;
 using BloodDonorApp.Helpers;
 using BloodDonorApp.ViewModels.Account;
 using BloodDonorApp.Views.Register;
+using BloodDonorApp.Views.LoginMenu;
+using BloodDonorApp.Views.Login;
 using BloodDonorApp.Views;
 
 namespace BloodDonorApp.Models.Actions.Account
@@ -42,10 +44,82 @@ namespace BloodDonorApp.Models.Actions.Account
                 else 
                 { 
                     donorAccountVM.Type = "Donor";
-                    context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = donorAccountVM.Email, parola = donorAccountVM.Password, type = "Donor"});
-                    context.SaveChanges();
-                    donorAccountContext.Message = "Cont creat cu succes!";
+                    List<Cont> accounts = context.Conts.ToList();
+                    bool alreadyExists = false;
+
+                    foreach (Cont acc in accounts)
+                    {
+                        if (acc.email.Equals(donorAccountVM.Email))
+                        {
+                            alreadyExists = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyExists)
+                    {
+                        context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = donorAccountVM.Email, parola = donorAccountVM.Password, type = "Donor" });
+                        context.SaveChanges();
+                        donorAccountContext.Message = "Cont creat cu succes!";
+                        MessageBox.Show(donorAccountContext.Message);
+                    }
+                    else
+                    {
+                        donorAccountContext.Message = "Exista deja cont asociat acestei adrese.";
+                        MessageBox.Show(donorAccountContext.Message);
+                    }
+                }
+            }
+        }
+
+        public void LoginMethod(object obj)
+        {
+            DonorAccountVM donorAccountVM = obj as DonorAccountVM;
+            if (donorAccountVM != null)
+            {
+                if (String.IsNullOrEmpty(donorAccountVM.Email)
+                    || String.IsNullOrEmpty(donorAccountVM.Password))
+                {
+                    donorAccountContext.Message = "Introduceti email-ul si parola.";
                     MessageBox.Show(donorAccountContext.Message);
+                }
+                else
+                {
+                    List<Cont> accounts = context.Conts.ToList();
+                    bool foundMail = false;
+                    foreach (Cont acc in accounts)
+                    {
+                        if (acc.email.Equals(donorAccountVM.Email))
+                        {
+                            foundMail = true;
+                            if (acc.parola.Equals(donorAccountVM.Password))
+                            {
+                                if(acc.type.Equals("Donor"))
+                                {
+                                    DonorLoginWindow mainWindow = (Application.Current.MainWindow as DonorLoginWindow);
+                                    Application.Current.MainWindow = new DonorWindow();
+                                    Application.Current.MainWindow.Show();
+                                    mainWindow.Close();
+                                }
+                                else
+                                {
+                                    donorAccountContext.Message = "Contul introdus nu este de donator.";
+                                    MessageBox.Show(donorAccountContext.Message);
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                donorAccountContext.Message = "Parola incorecta.";
+                                MessageBox.Show(donorAccountContext.Message);
+                                break;
+                            }
+                        }
+                    }
+                    if(!foundMail)
+                    {
+                        donorAccountContext.Message = "Adresa de mail invalida.";
+                        MessageBox.Show(donorAccountContext.Message);
+                    }
                 }
             }
         }
@@ -53,6 +127,14 @@ namespace BloodDonorApp.Models.Actions.Account
         public void BackMethod(object obj)
         {
             DonorRegisterWindow mainWindow = (Application.Current.MainWindow as DonorRegisterWindow);
+            Application.Current.MainWindow = new DonorPreLoginWindow();
+            Application.Current.MainWindow.Show();
+            mainWindow.Close();
+        }
+
+        public void LogoutMethod(object obj)
+        {
+            DonorLoginWindow mainWindow = (Application.Current.MainWindow as DonorLoginWindow);
             Application.Current.MainWindow = new DonorPreLoginWindow();
             Application.Current.MainWindow.Show();
             mainWindow.Close();

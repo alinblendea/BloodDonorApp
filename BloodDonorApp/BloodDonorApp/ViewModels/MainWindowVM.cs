@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using BloodDonorApp.Commands;
 using BloodDonorApp.Views;
+using BloodDonorApp.Views.LoginMenu;
 
 namespace BloodDonorApp.ViewModels
 {

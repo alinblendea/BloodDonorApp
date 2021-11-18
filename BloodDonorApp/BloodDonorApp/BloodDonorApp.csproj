@@ -152,8 +152,14 @@
     <Compile Include="Views\DonateWindow.xaml.cs">
       <DependentUpon>DonateWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DonorLoginWindow.xaml.cs">
+    <Compile Include="Views\Login\DonorLoginWindow.xaml.cs">
       <DependentUpon>DonorLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\MedicLoginWindow.xaml.cs">
+      <DependentUpon>MedicLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\StaffLoginWindow.xaml.cs">
+      <DependentUpon>StaffLoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register\DonorRegisterWindow.xaml.cs">
       <DependentUpon>DonorRegisterWindow.xaml</DependentUpon>
@@ -161,28 +167,19 @@
     <Compile Include="Views\DonorWindow.xaml.cs">
       <DependentUpon>DonorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MedicLoginWindow.xaml.cs">
-      <DependentUpon>MedicLoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Register\MedicRegisterWindow.xaml.cs">
       <DependentUpon>MedicRegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MedicWindow.xaml.cs">
       <DependentUpon>MedicWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DonorPreLoginWindow.xaml.cs">
+    <Compile Include="Views\LoginMenu\DonorPreLoginWindow.xaml.cs">
       <DependentUpon>DonorPreLoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MedicPreLoginWindow.xaml.cs">
+    <Compile Include="Views\LoginMenu\MedicPreLoginWindow.xaml.cs">
       <DependentUpon>MedicPreLoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StaffLoginWindow.xaml.cs">
-      <DependentUpon>StaffLoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\StaffPreLoginWindow.xaml.cs">
+    <Compile Include="Views\LoginMenu\StaffPreLoginWindow.xaml.cs">
       <DependentUpon>StaffPreLoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RequestWindow.xaml.cs">
@@ -226,7 +223,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DonorLoginWindow.xaml">
+    <Page Include="Views\Login\DonorLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\MedicLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\StaffLoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,14 +243,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MedicLoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Register\MedicRegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -254,19 +251,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DonorPreLoginWindow.xaml">
+    <Page Include="Views\LoginMenu\DonorPreLoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MedicPreLoginWindow.xaml">
+    <Page Include="Views\LoginMenu\MedicPreLoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\StaffLoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StaffPreLoginWindow.xaml">
+    <Page Include="Views\LoginMenu\StaffPreLoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -345,6 +338,10 @@
     <Resource Include="Images\newDonorAccount.png" />
     <Resource Include="Images\newMedicAccount.png" />
     <Resource Include="Images\newStaffAccount.png" />
+    <Resource Include="Images\loginAsDonor.png" />
+    <Resource Include="Images\loginAsMedic.png" />
+    <Resource Include="Images\loginAsStaff.png" />
+    <Resource Include="Images\Buttons\logoutButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
@@ -356,5 +353,6 @@
       <LastGenOutput>DonorDatabase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

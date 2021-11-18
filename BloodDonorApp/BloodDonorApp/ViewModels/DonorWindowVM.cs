@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using BloodDonorApp.Commands;
 using BloodDonorApp.Views;
+using BloodDonorApp.Views.Login;
 
 namespace BloodDonorApp.ViewModels
 {
@@ -46,7 +47,7 @@ namespace BloodDonorApp.ViewModels
 
                 case "3":
                     DonorWindow mainWindow = (Application.Current.MainWindow as DonorWindow);
-                    Application.Current.MainWindow = new MainWindow();
+                    Application.Current.MainWindow = new DonorLoginWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow.Close();
                     break;

@@ -124,6 +124,19 @@ namespace BloodDonorApp.ViewModels.Account
             }
         }
 
+        private ICommand loginCommand;
+        public ICommand LoginCommand
+        {
+            get
+            {
+                if (loginCommand == null)
+                {
+                    loginCommand = new RelayCommand(pAct.LoginMethod);
+                }
+                return loginCommand;
+            }
+        }
+
         private ICommand backCommand;
         public ICommand BackCommand
         {
@@ -134,6 +147,19 @@ namespace BloodDonorApp.ViewModels.Account
                     backCommand = new RelayCommand(pAct.BackMethod);
                 }
                 return backCommand;
+            }
+        }
+
+        private ICommand logoutCommand;
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                if (logoutCommand == null)
+                {
+                    logoutCommand = new RelayCommand(pAct.LogoutMethod);
+                }
+                return logoutCommand;
             }
         }
 
