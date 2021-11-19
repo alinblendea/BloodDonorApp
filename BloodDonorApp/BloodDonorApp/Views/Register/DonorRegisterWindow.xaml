@@ -29,12 +29,12 @@
         <WrapPanel Margin="250,10,0,0">
             <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Password:"/>
             <TextBox x:Name="txtPassword" Width="146" HorizontalAlignment="Left"
-                         MaxLength="25" Text="" />
+                         MaxLength="25" Text="" Foreground="White"/>
         </WrapPanel>
         <WrapPanel Margin="250,10,0,0">
             <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Confirm Password:"/>
             <TextBox x:Name="txtConfirmPassword" Width="146" HorizontalAlignment="Left"
-                          MaxLength="25" Text="" />
+                          MaxLength="25" Text="" Foreground="White"/>
         </WrapPanel>
         <WrapPanel  Margin="280,10,0,0">
             <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
