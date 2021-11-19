@@ -7,6 +7,11 @@ Scopul aplicatiei este de a usura procesul prin care spitalele din romania obtin
 Tehnologii folosite:
 -Microsoft Visual Studio 2019
 -Microsoft SQL Server Management Studio 2018
--Draw.io
 -ADO.NET Entity Data Models
 -Limbaj de programare: C#
+-Adobe Photoshop 2021
+-Github
+-Trello
+-Lucidchart
+-Draw.io
+
