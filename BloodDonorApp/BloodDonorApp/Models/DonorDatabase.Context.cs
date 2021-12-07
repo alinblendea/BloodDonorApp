@@ -32,6 +32,7 @@ namespace BloodDonorApp.Models
         public DbSet<Chestionar_Medical> Chestionar_Medical { get; set; }
         public DbSet<Componente_Punga> Componente_Punga { get; set; }
         public DbSet<Cont> Conts { get; set; }
+        public DbSet<Donare> Donares { get; set; }
         public DbSet<Donator> Donators { get; set; }
         public DbSet<Medic> Medics { get; set; }
         public DbSet<Pacient> Pacients { get; set; }

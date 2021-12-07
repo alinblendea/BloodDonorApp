@@ -25,6 +25,7 @@
     <Property Name="consum_grasimi" Type="bit" Nullable="false" />
     <Property Name="tratament" Type="bit" Nullable="false" />
     <Property Name="alte_boli" Type="bit" Nullable="false" />
+    <Property Name="aprobat" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Componente_Punga">
     <Key>
@@ -43,6 +44,15 @@
     <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Donare">
+    <Key>
+      <PropertyRef Name="id_donare" />
+    </Key>
+    <Property Name="id_donare" Type="int" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="isDone" Type="bit" Nullable="false" />
+    <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
   </EntityType>
   <EntityType Name="Donator">
     <Key>
@@ -123,6 +133,18 @@
       </Principal>
       <Dependent Role="Componente_Punga">
         <PropertyRef Name="id_punga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donare_Donator">
+    <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
+    <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donator">
+        <PropertyRef Name="cnp_donator" />
+      </Principal>
+      <Dependent Role="Donare">
+        <PropertyRef Name="cnp_donator" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -270,6 +292,7 @@
     <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cont" EntityType="Self.Cont" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Donare" EntityType="Self.Donare" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donator" EntityType="Self.Donator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medic" EntityType="Self.Medic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
@@ -280,6 +303,10 @@
     <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
       <End Role="Punga_Sange" EntitySet="Punga_Sange" />
       <End Role="Componente_Punga" EntitySet="Componente_Punga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donare_Donator" Association="Self.FK_Donare_Donator">
+      <End Role="Donator" EntitySet="Donator" />
+      <End Role="Donare" EntitySet="Donare" />
     </AssociationSet>
     <AssociationSet Name="FK_Donator_Chestionar_Medical" Association="Self.FK_Donator_Chestionar_Medical">
       <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />

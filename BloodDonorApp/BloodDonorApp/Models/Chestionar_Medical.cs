@@ -28,6 +28,7 @@ namespace BloodDonorApp.Models
         public bool consum_grasimi { get; set; }
         public bool tratament { get; set; }
         public bool alte_boli { get; set; }
+        public bool aprobat { get; set; }
     
         public virtual ICollection<Donator> Donators { get; set; }
     }

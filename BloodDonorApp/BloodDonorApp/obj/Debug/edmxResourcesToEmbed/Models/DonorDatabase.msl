@@ -26,6 +26,7 @@
           <ScalarProperty Name="consum_grasimi" ColumnName="consum_grasimi" />
           <ScalarProperty Name="tratament" ColumnName="tratament" />
           <ScalarProperty Name="alte_boli" ColumnName="alte_boli" />
+          <ScalarProperty Name="aprobat" ColumnName="aprobat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -46,6 +47,16 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="parola" ColumnName="parola" />
           <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donares">
+      <EntityTypeMapping TypeName="BloodDonorModel.Donare">
+        <MappingFragment StoreEntitySet="Donare">
+          <ScalarProperty Name="id_donare" ColumnName="id_donare" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="isDone" ColumnName="isDone" />
+          <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

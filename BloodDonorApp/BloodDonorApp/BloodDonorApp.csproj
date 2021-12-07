@@ -84,6 +84,9 @@
     <Compile Include="Models\Cont.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Donare.cs">
+      <DependentUpon>DonorDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Donator.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
@@ -342,6 +345,8 @@
     <Resource Include="Images\loginAsMedic.png" />
     <Resource Include="Images\loginAsStaff.png" />
     <Resource Include="Images\Buttons\logoutButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
@@ -353,6 +358,5 @@
       <LastGenOutput>DonorDatabase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

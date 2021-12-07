@@ -30,6 +30,7 @@
           <Property Name="consum_grasimi" Type="bit" Nullable="false" />
           <Property Name="tratament" Type="bit" Nullable="false" />
           <Property Name="alte_boli" Type="bit" Nullable="false" />
+          <Property Name="aprobat" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Componente_Punga">
           <Key>
@@ -48,6 +49,15 @@
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donare">
+          <Key>
+            <PropertyRef Name="id_donare" />
+          </Key>
+          <Property Name="id_donare" Type="int" Nullable="false" />
+          <Property Name="data" Type="date" Nullable="false" />
+          <Property Name="isDone" Type="bit" Nullable="false" />
+          <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <EntityType Name="Donator">
           <Key>
@@ -128,6 +138,18 @@
             </Principal>
             <Dependent Role="Componente_Punga">
               <PropertyRef Name="id_punga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donare_Donator">
+          <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
+          <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donator">
+              <PropertyRef Name="cnp_donator" />
+            </Principal>
+            <Dependent Role="Donare">
+              <PropertyRef Name="cnp_donator" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -275,6 +297,7 @@
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cont" EntityType="Self.Cont" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donare" EntityType="Self.Donare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donator" EntityType="Self.Donator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medic" EntityType="Self.Medic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
@@ -285,6 +308,10 @@
           <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
             <End Role="Punga_Sange" EntitySet="Punga_Sange" />
             <End Role="Componente_Punga" EntitySet="Componente_Punga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donare_Donator" Association="Self.FK_Donare_Donator">
+            <End Role="Donator" EntitySet="Donator" />
+            <End Role="Donare" EntitySet="Donare" />
           </AssociationSet>
           <AssociationSet Name="FK_Donator_Chestionar_Medical" Association="Self.FK_Donator_Chestionar_Medical">
             <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
@@ -354,6 +381,7 @@
           <Property Name="consum_grasimi" Type="Boolean" Nullable="false" />
           <Property Name="tratament" Type="Boolean" Nullable="false" />
           <Property Name="alte_boli" Type="Boolean" Nullable="false" />
+          <Property Name="aprobat" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Donators" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Chestionar_Medical" ToRole="Donator" />
         </EntityType>
         <EntityType Name="Componente_Punga">
@@ -378,6 +406,16 @@
           <NavigationProperty Name="Medics" Relationship="Self.FK_Medic_Cont" FromRole="Cont" ToRole="Medic" />
           <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Personal_Recoltare_Cont" FromRole="Cont" ToRole="Personal_Recoltare" />
         </EntityType>
+        <EntityType Name="Donare">
+          <Key>
+            <PropertyRef Name="id_donare" />
+          </Key>
+          <Property Name="id_donare" Type="Int32" Nullable="false" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="isDone" Type="Boolean" Nullable="false" />
+          <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
+        </EntityType>
         <EntityType Name="Donator">
           <Key>
             <PropertyRef Name="cnp_donator" />
@@ -392,6 +430,7 @@
           <Property Name="id_cont" Type="Int32" />
           <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Donator" ToRole="Chestionar_Medical" />
           <NavigationProperty Name="Cont" Relationship="Self.FK_Donator_Cont" FromRole="Donator" ToRole="Cont" />
+          <NavigationProperty Name="Donares" Relationship="Self.FK_Donare_Donator" FromRole="Donator" ToRole="Donare" />
           <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Donator" ToRole="Punga_Sange" />
         </EntityType>
         <EntityType Name="Medic">
@@ -534,6 +573,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Donare_Donator">
+          <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
+          <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donator">
+              <PropertyRef Name="cnp_donator" />
+            </Principal>
+            <Dependent Role="Donare">
+              <PropertyRef Name="cnp_donator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Punga_Sange_Donator">
           <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
           <End Role="Punga_Sange" Type="Self.Punga_Sange" Multiplicity="*" />
@@ -587,6 +638,7 @@
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" />
           <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" />
           <EntitySet Name="Conts" EntityType="Self.Cont" />
+          <EntitySet Name="Donares" EntityType="Self.Donare" />
           <EntitySet Name="Donators" EntityType="Self.Donator" />
           <EntitySet Name="Medics" EntityType="Self.Medic" />
           <EntitySet Name="Pacients" EntityType="Self.Pacient" />
@@ -617,6 +669,10 @@
           <AssociationSet Name="FK_Personal_Recoltare_Cont" Association="Self.FK_Personal_Recoltare_Cont">
             <End Role="Cont" EntitySet="Conts" />
             <End Role="Personal_Recoltare" EntitySet="Personal_Recoltare" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donare_Donator" Association="Self.FK_Donare_Donator">
+            <End Role="Donator" EntitySet="Donators" />
+            <End Role="Donare" EntitySet="Donares" />
           </AssociationSet>
           <AssociationSet Name="FK_Punga_Sange_Donator" Association="Self.FK_Punga_Sange_Donator">
             <End Role="Donator" EntitySet="Donators" />
@@ -707,6 +763,7 @@
                 <ScalarProperty Name="consum_grasimi" ColumnName="consum_grasimi" />
                 <ScalarProperty Name="tratament" ColumnName="tratament" />
                 <ScalarProperty Name="alte_boli" ColumnName="alte_boli" />
+                <ScalarProperty Name="aprobat" ColumnName="aprobat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -727,6 +784,16 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="parola" ColumnName="parola" />
                 <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donares">
+            <EntityTypeMapping TypeName="BloodDonorModel.Donare">
+              <MappingFragment StoreEntitySet="Donare">
+                <ScalarProperty Name="id_donare" ColumnName="id_donare" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="isDone" ColumnName="isDone" />
+                <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
