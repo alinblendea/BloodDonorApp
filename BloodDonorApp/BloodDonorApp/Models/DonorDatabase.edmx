@@ -22,14 +22,14 @@
             <PropertyRef Name="id_chestionar" />
           </Key>
           <Property Name="id_chestionar" Type="int" Nullable="false" />
-          <Property Name="greutate" Type="int" Nullable="false" />
-          <Property Name="puls" Type="int" Nullable="false" />
+          <Property Name="greutate" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="puls" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="tensiune" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="interventii_chirurgicale_recente" Type="bit" Nullable="false" />
           <Property Name="sarcina" Type="bit" Nullable="false" />
           <Property Name="consum_grasimi" Type="bit" Nullable="false" />
           <Property Name="tratament" Type="bit" Nullable="false" />
-          <Property Name="alte_boli" Type="bit" Nullable="false" />
+          <Property Name="alte_boli" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="aprobat" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Componente_Punga">
@@ -373,14 +373,14 @@
             <PropertyRef Name="id_chestionar" />
           </Key>
           <Property Name="id_chestionar" Type="Int32" Nullable="false" />
-          <Property Name="greutate" Type="Int32" Nullable="false" />
-          <Property Name="puls" Type="Int32" Nullable="false" />
+          <Property Name="greutate" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="puls" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tensiune" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="interventii_chirurgicale_recente" Type="Boolean" Nullable="false" />
           <Property Name="sarcina" Type="Boolean" Nullable="false" />
           <Property Name="consum_grasimi" Type="Boolean" Nullable="false" />
           <Property Name="tratament" Type="Boolean" Nullable="false" />
-          <Property Name="alte_boli" Type="Boolean" Nullable="false" />
+          <Property Name="alte_boli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aprobat" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Donators" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Chestionar_Medical" ToRole="Donator" />
         </EntityType>

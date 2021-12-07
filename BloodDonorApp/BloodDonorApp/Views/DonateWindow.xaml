@@ -17,35 +17,6 @@
         <StackPanel.Resources>
             <localConverter:MedicalFormConvert x:Key="medicalFormConvert" />
         </StackPanel.Resources>
-        <WrapPanel>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
-                <Image Source="/Images/Buttons/addButton.png" Width="90"></Image>
-                <Button.CommandParameter>
-                    <MultiBinding Converter="{StaticResource medicalFormConvert}">
-                        <Binding ElementName="txtCnp" Path="Text"/>
-                        <Binding ElementName="txtName" Path="Text"/>
-                        <Binding ElementName="txtDomiciliu" Path="Text"/>
-                        <Binding ElementName="txtResedinta" Path="Text"/>
-                        <Binding ElementName="txtMail" Path="Text"/>
-                        <Binding ElementName="txtPhone" Path="Text"/>
-                        <Binding ElementName="txtFormID" Path="Text"/>
-                        
-                        <Binding ElementName="txtGreutate" Path="Text"/>
-                        <Binding ElementName="txtPuls" Path="Text"/>
-                        <Binding ElementName="txtTensiune" Path="Text"/>
-                        <Binding ElementName="txtICR" Path="Text"/>
-                        <Binding ElementName="txtSarcina" Path="Text"/>
-                        <Binding ElementName="txtAlteBoli" Path="Text"/>
-                        <Binding ElementName="txtConsumGrasimi" Path="Text"/>
-                        <Binding ElementName="txtTratament" Path="Text"/>
-                    </MultiBinding>
-                </Button.CommandParameter>
-            </Button>
-
-            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
-                <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
-            </Button>
-        </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Cnp donator:</Label>
             <TextBox Name="txtCnp" Width="152" HorizontalAlignment="Left"
@@ -69,9 +40,6 @@
             <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Nr tel:"/>
             <TextBox x:Name="txtPhone" Width="146" HorizontalAlignment="Left"
                          Text ="" />
-            <Label Width="130" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="ID Chestionar:"/>
-            <TextBox x:Name="txtFormID" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
         </WrapPanel>
 
         <WrapPanel Margin="0,15,0,0">
@@ -88,11 +56,11 @@
 
         <WrapPanel Margin="0,15,0,0">
             <Label Width="277" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Interventii Chirurgicale Recente:"/>
-            <TextBox x:Name="txtICR" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
+            <CheckBox x:Name="checkICR" Width="146" HorizontalAlignment="Left"
+                        />
             <Label Width="135" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Sarcina:"/>
-            <TextBox x:Name="txtSarcina" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
+            <CheckBox x:Name="checkSarcina" Width="146" HorizontalAlignment="Left"
+                       />
             <Label Width="154" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Alte boli:"/>
             <TextBox x:Name="txtAlteBoli" Width="150" HorizontalAlignment="Left"
                          Text ="" />
@@ -100,15 +68,45 @@
 
         <WrapPanel Margin="0,15,0,0">
             <Label Width="157" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Consum Grasimi:"/>
-            <TextBox x:Name="txtConsumGrasimi" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
+            <CheckBox x:Name="checkConsumGrasimi" Width="146" HorizontalAlignment="Left"
+                        />
             <Label Width="114" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tratament:"/>
-            <TextBox x:Name="txtTratament" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
+            <CheckBox x:Name="checkTratament" Width="146" HorizontalAlignment="Left"
+                       />
         </WrapPanel>
 
         <WrapPanel>
             <Label Name="lblMessage" Content="{Binding Message}" Height="30" FontSize="15" Foreground="Blue"/>
         </WrapPanel>
+
+        <WrapPanel>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
+                <Image Source="/Images/Buttons/addButton.png" Width="90"></Image>
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource medicalFormConvert}">
+                        <Binding ElementName="txtCnp" Path="Text"/>
+                        <Binding ElementName="txtName" Path="Text"/>
+                        <Binding ElementName="txtDomiciliu" Path="Text"/>
+                        <Binding ElementName="txtResedinta" Path="Text"/>
+                        <Binding ElementName="txtMail" Path="Text"/>
+                        <Binding ElementName="txtPhone" Path="Text"/>
+                        <Binding ElementName="txtAlteBoli" Path="Text"/>
+
+                        <Binding ElementName="txtGreutate" Path="Text"/>
+                        <Binding ElementName="txtPuls" Path="Text"/>
+                        <Binding ElementName="txtTensiune" Path="Text"/>
+                        <Binding ElementName="checkICR" Path="IsChecked"/>
+                        <Binding ElementName="checkSarcina" Path="IsChecked"/>
+                        <Binding ElementName="checkConsumGrasimi" Path="IsChecked"/>
+                        <Binding ElementName="checkTratament" Path="IsChecked"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+                <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+            </Button>
+        </WrapPanel>
+
     </StackPanel>
 </Window>

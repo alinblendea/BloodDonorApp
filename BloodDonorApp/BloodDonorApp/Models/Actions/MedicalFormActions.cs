@@ -37,9 +37,10 @@ namespace BloodDonorApp.Models.Actions
                 }
                 else
                 {
-                    context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, id_chestionar = medicalFormVM.FormId, id_cont = 0 });
-                    context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = medicalFormVM.FormId, greutate = 0, puls = 0, tensiune = "0/0", interventii_chirurgicale_recente = false, sarcina = false, alte_boli = false, consum_grasimi = false, tratament = false });
+                    context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, id_cont = 0 });
+                    context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, greutate = medicalFormVM.Greutate, puls = medicalFormVM.Puls, tensiune = medicalFormVM.Tensiune, interventii_chirurgicale_recente = medicalFormVM.Interventii, sarcina = medicalFormVM.Sarcina, alte_boli = medicalFormVM.AlteBoli, consum_grasimi = medicalFormVM.Grasimi, tratament = medicalFormVM.Tratament, aprobat = false });
                     context.SaveChanges();
+                    MessageBox.Show("Chestionar trimis cu succes!");
                     medicalFormContext.Message = "";
                 }
             }

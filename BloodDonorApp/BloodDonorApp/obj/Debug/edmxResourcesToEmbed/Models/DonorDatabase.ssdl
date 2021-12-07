@@ -17,14 +17,14 @@
       <PropertyRef Name="id_chestionar" />
     </Key>
     <Property Name="id_chestionar" Type="int" Nullable="false" />
-    <Property Name="greutate" Type="int" Nullable="false" />
-    <Property Name="puls" Type="int" Nullable="false" />
+    <Property Name="greutate" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="puls" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="tensiune" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="interventii_chirurgicale_recente" Type="bit" Nullable="false" />
     <Property Name="sarcina" Type="bit" Nullable="false" />
     <Property Name="consum_grasimi" Type="bit" Nullable="false" />
     <Property Name="tratament" Type="bit" Nullable="false" />
-    <Property Name="alte_boli" Type="bit" Nullable="false" />
+    <Property Name="alte_boli" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="aprobat" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Componente_Punga">

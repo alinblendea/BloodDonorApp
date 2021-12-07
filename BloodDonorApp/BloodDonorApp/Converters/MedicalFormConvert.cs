@@ -12,7 +12,7 @@ namespace BloodDonorApp.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (values[0] != null && values[1] != null && values[2] != null && values[3] != null && values[4] != null && values[5] != null && values[6] != null)
+            if (values[0] != null && values[1] != null && values[2] != null && values[3] != null && values[4] != null && values[5] != null && values[7] != null && values[8] != null && values[9] != null)
             {
                 return new MedicalFormVM()
                 {
@@ -21,7 +21,15 @@ namespace BloodDonorApp.Converters
                     Domiciliu = values[2].ToString(),
                     Resedinta = values[3].ToString(),
                     Email = values[4].ToString(),
-                    PhoneNr = values[5].ToString()
+                    PhoneNr = values[5].ToString(),
+                    AlteBoli = values[6].ToString(),
+                    Greutate = values[7].ToString(),
+                    Puls = values[8].ToString(),
+                    Tensiune = values[9].ToString(),
+                    Interventii = (bool)values[10],
+                    Sarcina = (bool)values[11],
+                    Grasimi = (bool)values[12],
+                    Tratament = (bool)values[13]
                 };
             }
             else

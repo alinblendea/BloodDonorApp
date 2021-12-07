@@ -20,14 +20,14 @@ namespace BloodDonorApp.Models
         }
     
         public int id_chestionar { get; set; }
-        public int greutate { get; set; }
-        public int puls { get; set; }
+        public string greutate { get; set; }
+        public string puls { get; set; }
         public string tensiune { get; set; }
         public bool interventii_chirurgicale_recente { get; set; }
         public bool sarcina { get; set; }
         public bool consum_grasimi { get; set; }
         public bool tratament { get; set; }
-        public bool alte_boli { get; set; }
+        public string alte_boli { get; set; }
         public bool aprobat { get; set; }
     
         public virtual ICollection<Donator> Donators { get; set; }
