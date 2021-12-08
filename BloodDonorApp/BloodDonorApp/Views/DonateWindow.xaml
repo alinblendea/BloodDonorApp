@@ -22,55 +22,55 @@
             <TextBox Name="txtCnp" Width="152" HorizontalAlignment="Left"
                      Text ="" />
             <Label Width="99" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Nume:</Label>
-            <TextBox Name="txtName" Width="145" HorizontalAlignment="Left"
+            <TextBox Name="txtName" Width="167" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="165" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Domiciliu:</Label>
-            <TextBox Name="txtDomiciliu" Width="150" HorizontalAlignment="Left"
+            <TextBox Name="txtDomiciliu" Width="155" HorizontalAlignment="Left"
                          Text ="" />
-            <Label Width="101" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Resedinta:</Label>
-            <TextBox Name="txtResedinta" Width="144" HorizontalAlignment="Left"
+            <Label Width="98" Foreground="Blue" FontFamily="Times New Roman" FontSize="20">Resedinta:</Label>
+            <TextBox Name="txtResedinta" Width="168" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Mail:"/>
-            <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
+            <Label Width="163" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Mail:"/>
+            <TextBox x:Name="txtMail" Width="157" HorizontalAlignment="Left"
                          Text ="" />
-            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Nr tel:"/>
-            <TextBox x:Name="txtPhone" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
-        </WrapPanel>
-
-        <WrapPanel Margin="0,15,0,0">
-            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Greutate:"/>
-            <TextBox x:Name="txtGreutate" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
-            <Label Width="68" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Puls:"/>
-            <TextBox x:Name="txtPuls" Width="146" HorizontalAlignment="Left"
-                         Text ="" />
-            <Label Width="130" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tensiune:"/>
-            <TextBox x:Name="txtTensiune" Width="146" HorizontalAlignment="Left"
+            <Label Width="98" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Nr tel:"/>
+            <TextBox x:Name="txtPhone" Width="169" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
 
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="277" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Interventii Chirurgicale Recente:"/>
-            <CheckBox x:Name="checkICR" Width="146" HorizontalAlignment="Left"
+            <Label Width="162" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Greutate:"/>
+            <TextBox x:Name="txtGreutate" Width="87" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="70" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Puls:"/>
+            <TextBox x:Name="txtPuls" Width="98" HorizontalAlignment="Left"
+                         Text ="" />
+            <Label Width="89" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tensiune:"/>
+            <TextBox x:Name="txtTensiune" Width="82" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="279" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Interventii Chirurgicale Recente:"/>
+            <CheckBox x:Name="checkICR" Width="33" HorizontalAlignment="Left"
                         />
-            <Label Width="135" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Sarcina:"/>
-            <CheckBox x:Name="checkSarcina" Width="146" HorizontalAlignment="Left"
+            <Label Width="103" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Sarcina:"/>
+            <CheckBox x:Name="checkSarcina" Width="31" HorizontalAlignment="Left"
                        />
-            <Label Width="154" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Alte boli:"/>
-            <TextBox x:Name="txtAlteBoli" Width="150" HorizontalAlignment="Left"
+            <Label Width="94" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Alte boli:"/>
+            <TextBox x:Name="txtAlteBoli" Width="46" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
 
         <WrapPanel Margin="0,15,0,0">
             <Label Width="157" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Consum Grasimi:"/>
-            <CheckBox x:Name="checkConsumGrasimi" Width="146" HorizontalAlignment="Left"
+            <CheckBox x:Name="checkConsumGrasimi" Width="28" HorizontalAlignment="Left"
                         />
-            <Label Width="114" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tratament:"/>
+            <Label Width="96" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Tratament:"/>
             <CheckBox x:Name="checkTratament" Width="146" HorizontalAlignment="Left"
                        />
         </WrapPanel>
