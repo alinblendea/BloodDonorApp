@@ -54,3 +54,5 @@ D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\Blo
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\DonorLoginWindow.baml
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\MedicLoginWindow.baml
 D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\StaffLoginWindow.baml
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\ThankYouWindow.g.cs
+D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\ThankYouWindow.baml

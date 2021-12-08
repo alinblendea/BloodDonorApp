@@ -57,6 +57,11 @@ namespace BloodDonorApp.Models.Actions
                     context.SaveChanges();
                     MessageBox.Show("Chestionar trimis cu succes!");
                     medicalFormContext.Message = "";
+
+                    DonateWindow mainWindow = (Application.Current.MainWindow as DonateWindow);
+                    Application.Current.MainWindow = new ThankYouWindow(medicalFormVM.Name.ToString());
+                    Application.Current.MainWindow.Show();
+                    mainWindow.Close();
                 }
             }
         }

@@ -140,6 +140,7 @@
     <Compile Include="ViewModels\Account\StaffAccountVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
+    <Compile Include="ViewModels\ThankYouWindowVM.cs" />
     <Compile Include="Views\ApproveWindow.xaml.cs">
       <DependentUpon>ApproveWindow.xaml</DependentUpon>
     </Compile>
@@ -193,6 +194,9 @@
     </Compile>
     <Compile Include="Views\StaffWindow.xaml.cs">
       <DependentUpon>StaffWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThankYouWindow.xaml.cs">
+      <DependentUpon>ThankYouWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -278,6 +282,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ThankYouWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -347,6 +355,10 @@
     <Resource Include="Images\Buttons\logoutButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\menuButton.png" />
+    <Resource Include="Images\contacted.png" />
+    <Resource Include="Images\thankYou.png" />
+    <Resource Include="Images\withA.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
