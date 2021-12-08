@@ -14,11 +14,6 @@ namespace BloodDonorApp.Models
     
     public partial class Chestionar_Medical
     {
-        public Chestionar_Medical()
-        {
-            this.Donators = new HashSet<Donator>();
-        }
-    
         public int id_chestionar { get; set; }
         public string greutate { get; set; }
         public string puls { get; set; }
@@ -29,7 +24,8 @@ namespace BloodDonorApp.Models
         public bool tratament { get; set; }
         public string alte_boli { get; set; }
         public bool aprobat { get; set; }
+        public string cnp_donator { get; set; }
     
-        public virtual ICollection<Donator> Donators { get; set; }
+        public virtual Donator Donator { get; set; }
     }
 }

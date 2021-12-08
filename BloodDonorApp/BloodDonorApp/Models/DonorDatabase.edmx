@@ -31,6 +31,7 @@
           <Property Name="tratament" Type="bit" Nullable="false" />
           <Property Name="alte_boli" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="aprobat" Type="bit" Nullable="false" />
+          <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <EntityType Name="Componente_Punga">
           <Key>
@@ -69,8 +70,6 @@
           <Property Name="resedinta" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="telefon" Type="varchar" MaxLength="13" Nullable="false" />
-          <Property Name="id_chestionar" Type="int" Nullable="false" />
-          <Property Name="id_cont" Type="int" />
         </EntityType>
         <EntityType Name="Medic">
           <Key>
@@ -129,6 +128,18 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <Association Name="FK_Chestionar_Medical_Donator">
+          <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
+          <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donator">
+              <PropertyRef Name="cnp_donator" />
+            </Principal>
+            <Dependent Role="Chestionar_Medical">
+              <PropertyRef Name="cnp_donator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Componente_Punga_Punga_Sange">
           <End Role="Punga_Sange" Type="Self.Punga_Sange" Multiplicity="1" />
           <End Role="Componente_Punga" Type="Self.Componente_Punga" Multiplicity="0..1" />
@@ -150,30 +161,6 @@
             </Principal>
             <Dependent Role="Donare">
               <PropertyRef Name="cnp_donator" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Donator_Chestionar_Medical">
-          <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="1" />
-          <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Chestionar_Medical">
-              <PropertyRef Name="id_chestionar" />
-            </Principal>
-            <Dependent Role="Donator">
-              <PropertyRef Name="id_chestionar" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Donator_Cont">
-          <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
-          <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cont">
-              <PropertyRef Name="id_cont" />
-            </Principal>
-            <Dependent Role="Donator">
-              <PropertyRef Name="id_cont" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -305,6 +292,10 @@
           <EntitySet Name="Punga_Sange" EntityType="Self.Punga_Sange" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Spital" EntityType="Self.Spital" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Chestionar_Medical_Donator" Association="Self.FK_Chestionar_Medical_Donator">
+            <End Role="Donator" EntitySet="Donator" />
+            <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
+          </AssociationSet>
           <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
             <End Role="Punga_Sange" EntitySet="Punga_Sange" />
             <End Role="Componente_Punga" EntitySet="Componente_Punga" />
@@ -312,14 +303,6 @@
           <AssociationSet Name="FK_Donare_Donator" Association="Self.FK_Donare_Donator">
             <End Role="Donator" EntitySet="Donator" />
             <End Role="Donare" EntitySet="Donare" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Donator_Chestionar_Medical" Association="Self.FK_Donator_Chestionar_Medical">
-            <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
-            <End Role="Donator" EntitySet="Donator" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Donator_Cont" Association="Self.FK_Donator_Cont">
-            <End Role="Cont" EntitySet="Cont" />
-            <End Role="Donator" EntitySet="Donator" />
           </AssociationSet>
           <AssociationSet Name="FK_Medic_Cont" Association="Self.FK_Medic_Cont">
             <End Role="Cont" EntitySet="Cont" />
@@ -382,7 +365,8 @@
           <Property Name="tratament" Type="Boolean" Nullable="false" />
           <Property Name="alte_boli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aprobat" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Donators" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Chestionar_Medical" ToRole="Donator" />
+          <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Donator" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Chestionar_Medical" ToRole="Donator" />
         </EntityType>
         <EntityType Name="Componente_Punga">
           <Key>
@@ -402,7 +386,6 @@
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="parola" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Donators" Relationship="Self.FK_Donator_Cont" FromRole="Cont" ToRole="Donator" />
           <NavigationProperty Name="Medics" Relationship="Self.FK_Medic_Cont" FromRole="Cont" ToRole="Medic" />
           <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Personal_Recoltare_Cont" FromRole="Cont" ToRole="Personal_Recoltare" />
         </EntityType>
@@ -426,10 +409,7 @@
           <Property Name="resedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id_chestionar" Type="Int32" Nullable="false" />
-          <Property Name="id_cont" Type="Int32" />
-          <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Donator_Chestionar_Medical" FromRole="Donator" ToRole="Chestionar_Medical" />
-          <NavigationProperty Name="Cont" Relationship="Self.FK_Donator_Cont" FromRole="Donator" ToRole="Cont" />
+          <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Donator" ToRole="Chestionar_Medical" />
           <NavigationProperty Name="Donares" Relationship="Self.FK_Donare_Donator" FromRole="Donator" ToRole="Donare" />
           <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Donator" ToRole="Punga_Sange" />
         </EntityType>
@@ -513,15 +493,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Donator_Chestionar_Medical">
-          <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="1" />
-          <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
+        <Association Name="FK_Chestionar_Medical_Donator">
+          <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
+          <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Chestionar_Medical">
-              <PropertyRef Name="id_chestionar" />
+            <Principal Role="Donator">
+              <PropertyRef Name="cnp_donator" />
             </Principal>
-            <Dependent Role="Donator">
-              <PropertyRef Name="id_chestionar" />
+            <Dependent Role="Chestionar_Medical">
+              <PropertyRef Name="cnp_donator" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -534,18 +514,6 @@
             </Principal>
             <Dependent Role="Componente_Punga">
               <PropertyRef Name="id_punga" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Donator_Cont">
-          <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
-          <End Role="Donator" Type="Self.Donator" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cont">
-              <PropertyRef Name="id_cont" />
-            </Principal>
-            <Dependent Role="Donator">
-              <PropertyRef Name="id_cont" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -650,17 +618,13 @@
             <End Role="Cerere_Donare" EntitySet="Cerere_Donare" />
             <End Role="Pacient" EntitySet="Pacients" />
           </AssociationSet>
-          <AssociationSet Name="FK_Donator_Chestionar_Medical" Association="Self.FK_Donator_Chestionar_Medical">
-            <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
+          <AssociationSet Name="FK_Chestionar_Medical_Donator" Association="Self.FK_Chestionar_Medical_Donator">
             <End Role="Donator" EntitySet="Donators" />
+            <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
           </AssociationSet>
           <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
             <End Role="Punga_Sange" EntitySet="Punga_Sange" />
             <End Role="Componente_Punga" EntitySet="Componente_Punga" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Donator_Cont" Association="Self.FK_Donator_Cont">
-            <End Role="Cont" EntitySet="Conts" />
-            <End Role="Donator" EntitySet="Donators" />
           </AssociationSet>
           <AssociationSet Name="FK_Medic_Cont" Association="Self.FK_Medic_Cont">
             <End Role="Cont" EntitySet="Conts" />
@@ -764,6 +728,7 @@
                 <ScalarProperty Name="tratament" ColumnName="tratament" />
                 <ScalarProperty Name="alte_boli" ColumnName="alte_boli" />
                 <ScalarProperty Name="aprobat" ColumnName="aprobat" />
+                <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -806,8 +771,6 @@
                 <ScalarProperty Name="resedinta" ColumnName="resedinta" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefon" ColumnName="telefon" />
-                <ScalarProperty Name="id_chestionar" ColumnName="id_chestionar" />
-                <ScalarProperty Name="id_cont" ColumnName="id_cont" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

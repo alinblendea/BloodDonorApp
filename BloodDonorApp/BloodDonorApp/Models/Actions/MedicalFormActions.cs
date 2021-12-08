@@ -34,11 +34,26 @@ namespace BloodDonorApp.Models.Actions
                     || String.IsNullOrEmpty(medicalFormVM.PhoneNr))
                 {
                     medicalFormContext.Message = "Toate datele trebuie completate.";
+                    MessageBox.Show(medicalFormContext.Message);
                 }
                 else
                 {
-                    context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, id_cont = 0 });
-                    context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, greutate = medicalFormVM.Greutate, puls = medicalFormVM.Puls, tensiune = medicalFormVM.Tensiune, interventii_chirurgicale_recente = medicalFormVM.Interventii, sarcina = medicalFormVM.Sarcina, alte_boli = medicalFormVM.AlteBoli, consum_grasimi = medicalFormVM.Grasimi, tratament = medicalFormVM.Tratament, aprobat = false });
+                    bool alreadyExists = false;
+                    List<Donator> donors = context.Donators.ToList();
+
+                    foreach (Donator donor in donors)
+                    {
+                        if (donor.cnp_donator.Equals(medicalFormVM.DonorCnp))
+                        {
+                            alreadyExists = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyExists)
+                    {
+                        context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr });
+                    }
+                    context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, greutate = medicalFormVM.Greutate, puls = medicalFormVM.Puls, tensiune = medicalFormVM.Tensiune, interventii_chirurgicale_recente = medicalFormVM.Interventii, sarcina = medicalFormVM.Sarcina, alte_boli = medicalFormVM.AlteBoli, consum_grasimi = medicalFormVM.Grasimi, tratament = medicalFormVM.Tratament, aprobat = false, cnp_donator = medicalFormVM.DonorCnp });
                     context.SaveChanges();
                     MessageBox.Show("Chestionar trimis cu succes!");
                     medicalFormContext.Message = "";

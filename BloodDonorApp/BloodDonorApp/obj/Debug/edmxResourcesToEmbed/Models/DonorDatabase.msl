@@ -27,6 +27,7 @@
           <ScalarProperty Name="tratament" ColumnName="tratament" />
           <ScalarProperty Name="alte_boli" ColumnName="alte_boli" />
           <ScalarProperty Name="aprobat" ColumnName="aprobat" />
+          <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -69,8 +70,6 @@
           <ScalarProperty Name="resedinta" ColumnName="resedinta" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="telefon" ColumnName="telefon" />
-          <ScalarProperty Name="id_chestionar" ColumnName="id_chestionar" />
-          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -16,6 +16,7 @@ namespace BloodDonorApp.Models
     {
         public Donator()
         {
+            this.Chestionar_Medical = new HashSet<Chestionar_Medical>();
             this.Donares = new HashSet<Donare>();
             this.Punga_Sange = new HashSet<Punga_Sange>();
         }
@@ -26,11 +27,8 @@ namespace BloodDonorApp.Models
         public string resedinta { get; set; }
         public string email { get; set; }
         public string telefon { get; set; }
-        public int id_chestionar { get; set; }
-        public Nullable<int> id_cont { get; set; }
     
-        public virtual Chestionar_Medical Chestionar_Medical { get; set; }
-        public virtual Cont Cont { get; set; }
+        public virtual ICollection<Chestionar_Medical> Chestionar_Medical { get; set; }
         public virtual ICollection<Donare> Donares { get; set; }
         public virtual ICollection<Punga_Sange> Punga_Sange { get; set; }
     }

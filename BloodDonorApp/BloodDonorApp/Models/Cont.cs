@@ -16,7 +16,6 @@ namespace BloodDonorApp.Models
     {
         public Cont()
         {
-            this.Donators = new HashSet<Donator>();
             this.Medics = new HashSet<Medic>();
             this.Personal_Recoltare = new HashSet<Personal_Recoltare>();
         }
@@ -26,7 +25,6 @@ namespace BloodDonorApp.Models
         public string parola { get; set; }
         public string type { get; set; }
     
-        public virtual ICollection<Donator> Donators { get; set; }
         public virtual ICollection<Medic> Medics { get; set; }
         public virtual ICollection<Personal_Recoltare> Personal_Recoltare { get; set; }
     }
