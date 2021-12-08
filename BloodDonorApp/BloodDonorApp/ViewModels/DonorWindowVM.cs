@@ -33,7 +33,7 @@ namespace BloodDonorApp.ViewModels
             {
                 case "1":
                     DonorWindow mainWindow1 = (Application.Current.MainWindow as DonorWindow);
-                    Application.Current.MainWindow = new DonateWindow();
+                    Application.Current.MainWindow = new DonateWindow(mainWindow1.txtmail.Text);
                     Application.Current.MainWindow.Show();
                     mainWindow1.Close();
                     break;

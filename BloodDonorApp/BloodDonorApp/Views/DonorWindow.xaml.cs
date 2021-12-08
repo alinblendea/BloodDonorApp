@@ -19,9 +19,10 @@ namespace BloodDonorApp.Views
     /// </summary>
     public partial class DonorWindow : Window
     {
-        public DonorWindow()
+        public DonorWindow(string mail)
         {
             InitializeComponent();
+            txtmail.Text = mail;
         }
     }
 }

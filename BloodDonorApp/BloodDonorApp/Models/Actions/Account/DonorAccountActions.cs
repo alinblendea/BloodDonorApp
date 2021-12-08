@@ -96,7 +96,7 @@ namespace BloodDonorApp.Models.Actions.Account
                                 if(acc.type.Equals("Donor"))
                                 {
                                     DonorLoginWindow mainWindow = (Application.Current.MainWindow as DonorLoginWindow);
-                                    Application.Current.MainWindow = new DonorWindow();
+                                    Application.Current.MainWindow = new DonorWindow(donorAccountVM.Email.ToString());
                                     Application.Current.MainWindow.Show();
                                     mainWindow.Close();
                                 }

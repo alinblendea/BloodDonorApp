@@ -69,7 +69,7 @@ namespace BloodDonorApp.Models.Actions
         public void BackMethod(object obj)
         {
             DonateWindow mainWindow = (Application.Current.MainWindow as DonateWindow);
-            Application.Current.MainWindow = new DonorWindow();
+            Application.Current.MainWindow = new DonorWindow(mainWindow.txtMail.Text.ToString());
             Application.Current.MainWindow.Show();
             mainWindow.Close();
         }
