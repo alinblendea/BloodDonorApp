@@ -58,6 +58,7 @@
           <ScalarProperty Name="data" ColumnName="data" />
           <ScalarProperty Name="isDone" ColumnName="isDone" />
           <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

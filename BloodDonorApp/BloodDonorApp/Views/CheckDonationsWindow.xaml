@@ -3,10 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BloodDonorApp.Views"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        xmlns:localConverter="clr-namespace:BloodDonorApp.Converters"
         mc:Ignorable="d"
-        Title="CheckDonationsWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Blood Donor - Check Donations" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Window.DataContext>
+        <local:CheckDonationsVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <localConverter:CheckDonationsConvert x:Key="checkDonationsConvert" />
+        </StackPanel.Resources>
+        <WrapPanel>
+            <TextBlock Name="txtmail" Text="[mail]" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Height="29"/>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding ShowCommand}">
+                Show
+            </Button>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+                <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0"/>
+        <DataGrid Background="LightGreen" Name="donationsGrid"  Margin="10,15,9.6,0" AutoGenerateColumns="False" Height="318"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding DonationsList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CNP" Binding="{Binding DonorCnp}" />
+                <DataGridTextColumn Header="Data" Binding="{Binding Date}" />
+                <DataGridTextColumn Header="Completed" Binding="{Binding Completed}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
 </Window>

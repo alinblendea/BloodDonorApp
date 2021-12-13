@@ -59,6 +59,7 @@
           <Property Name="data" Type="date" Nullable="false" />
           <Property Name="isDone" Type="bit" Nullable="false" />
           <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Donator">
           <Key>
@@ -405,6 +406,7 @@
           <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="isDone" Type="Boolean" Nullable="false" />
           <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
         </EntityType>
         <EntityType Name="Donator">
@@ -775,6 +777,7 @@
                 <ScalarProperty Name="data" ColumnName="data" />
                 <ScalarProperty Name="isDone" ColumnName="isDone" />
                 <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
+                <ScalarProperty Name="email" ColumnName="email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

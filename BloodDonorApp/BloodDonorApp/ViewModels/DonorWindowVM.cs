@@ -40,7 +40,7 @@ namespace BloodDonorApp.ViewModels
 
                 case "2":
                     DonorWindow mainWindow2 = (Application.Current.MainWindow as DonorWindow);
-                    Application.Current.MainWindow = new CheckDonationsWindow();
+                    Application.Current.MainWindow = new CheckDonationsWindow(mainWindow2.txtmail.Text);
                     Application.Current.MainWindow.Show();
                     mainWindow2.Close();
                     break;

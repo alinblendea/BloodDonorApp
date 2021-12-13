@@ -18,6 +18,7 @@ namespace BloodDonorApp.Models
         public System.DateTime data { get; set; }
         public bool isDone { get; set; }
         public string cnp_donator { get; set; }
+        public string email { get; set; }
     
         public virtual Donator Donator { get; set; }
     }

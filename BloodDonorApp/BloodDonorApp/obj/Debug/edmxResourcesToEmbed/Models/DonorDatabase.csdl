@@ -59,6 +59,7 @@
     <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="isDone" Type="Boolean" Nullable="false" />
     <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Donator">

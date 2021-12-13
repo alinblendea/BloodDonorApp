@@ -66,12 +66,14 @@
     <Compile Include="Converters\Account\DonorAccountConvert.cs" />
     <Compile Include="Converters\Account\MedicAccountConvert.cs" />
     <Compile Include="Converters\ApproveConvert.cs" />
+    <Compile Include="Converters\CheckDonationsConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
     <Compile Include="Converters\Account\StaffAccountConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
     <Compile Include="Models\Actions\Account\DonorAccountActions.cs" />
     <Compile Include="Models\Actions\Account\MedicAccountActions.cs" />
     <Compile Include="Models\Actions\ApproveActions.cs" />
+    <Compile Include="Models\Actions\CheckDonationsActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
     <Compile Include="Models\Actions\Account\StaffAccountActions.cs" />
     <Compile Include="Models\Cerere_Donare.cs">
@@ -133,6 +135,7 @@
     </Compile>
     <Compile Include="ViewModels\Account\DonorAccountVM.cs" />
     <Compile Include="ViewModels\ApproveWindowVM.cs" />
+    <Compile Include="ViewModels\CheckDonationsVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\Account\MedicAccountVM.cs" />

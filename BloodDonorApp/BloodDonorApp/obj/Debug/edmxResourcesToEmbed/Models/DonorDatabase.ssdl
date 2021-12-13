@@ -54,6 +54,7 @@
     <Property Name="data" Type="date" Nullable="false" />
     <Property Name="isDone" Type="bit" Nullable="false" />
     <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Donator">
     <Key>
