@@ -11,6 +11,7 @@ using BloodDonorApp.Views.Register;
 using BloodDonorApp.Views.LoginMenu;
 using BloodDonorApp.Views.Login;
 using BloodDonorApp.Views;
+using System.Text.RegularExpressions;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -29,11 +30,20 @@ namespace BloodDonorApp.Models.Actions.Account
             MedicAccountVM medicAccountVM = obj as MedicAccountVM;
             if (medicAccountVM != null)
             {
+                string email = medicAccountVM.Email;
+                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                Match match = regex.Match(email);
+
                 if (String.IsNullOrEmpty(medicAccountVM.Email)
                     || String.IsNullOrEmpty(medicAccountVM.Password)
                     || String.IsNullOrEmpty(medicAccountVM.ConfirmPassword))
                 {
                    medicAccountContext.Message = "Toate datele trebuie completate.";
+                    MessageBox.Show(medicAccountContext.Message);
+                }
+                else if (!match.Success)
+                {
+                    medicAccountContext.Message = "Mail-ul introdus este incorect.";
                     MessageBox.Show(medicAccountContext.Message);
                 }
                 else if (medicAccountVM.Password != medicAccountVM.ConfirmPassword)
