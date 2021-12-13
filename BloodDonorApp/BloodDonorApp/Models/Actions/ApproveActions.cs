@@ -27,11 +27,33 @@ namespace BloodDonorApp.Models.Actions
 
             if (formVM != null)
             {
-                //formVM.Aprobat = true;
-
-                context.SaveChanges();
                 ApproveWindow mainWindow1 = (Application.Current.MainWindow as ApproveWindow);
-                formContext.FormsList = AllForms();
+
+                if (String.IsNullOrEmpty(mainWindow1.txtDate.Text))
+                {
+                    MessageBox.Show("Introduceti data in care va fi programat donatorul.");
+                }
+                else
+                {
+                    DateTime date;
+                    if(DateTime.TryParseExact(mainWindow1.txtDate.Text, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date))
+                    {
+                        context.ApproveForm(formVM.DonorCnp, true);
+
+                        context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp });
+
+                        context.SaveChanges();
+                        formContext.FormsList = AllForms();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data nu a fost introdusa in formatul corect.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nu a fost selectat niciun chestionar medical.");
             }
         }
 
@@ -47,10 +69,7 @@ namespace BloodDonorApp.Models.Actions
         {
             ApproveWindowVM formVM = obj as ApproveWindowVM;
 
-            if (formVM != null)
-            {
-                formContext.FormsList = AllForms();
-            }
+            formContext.FormsList = AllForms();
         }
 
         public ObservableCollection<ApproveWindowVM> AllForms()

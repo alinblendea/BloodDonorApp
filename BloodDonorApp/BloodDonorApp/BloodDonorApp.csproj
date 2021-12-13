@@ -364,6 +364,8 @@
     <Resource Include="Images\withA.png" />
     <Resource Include="Images\Buttons\approveButton.png" />
     <Resource Include="Images\Buttons\refreshButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

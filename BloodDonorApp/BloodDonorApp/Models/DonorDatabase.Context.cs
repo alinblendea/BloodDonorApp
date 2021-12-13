@@ -41,6 +41,32 @@ namespace BloodDonorApp.Models
         public DbSet<Spital> Spitals { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
     
+        public virtual int ApproveDonation(string donorCnp, Nullable<bool> approve)
+        {
+            var donorCnpParameter = donorCnp != null ?
+                new ObjectParameter("DonorCnp", donorCnp) :
+                new ObjectParameter("DonorCnp", typeof(string));
+    
+            var approveParameter = approve.HasValue ?
+                new ObjectParameter("Approve", approve) :
+                new ObjectParameter("Approve", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ApproveDonation", donorCnpParameter, approveParameter);
+        }
+    
+        public virtual int ApproveForm(string donorCnp, Nullable<bool> approve)
+        {
+            var donorCnpParameter = donorCnp != null ?
+                new ObjectParameter("DonorCnp", donorCnp) :
+                new ObjectParameter("DonorCnp", typeof(string));
+    
+            var approveParameter = approve.HasValue ?
+                new ObjectParameter("Approve", approve) :
+                new ObjectParameter("Approve", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ApproveForm", donorCnpParameter, approveParameter);
+        }
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?

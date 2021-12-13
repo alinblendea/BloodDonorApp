@@ -316,6 +316,14 @@
       <End Role="Personal_Recoltare" EntitySet="Personal_Recoltare" />
       <End Role="Punga_Sange" EntitySet="Punga_Sange" />
     </AssociationSet>
+    <FunctionImport Name="ApproveDonation">
+      <Parameter Name="DonorCnp" Mode="In" Type="String" />
+      <Parameter Name="Approve" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ApproveForm">
+      <Parameter Name="DonorCnp" Mode="In" Type="String" />
+      <Parameter Name="Approve" Mode="In" Type="Boolean" />
+    </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
