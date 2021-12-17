@@ -3,10 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BloodDonorApp.Views"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        xmlns:localConverter="clr-namespace:BloodDonorApp.Converters"
         mc:Ignorable="d"
-        Title="ChangeStatusWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Blood Donor - Complete Donation" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Window.DataContext>
+        <local:StatusWindowVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <localConverter:StatusConvert x:Key="statusConvert" />
+        </StackPanel.Resources>
+        <WrapPanel>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding CompleteCommand}" 
+                    CommandParameter="{Binding ElementName=donationsGrid, Path=SelectedItem}">
+                <Image Source="/Images/Buttons/approveButton.png" Width="71"></Image>
+            </Button>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding RefreshCommand}" >
+                <Image Source="/Images/Buttons/refreshButton.png" Width="71"></Image>
+            </Button>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+                <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+            </Button>
+
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0"/>
+        <DataGrid Background="LightGreen" Name="donationsGrid"  Margin="10,15,9.6,0" AutoGenerateColumns="False" Height="307"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding DonationsList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CNP" Binding="{Binding DonorCnp}" />
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Completed" Binding="{Binding Completed}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
 </Window>

@@ -69,6 +69,7 @@
     <Compile Include="Converters\CheckDonationsConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
     <Compile Include="Converters\Account\StaffAccountConvert.cs" />
+    <Compile Include="Converters\StatusConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
     <Compile Include="Models\Actions\Account\DonorAccountActions.cs" />
     <Compile Include="Models\Actions\Account\MedicAccountActions.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Models\Actions\CheckDonationsActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
     <Compile Include="Models\Actions\Account\StaffAccountActions.cs" />
+    <Compile Include="Models\Actions\StatusActions.cs" />
     <Compile Include="Models\Cerere_Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
@@ -146,6 +148,7 @@
     <Compile Include="ViewModels\Account\StaffAccountVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
+    <Compile Include="ViewModels\StatusWindowVM.cs" />
     <Compile Include="ViewModels\ThankYouWindowVM.cs" />
     <Compile Include="Views\ApproveWindow.xaml.cs">
       <DependentUpon>ApproveWindow.xaml</DependentUpon>
@@ -343,7 +346,6 @@
     <Resource Include="Images\Buttons\requestButton.png" />
     <Resource Include="Images\Buttons\seeNeededPartsButton.png" />
     <Resource Include="Images\Buttons\approveDonorsButton.png" />
-    <Resource Include="Images\Buttons\changeStatusButton.png" />
     <Resource Include="Images\Buttons\addButton.png" />
     <Resource Include="Images\Buttons\loginButton.png" />
     <Resource Include="Images\Buttons\registerButton.png" />
@@ -369,6 +371,7 @@
     <Resource Include="Images\Buttons\refreshButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\changeStatusButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

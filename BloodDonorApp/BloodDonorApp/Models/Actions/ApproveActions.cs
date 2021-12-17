@@ -67,8 +67,6 @@ namespace BloodDonorApp.Models.Actions
 
         public void RefreshMethod(object obj)
         {
-            ApproveWindowVM formVM = obj as ApproveWindowVM;
-
             formContext.FormsList = AllForms();
         }
 
