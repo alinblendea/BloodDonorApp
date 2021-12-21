@@ -1,4 +1,4 @@
-Aplicatia va permite medicilor din spitale sa trimita cereri de anumite componente din sange, cereri care pot fi vazute de catre potentialii donatori. Donatorii vor completa un chestionar medical, iar personalul de la centrul de recoltare va putea verifica daca acestia sunt apti sau nu pentru donare.
+Aplicatia va permite medicilor din spitale sa trimita cereri de anumite componente din sange. Donatorii vor completa un chestionar medical, iar personalul de la centrul de recoltare va putea verifica daca acestia sunt apti sau nu pentru donare.
 
 Tip aplicatie: desktop
 
