@@ -26,6 +26,7 @@ namespace BloodDonorApp.ViewModels.Account
         private string email;
         private string parola;
         private string confirmedPassword;
+        private string name;
         private string type;
         private string message;
 
@@ -52,6 +53,19 @@ namespace BloodDonorApp.ViewModels.Account
             {
                 email = value;
                 NotifyPropertyChanged("Email");
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                NotifyPropertyChanged("Name");
             }
         }
 

@@ -36,7 +36,9 @@ namespace BloodDonorApp.Models.Actions.Account
 
                 if (String.IsNullOrEmpty(medicAccountVM.Email)
                     || String.IsNullOrEmpty(medicAccountVM.Password)
-                    || String.IsNullOrEmpty(medicAccountVM.ConfirmPassword))
+                    || String.IsNullOrEmpty(medicAccountVM.ConfirmPassword)
+                    || String.IsNullOrEmpty(medicAccountVM.Name)
+                    || String.IsNullOrEmpty(medicAccountVM.Hospital))
                 {
                    medicAccountContext.Message = "Toate datele trebuie completate.";
                     MessageBox.Show(medicAccountContext.Message);
@@ -67,7 +69,29 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = medicAccountVM.Email, parola = medicAccountVM.Password, type = "Medic" });
+                        int idcont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1;
+                        int idspital = 0;
+                        bool foundSpital = false;
+
+                        List <Spital> spitale = context.Spitals.ToList();
+                        foreach(Spital spital in spitale)
+                        {
+                            if(medicAccountVM.Hospital.Equals(spital.denumire))
+                            {
+                                foundSpital = true;
+                                idspital = spital.id_spital;
+                                break;
+                            }
+                        }
+
+                        if(!foundSpital)
+                        {
+                            idspital = context.Spitals.OrderByDescending(p => p.id_spital).FirstOrDefault().id_spital + 1;
+                            context.Spitals.Add(new Spital() { id_spital = idspital, denumire = medicAccountVM.Hospital, judet = "BV" });
+                        }
+
+                        context.Conts.Add(new Cont() { id_cont = idcont, email = medicAccountVM.Email, parola = medicAccountVM.Password, type = "Medic" });
+                        context.Medics.Add(new Medic() { id_medic = context.Medics.OrderByDescending(p => p.id_medic).FirstOrDefault().id_medic + 1, email = medicAccountVM.Email, nume = medicAccountVM.Name, id_cont = idcont, id_spital = idspital });
                         context.SaveChanges();
                         medicAccountContext.Message = "Cont creat cu succes!";
                         MessageBox.Show(medicAccountContext.Message);
@@ -106,7 +130,7 @@ namespace BloodDonorApp.Models.Actions.Account
                                 if (acc.type.Equals("Medic"))
                                 {
                                     MedicLoginWindow mainWindow = (Application.Current.MainWindow as MedicLoginWindow);
-                                    Application.Current.MainWindow = new MedicWindow();
+                                    Application.Current.MainWindow = new MedicWindow(acc.email);
                                     Application.Current.MainWindow.Show();
                                     mainWindow.Close();
                                 }

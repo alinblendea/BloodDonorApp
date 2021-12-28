@@ -12,13 +12,14 @@ namespace BloodDonorApp.Converters.Account
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (values[0] != null && values[1] != null && values[2] != null)
+            if (values[0] != null && values[1] != null && values[2] != null && values[3] != null)
             {
                 return new StaffAccountVM()
                 {
                     Email = values[0].ToString(),
                     Password = values[1].ToString(),
-                    ConfirmPassword = values[2].ToString()
+                    ConfirmPassword = values[2].ToString(),
+                    Name = values[3].ToString()
                 };
             }
             else

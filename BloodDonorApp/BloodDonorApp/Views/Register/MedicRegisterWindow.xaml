@@ -17,11 +17,21 @@
         <StackPanel.Resources>
             <localConverter:MedicAccountConvert x:Key="accountConvert" />
         </StackPanel.Resources>
-        <WrapPanel Margin="0,50,0,0">
+        <WrapPanel Margin="0,15,0,0">
             <Image Source="/Images/newMedicAccount.png" HorizontalAlignment="Center"></Image>
 
         </WrapPanel>
-        <WrapPanel Margin="250,30,0,0">
+        <WrapPanel Margin="250,10,0,0">
+            <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Name:"/>
+            <TextBox x:Name="txtName" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+        <WrapPanel Margin="250,10,0,0">
+            <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Hospital:"/>
+            <TextBox x:Name="txtHospital" Width="146" HorizontalAlignment="Left"
+                         Text ="" />
+        </WrapPanel>
+        <WrapPanel Margin="250,10,0,0">
             <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Email:"/>
             <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
                          Text ="" />
@@ -44,6 +54,8 @@
                         <Binding ElementName="txtMail" Path="Text"/>
                         <Binding ElementName="txtPassword" Path="Text"/>
                         <Binding ElementName="txtConfirmPassword" Path="Text"/>
+                        <Binding ElementName="txtName" Path="Text"/>
+                        <Binding ElementName="txtHospital" Path="Text"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>

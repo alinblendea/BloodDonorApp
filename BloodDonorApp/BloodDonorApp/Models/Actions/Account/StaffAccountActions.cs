@@ -36,7 +36,8 @@ namespace BloodDonorApp.Models.Actions.Account
 
                 if (String.IsNullOrEmpty(staffAccountVM.Email)
                     || String.IsNullOrEmpty(staffAccountVM.Password)
-                    || String.IsNullOrEmpty(staffAccountVM.ConfirmPassword))
+                    || String.IsNullOrEmpty(staffAccountVM.ConfirmPassword)
+                    || String.IsNullOrEmpty(staffAccountVM.Name))
                 {
                     staffAccountContext.Message = "Toate datele trebuie completate.";
                     MessageBox.Show(staffAccountContext.Message);
@@ -67,7 +68,9 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = staffAccountVM.Email, parola = staffAccountVM.Password, type = "Staff" });
+                        int idcont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1;
+                        context.Personal_Recoltare.Add(new Personal_Recoltare() { id_personal = context.Personal_Recoltare.OrderByDescending(p => p.id_personal).FirstOrDefault().id_personal + 1, email = staffAccountVM.Email, nume = staffAccountVM.Name, id_cont = idcont });
+                        context.Conts.Add(new Cont() { id_cont = idcont, email = staffAccountVM.Email, parola = staffAccountVM.Password, type = "Staff" });
                         context.SaveChanges();
                         staffAccountContext.Message = "Cont creat cu succes!";
                         MessageBox.Show(staffAccountContext.Message);
