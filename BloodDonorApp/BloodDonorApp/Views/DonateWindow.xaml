@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
         xmlns:localConverter="clr-namespace:BloodDonorApp.Converters"
         mc:Ignorable="d"
-        Title="Blood Donor - Donate" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png">
+        Title="Blood Donor - Donate" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
     </Window.Background>

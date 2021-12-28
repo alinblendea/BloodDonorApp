@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BloodDonorApp.ViewModels.Account"
         xmlns:localConverter="clr-namespace:BloodDonorApp.Converters.Account"
         mc:Ignorable="d"
-        Title="Blood Donor - Medic Login" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png">
+        Title="Blood Donor - Medic Login" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
     </Window.Background>
