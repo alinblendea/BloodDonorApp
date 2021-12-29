@@ -17,7 +17,13 @@
         <StackPanel.Resources>
             <localConverter:MedicAccountConvert x:Key="accountConvert" />
         </StackPanel.Resources>
-        <WrapPanel Margin="0,50,0,0">
+        <WrapPanel HorizontalAlignment="Right">
+            <Button Height="40" Width="40" Margin="10" Command="{Binding ExitCommand}">
+                <Image Source="/Images/Buttons/xButton.png" Height="35" Width="35">
+                </Image>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Margin="0,-10,0,0">
             <Image Source="/Images/loginAsMedic.png" HorizontalAlignment="Center"></Image>
 
         </WrapPanel>

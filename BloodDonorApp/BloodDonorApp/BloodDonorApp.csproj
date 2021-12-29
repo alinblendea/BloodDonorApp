@@ -382,6 +382,7 @@
     <Resource Include="Images\plasma.png" />
     <Resource Include="Images\platelets.png" />
     <Resource Include="Images\redCells.png" />
+    <Resource Include="Images\Buttons\xButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
