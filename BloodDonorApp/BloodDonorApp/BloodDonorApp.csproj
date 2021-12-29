@@ -69,6 +69,7 @@
     <Compile Include="Converters\CheckDonationsConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
     <Compile Include="Converters\Account\StaffAccountConvert.cs" />
+    <Compile Include="Converters\RequestFormConvert.cs" />
     <Compile Include="Converters\StatusConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
     <Compile Include="Models\Actions\Account\DonorAccountActions.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Models\Actions\CheckDonationsActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
     <Compile Include="Models\Actions\Account\StaffAccountActions.cs" />
+    <Compile Include="Models\Actions\RequestFormActions.cs" />
     <Compile Include="Models\Actions\StatusActions.cs" />
     <Compile Include="Models\Cerere_Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
@@ -146,6 +148,7 @@
     <Compile Include="ViewModels\DonorPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\MedicPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\Account\StaffAccountVM.cs" />
+    <Compile Include="ViewModels\RequestFormVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
     <Compile Include="ViewModels\StatusWindowVM.cs" />
@@ -372,6 +375,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\changeStatusButton.png" />
+    <Resource Include="Images\doYou.png" />
+    <Resource Include="Images\whatBlood.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
