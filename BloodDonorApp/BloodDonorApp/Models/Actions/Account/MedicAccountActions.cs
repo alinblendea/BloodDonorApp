@@ -48,6 +48,11 @@ namespace BloodDonorApp.Models.Actions.Account
                     medicAccountContext.Message = "Mail-ul introdus este incorect.";
                     MessageBox.Show(medicAccountContext.Message);
                 }
+                else if (medicAccountVM.Password.Length < 6)
+                {
+                    medicAccountContext.Message = "Parola nu poate fi mai mica de 6 caractere.";
+                    MessageBox.Show(medicAccountContext.Message);
+                }
                 else if (medicAccountVM.Password != medicAccountVM.ConfirmPassword)
                 {
                     medicAccountContext.Message = "Parolele introduse nu coincid.";

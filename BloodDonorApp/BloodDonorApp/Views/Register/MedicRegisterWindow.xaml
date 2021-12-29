@@ -23,9 +23,8 @@
                 </Image>
             </Button>
         </WrapPanel>
-        <WrapPanel Margin="0,-40,0,0">
-            <Image Source="/Images/newMedicAccount.png" HorizontalAlignment="Center"></Image>
-
+        <WrapPanel Margin="45,-40,59.6,0" HorizontalAlignment="Center" Height="108" Width="689">
+            <Image Source="/Images/newMedicAccount.png" HorizontalAlignment="Center" Height="115"></Image>
         </WrapPanel>
         <WrapPanel Margin="250,10,0,0">
             <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Name:"/>
@@ -39,13 +38,13 @@
         </WrapPanel>
         <WrapPanel Margin="250,10,0,0">
             <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Email:"/>
-            <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
+            <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left" MaxLength="30"
                          Text ="" />
         </WrapPanel>
         <WrapPanel Margin="250,10,0,0">
             <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Password:"/>
             <TextBox x:Name="txtPassword" Width="146" HorizontalAlignment="Left"
-                         MaxLength="25" Text="" Foreground="White"/>
+                         MaxLength="20" Text="" Foreground="White"/>
         </WrapPanel>
         <WrapPanel Margin="250,10,0,0">
             <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Confirm Password:"/>
