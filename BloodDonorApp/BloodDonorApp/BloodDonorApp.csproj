@@ -140,6 +140,7 @@
     <Compile Include="ViewModels\Account\DonorAccountVM.cs" />
     <Compile Include="ViewModels\ApproveWindowVM.cs" />
     <Compile Include="ViewModels\CheckDonationsVM.cs" />
+    <Compile Include="ViewModels\CheckPartsWindowVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\Account\MedicAccountVM.cs" />
@@ -377,6 +378,10 @@
     <Resource Include="Images\Buttons\changeStatusButton.png" />
     <Resource Include="Images\doYou.png" />
     <Resource Include="Images\whatBlood.png" />
+    <Resource Include="Images\madeFor.png" />
+    <Resource Include="Images\plasma.png" />
+    <Resource Include="Images\platelets.png" />
+    <Resource Include="Images\redCells.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

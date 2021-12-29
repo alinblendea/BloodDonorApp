@@ -8,6 +8,7 @@ using System.Windows;
 using BloodDonorApp.Helpers;
 using BloodDonorApp.ViewModels;
 using BloodDonorApp.Views;
+
 namespace BloodDonorApp.Models.Actions
 {
     class CheckDonationsActions : BaseVM

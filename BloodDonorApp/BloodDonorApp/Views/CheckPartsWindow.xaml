@@ -3,10 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BloodDonorApp.Views"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
         mc:Ignorable="d"
-        Title="CheckPartsWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        
-    </Grid>
+        Title="Blood Donor - Check Parts" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Window.DataContext>
+        <local:CheckPartsWindowVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <TextBlock Name="txtMail" Margin="30" Width="261" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Text="[mail]" HorizontalAlignment="Left"/>
+        <WrapPanel Margin="0,-10,0,0" HorizontalAlignment="Center">
+            <Image Source="/Images/madeFor.png" Height="82" Width="574"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center" >
+            <Image Source="/Images/plasma.png" Height="81" Width="171"/>
+            <Image Source="/Images/platelets.png" Height="81" Width="194"/>
+            <Image Source="/Images/redCells.png" Height="81" Width="190"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,-10,0,0" HorizontalAlignment="Center" >
+            <TextBlock Name="txtPlasma" Text="[Refresh]" Margin="30" Width="106" Foreground="Blue" FontFamily="Times New Roman" FontSize="25" Height="33"/>
+            <TextBlock Name="txtPlatelets" Text="[Refresh]" Margin="30" Width="109" Foreground="Blue" FontFamily="Times New Roman" FontSize="25" Height="38"/>
+            <TextBlock Name="txtRedCells" Text="[Refresh]" Margin="30" Width="100" Foreground="Blue" FontFamily="Times New Roman" FontSize="25"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center">
+            <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="1" Width="128" Height="45">
+                <Image Source="/Images/Buttons/backButton.png" Width="134"></Image>
+            </Button>
+            <Button Margin="5" Command="{Binding RefreshCommand}" CommandParameter="1" Width="128" Height="45">
+                <Image Source="/Images/Buttons/refreshButton.png" Width="134"></Image>
+            </Button>
+            <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="2" Width="126" Height="45">
+                <Image Source="/Images/Buttons/exitButton.png" Width="105"></Image>
+            </Button>
+        </WrapPanel>
+    </StackPanel>
 </Window>

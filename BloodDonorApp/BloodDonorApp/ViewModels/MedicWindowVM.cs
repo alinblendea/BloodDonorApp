@@ -40,7 +40,7 @@ namespace BloodDonorApp.ViewModels
 
                 case "2":
                     MedicWindow mainWindow2 = (Application.Current.MainWindow as MedicWindow);
-                    Application.Current.MainWindow = new CheckPartsWindow();
+                    Application.Current.MainWindow = new CheckPartsWindow(mainWindow2.txtmail.Text);
                     Application.Current.MainWindow.Show();
                     mainWindow2.Close();
                     break;
