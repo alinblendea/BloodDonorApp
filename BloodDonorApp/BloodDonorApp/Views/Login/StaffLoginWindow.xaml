@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Blood Donor - Staff Login" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:StaffAccountVM/>
@@ -28,12 +28,12 @@
 
         </WrapPanel>
         <WrapPanel Margin="250,30,0,0">
-            <Label Width="168" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Email:"/>
+            <Label Width="168" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Content="Email:"/>
             <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
                          Text ="" />
         </WrapPanel>
         <WrapPanel Margin="250,10,0,0">
-            <Label Width="167" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Password:"/>
+            <Label Width="167" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Content="Password:"/>
             <TextBox x:Name="txtPassword" Width="146" HorizontalAlignment="Left"
                          MaxLength="25" Text="" Foreground="White"/>
         </WrapPanel>

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Blood Donor - Request" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:RequestFormVM/>
@@ -24,26 +24,26 @@
             <Image Source="/Images/doYou.png" Height="81" Width="678"/>
         </WrapPanel>
         <WrapPanel Margin="0,25,0,0" HorizontalAlignment="Center">
-            <TextBlock Name="txtMail" Width="261" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Text="[mail]" HorizontalAlignment="Center"/>
+            <TextBlock Name="txtMail" Width="261" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Text="[mail]" HorizontalAlignment="Center"/>
         </WrapPanel>
         <WrapPanel Margin="0,10,0,0" HorizontalAlignment="Center">
-            <Label Width="135" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Plasma:"/>
+            <Label Width="135" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Plasma:"/>
             <CheckBox x:Name="checkPlasma" Width="33" HorizontalAlignment="Left"
                         />
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center">
-            <Label Width="134" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Trombocite:"/>
+            <Label Width="134" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Trombocite:"/>
             <CheckBox x:Name="checkTrombocite" Width="31" HorizontalAlignment="Left"
                        />
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center">
-            <Label Width="148" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Globule Rosii:"/>
+            <Label Width="148" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Globule Rosii:"/>
             <CheckBox x:Name="checkGlobuleRosii" Width="46" HorizontalAlignment="Left"
                        />
         </WrapPanel>
 
         <WrapPanel Margin="0,0,0,0" HorizontalAlignment="Center">
-            <Label Width="158" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Content="Grupa Sanguina: "/>
+            <Label Width="158" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Grupa Sanguina: "/>
             <TextBox x:Name="txtGrupa" Width="61" HorizontalAlignment="Left"
                        />
         </WrapPanel>

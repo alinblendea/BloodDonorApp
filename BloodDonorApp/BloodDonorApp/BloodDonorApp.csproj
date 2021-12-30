@@ -169,6 +169,9 @@
     <Compile Include="Views\DonateWindow.xaml.cs">
       <DependentUpon>DonateWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\DonorLoginWindow.xaml.cs">
       <DependentUpon>DonorLoginWindow.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DonateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -383,6 +390,10 @@
     <Resource Include="Images\platelets.png" />
     <Resource Include="Images\redCells.png" />
     <Resource Include="Images\Buttons\xButton.png" />
+    <Resource Include="Images\Buttons\helpButton.ico" />
+    <Resource Include="Images\background2.jpg" />
+    <Resource Include="Images\backgroundMain.jpg" />
+    <Resource Include="Images\Buttons\showButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

@@ -56,6 +56,13 @@ namespace BloodDonorApp.ViewModels
                 case "4":
                     Process.GetCurrentProcess().Kill();
                     break;
+
+                case "5":
+                    MainWindow mainWindow4 = (Application.Current.MainWindow as MainWindow);
+                    Application.Current.MainWindow = new HelpWindow();
+                    Application.Current.MainWindow.Show();
+                    mainWindow4.Close();
+                    break;
             }
         }
     }

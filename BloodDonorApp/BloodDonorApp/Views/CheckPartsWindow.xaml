@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Blood Donor - Check Parts" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:CheckPartsWindowVM/>
     </Window.DataContext>
     <StackPanel>
-        <TextBlock Name="txtMail" Margin="30" Width="261" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Text="[mail]" HorizontalAlignment="Left"/>
+        <TextBlock Name="txtMail" Margin="30" Width="261" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Text="[mail]" HorizontalAlignment="Left"/>
         <WrapPanel Margin="0,-10,0,0" HorizontalAlignment="Center">
             <Image Source="/Images/madeFor.png" Height="82" Width="574"/>
         </WrapPanel>
@@ -23,9 +23,9 @@
             <Image Source="/Images/redCells.png" Height="81" Width="190"/>
         </WrapPanel>
         <WrapPanel Margin="0,-10,0,0" HorizontalAlignment="Center" >
-            <TextBlock Name="txtPlasma" Text="[Refresh]" Margin="30" Width="106" Foreground="Blue" FontFamily="Times New Roman" FontSize="25" Height="33"/>
-            <TextBlock Name="txtPlatelets" Text="[Refresh]" Margin="30" Width="109" Foreground="Blue" FontFamily="Times New Roman" FontSize="25" Height="38"/>
-            <TextBlock Name="txtRedCells" Text="[Refresh]" Margin="30" Width="100" Foreground="Blue" FontFamily="Times New Roman" FontSize="25"/>
+            <TextBlock Name="txtPlasma" Text="[Refresh]" Margin="30" Width="106" Foreground="DarkRed" FontFamily="Arial" FontSize="25" Height="33"/>
+            <TextBlock Name="txtPlatelets" Text="[Refresh]" Margin="30" Width="109" Foreground="DarkRed" FontFamily="Arial" FontSize="25" Height="38"/>
+            <TextBlock Name="txtRedCells" Text="[Refresh]" Margin="30" Width="100" Foreground="DarkRed" FontFamily="Arial" FontSize="25"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center">
             <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="1" Width="128" Height="45">

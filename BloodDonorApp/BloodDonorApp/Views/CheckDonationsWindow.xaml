@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Blood Donor - Check Donations" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:CheckDonationsVM/>
@@ -18,9 +18,9 @@
             <localConverter:CheckDonationsConvert x:Key="checkDonationsConvert" />
         </StackPanel.Resources>
         <WrapPanel>
-            <TextBlock Name="txtmail" Text="[mail]" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Height="29"/>
+            <TextBlock Name="txtmail" Text="[mail]" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Height="29"/>
             <Button Margin="15" Width="100" Height="30" Command="{Binding ShowCommand}">
-                Show
+                <Image Source="/Images/Buttons/showButton.png" Width="71"></Image>
             </Button>
             <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
                 <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>

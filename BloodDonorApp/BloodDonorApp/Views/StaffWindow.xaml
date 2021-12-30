@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Blood Donor - Staff" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:StaffWindowVM/>

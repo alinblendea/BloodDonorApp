@@ -4,12 +4,15 @@
          xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
         Title="Blood Donor" Height="450" Width="800" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/backgroundMain.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:MainWindowVM/>
     </Window.DataContext>
     <Grid>
+        <Button Margin="728,25,19.6,351" Command="{Binding OpenWindowCommand}" CommandParameter="5">
+            <Image Source="/Images/Buttons/helpButton.ico" Width="35" Height="35"></Image>
+        </Button>
         <Button Margin="197,272,465.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="1">
             <Image Source="/Images/Buttons/donorButton.png" Width="134"></Image>
         </Button>

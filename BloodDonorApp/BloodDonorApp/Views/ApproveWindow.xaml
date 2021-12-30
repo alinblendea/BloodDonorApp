@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Blood Donor - Approve" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background1.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
         <local:ApproveWindowVM/>
@@ -18,7 +18,7 @@
             <localConverter:ApproveConvert x:Key="approveConvert" />
         </StackPanel.Resources>
         <WrapPanel>
-            <Label Width="279" Foreground="Blue" FontFamily="Times New Roman" FontSize="20" Height="29" Content="Donation date (DD-MM-YYYY):"/>
+            <Label Width="288" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Height="29" Content="Donation date (DD-MM-YYYY):"/>
             <TextBox Name="txtDate" Height="30" Width="105"></TextBox>
             <Button Margin="15" Width="100" Height="30" Command="{Binding AprobareCommand}" 
                     CommandParameter="{Binding ElementName=formsGrid, Path=SelectedItem}">
