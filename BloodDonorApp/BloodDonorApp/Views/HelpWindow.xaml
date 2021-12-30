@@ -12,8 +12,13 @@
     <Grid>
         <TextBlock x:Name="txtHelp" Text="" Margin="34,38,41.6,111.4" FontSize="16" FontStyle="Italic" FontFamily="Times New Roman" Foreground="Gold"/>
 
-        <Button Margin="216,399,228.6,35.4" HorizontalAlignment="Center" Width="149" Click="Button_Click">
+        <Button Margin="216,399,228.6,35.4" HorizontalAlignment="Center" Width="149" Click="Button_Click" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/backButton.png" Width="134" Height="26"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
     </Grid>
 </Window>

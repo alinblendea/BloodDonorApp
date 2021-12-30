@@ -79,9 +79,14 @@
             <Label Name="lblMessage" Content="{Binding Message}" Height="30" FontSize="15" Foreground="Blue"/>
         </WrapPanel>
 
-        <WrapPanel>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
+        <WrapPanel HorizontalAlignment="Center">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/addButton.png" Width="90"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource medicalFormConvert}">
                         <Binding ElementName="txtCnp" Path="Text"/>
@@ -103,8 +108,13 @@
                 </Button.CommandParameter>
             </Button>
 
-            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
         </WrapPanel>
 

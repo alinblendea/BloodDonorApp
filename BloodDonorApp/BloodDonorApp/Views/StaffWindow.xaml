@@ -14,14 +14,29 @@
     </Window.DataContext>
     <Grid>
         <Image Source="/Images/whatToDo.png" HorizontalAlignment="Center" Margin="62,49,61.6,283"/>
-        <Button Margin="294,158,299.6,225" Command="{Binding OpenWindowCommand}" CommandParameter="1">
+        <Button Margin="294,158,299.6,225" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/approveDonorsButton.png" Width="200" Height="80"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="294,200,299.6,183" Command="{Binding OpenWindowCommand}" CommandParameter="2">
+        <Button Margin="294,200,299.6,183" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/changeStatusButton.png" Width="200" Height="209"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="294,303,299.6,79" Command="{Binding OpenWindowCommand}" CommandParameter="3">
+        <Button Margin="294,303,299.6,79" Command="{Binding OpenWindowCommand}" CommandParameter="3" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/logoutButton.png" Width="134"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
     </Grid>
 </Window>

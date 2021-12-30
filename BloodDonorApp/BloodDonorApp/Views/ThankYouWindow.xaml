@@ -17,11 +17,21 @@
         <TextBlock Name="txtName" HorizontalAlignment="Center" Margin="62,142,61.6,209" RenderTransformOrigin="0.5,0.5" Width="670" TextAlignment="Center" Text="[Name]" Foreground="DarkRed" FontFamily="Arial" FontSize="35"/>
         <Image Source="/Images/contacted.png" HorizontalAlignment="Center" Margin="62,182,61.6,150"/>
         <Image Source="/Images/withA.png" HorizontalAlignment="Center" Margin="62,235,149.6,117" Width="582"/>
-        <Button Margin="294,303,299.6,79" Command="{Binding OpenWindowCommand}" CommandParameter="1">
+        <Button Margin="294,303,299.6,79" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/menuButton.png" Width="134"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="294,346,299.6,36" Command="{Binding OpenWindowCommand}" CommandParameter="2">
+        <Button Margin="294,346,299.6,36" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/exitButton.png" Width="134"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
     </Grid>
 </Window>

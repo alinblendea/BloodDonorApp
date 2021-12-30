@@ -28,14 +28,29 @@
             <TextBlock Name="txtRedCells" Text="[Refresh]" Margin="30" Width="100" Foreground="DarkRed" FontFamily="Arial" FontSize="25"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center">
-            <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="1" Width="128" Height="45">
+            <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="1" Width="128" Height="45" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/backButton.png" Width="134"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
-            <Button Margin="5" Command="{Binding RefreshCommand}" CommandParameter="1" Width="128" Height="45">
+            <Button Margin="5" Command="{Binding RefreshCommand}" CommandParameter="1" Width="128" Height="45" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/refreshButton.png" Width="134"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
-            <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="2" Width="126" Height="45">
+            <Button Margin="5" Command="{Binding OpenWindowCommand}" CommandParameter="2" Width="126" Height="45" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/exitButton.png" Width="105"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
         </WrapPanel>
     </StackPanel>

@@ -21,14 +21,29 @@
             <Label Width="288" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Height="29" Content="Donation date (DD-MM-YYYY):"/>
             <TextBox Name="txtDate" Height="30" Width="105"></TextBox>
             <Button Margin="15" Width="100" Height="30" Command="{Binding AprobareCommand}" 
-                    CommandParameter="{Binding ElementName=formsGrid, Path=SelectedItem}">
+                    CommandParameter="{Binding ElementName=formsGrid, Path=SelectedItem}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/approveButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding RefreshCommand}" >
+            <Button Margin="15" Width="100" Height="30" Command="{Binding RefreshCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/refreshButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
 
         </WrapPanel>

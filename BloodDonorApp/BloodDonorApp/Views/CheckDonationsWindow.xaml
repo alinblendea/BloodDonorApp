@@ -19,16 +19,26 @@
         </StackPanel.Resources>
         <WrapPanel>
             <TextBlock Name="txtmail" Text="[mail]" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Height="29"/>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding ShowCommand}">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding ShowCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/showButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0"/>
         <DataGrid Background="LightGreen" Name="donationsGrid"  Margin="10,15,9.6,0" AutoGenerateColumns="False" Height="318"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding DonationsList}">
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding DonationsList}" BorderBrush="Black" BorderThickness="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CNP" Binding="{Binding DonorCnp}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Date}" />

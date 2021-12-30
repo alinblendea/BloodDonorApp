@@ -10,20 +10,45 @@
         <local:MainWindowVM/>
     </Window.DataContext>
     <Grid>
-        <Button Margin="728,25,19.6,351" Command="{Binding OpenWindowCommand}" CommandParameter="5">
+        <Button Margin="728,25,19.6,351" Command="{Binding OpenWindowCommand}" CommandParameter="5" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/helpButton.ico" Width="35" Height="35"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="197,272,465.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="1">
+        <Button Margin="197,272,465.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/donorButton.png" Width="134"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="333,272,320.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="2">
+        <Button Margin="333,272,320.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/medicButton.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="478,272,188.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="3">
+        <Button Margin="478,272,188.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="3" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/staffButton.png" Height="40" Width="127"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Margin="344,350,332.6,28" Command="{Binding OpenWindowCommand}" CommandParameter="4">
+        <Button Margin="344,350,332.6,28" Command="{Binding OpenWindowCommand}" CommandParameter="4" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/exitButton.png" Width="71"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
         </Button>
     </Grid>
 </Window>

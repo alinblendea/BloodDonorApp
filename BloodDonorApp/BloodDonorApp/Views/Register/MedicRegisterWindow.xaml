@@ -18,9 +18,14 @@
             <localConverter:MedicAccountConvert x:Key="accountConvert" />
         </StackPanel.Resources>
         <WrapPanel HorizontalAlignment="Right">
-            <Button Height="40" Width="40" Margin="10" Command="{Binding ExitCommand}">
+            <Button Height="40" Width="40" Margin="10" Command="{Binding ExitCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/xButton.png" Height="35" Width="35">
                 </Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
         </WrapPanel>
         <WrapPanel Margin="45,-40,59.6,0" HorizontalAlignment="Center" Height="108" Width="689">
@@ -61,8 +66,13 @@
                           MaxLength="25" Text="" Foreground="White"/>
         </WrapPanel>
         <WrapPanel  Margin="280,10,0,0">
-            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding AddCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/registerButton.png" Width="90"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource accountConvert}">
                         <Binding ElementName="txtMail" Path="Text"/>
@@ -74,8 +84,13 @@
                 </Button.CommandParameter>
             </Button>
 
-            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}">
+            <Button Margin="15" Width="100" Height="30" Command="{Binding BackCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/backButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
         </WrapPanel>
     </StackPanel>
