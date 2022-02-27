@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f27eaa741e9c4bf581a3588953a0220c" Name="Diagram1">
-        <EntityTypeShape EntityType="BloodDonorModel.Cerere_Donare" Width="1.5" PointX="5.75" PointY="15.375" IsExpanded="true" />
+      <Diagram DiagramId="74df6c7c0d284718b7a1d70480e33b30" Name="Diagram1">
+        <EntityTypeShape EntityType="BloodDonorModel.Cerere_Donare" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Chestionar_Medical" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Componente_Punga" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Cont" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Donare" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Donator" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BloodDonorModel.Medic" Width="1.5" PointX="8" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="BloodDonorModel.Pacient" Width="1.5" PointX="8" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodDonorModel.Medic" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodDonorModel.Pacient" Width="1.5" PointX="8" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Personal_Recoltare" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Punga_Sange" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BloodDonorModel.Spital" Width="1.5" PointX="5.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BloodDonorModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="BloodDonorModel.FK_Pacient_Cerere_Donare" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BloodDonorModel.Spital" Width="1.5" PointX="5.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodDonorModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="BloodDonorModel.FK_Chestionar_Medical_Donator" ManuallyRouted="false" />
         <AssociationConnector Association="BloodDonorModel.FK_Componente_Punga_Punga_Sange" ManuallyRouted="false" />
         <AssociationConnector Association="BloodDonorModel.FK_Medic_Cont" ManuallyRouted="false" />

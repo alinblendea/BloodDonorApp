@@ -46,6 +46,13 @@ namespace BloodDonorApp.ViewModels
                     break;
 
                 case "3":
+                    MedicWindow mainWindow3 = (Application.Current.MainWindow as MedicWindow);
+                    Application.Current.MainWindow = new PatientAddWindow(mainWindow3.txtmail.Text);
+                    Application.Current.MainWindow.Show();
+                    mainWindow3.Close();
+                    break;
+
+                case "4":
                     MedicWindow mainWindow = (Application.Current.MainWindow as MedicWindow);
                     Application.Current.MainWindow = new MedicLoginWindow();
                     Application.Current.MainWindow.Show();

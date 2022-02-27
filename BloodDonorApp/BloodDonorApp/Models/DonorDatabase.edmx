@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id_cerere" />
           </Key>
-          <Property Name="id_cerere" Type="int" Nullable="false" />
+          <Property Name="id_cerere" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="trombocite" Type="bit" Nullable="false" />
@@ -90,7 +90,7 @@
           <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="id_spital" Type="int" Nullable="false" />
-          <Property Name="id_cerere" Type="int" Nullable="false" />
+          <Property Name="nume_spital" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Personal_Recoltare">
           <Key>
@@ -186,18 +186,6 @@
             </Principal>
             <Dependent Role="Medic">
               <PropertyRef Name="id_spital" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pacient_Cerere_Donare">
-          <End Role="Cerere_Donare" Type="Self.Cerere_Donare" Multiplicity="1" />
-          <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cerere_Donare">
-              <PropertyRef Name="id_cerere" />
-            </Principal>
-            <Dependent Role="Pacient">
-              <PropertyRef Name="id_cerere" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -321,10 +309,6 @@
             <End Role="Spital" EntitySet="Spital" />
             <End Role="Medic" EntitySet="Medic" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pacient_Cerere_Donare" Association="Self.FK_Pacient_Cerere_Donare">
-            <End Role="Cerere_Donare" EntitySet="Cerere_Donare" />
-            <End Role="Pacient" EntitySet="Pacient" />
-          </AssociationSet>
           <AssociationSet Name="FK_Pacient_Spital" Association="Self.FK_Pacient_Spital">
             <End Role="Spital" EntitySet="Spital" />
             <End Role="Pacient" EntitySet="Pacient" />
@@ -351,14 +335,13 @@
           <Key>
             <PropertyRef Name="id_cerere" />
           </Key>
-          <Property Name="id_cerere" Type="Int32" Nullable="false" />
+          <Property Name="id_cerere" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="trombocite" Type="Boolean" Nullable="false" />
           <Property Name="globule_rosii" Type="Boolean" Nullable="false" />
           <Property Name="plasma" Type="Boolean" Nullable="false" />
           <Property Name="id_medic" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pacients" Relationship="Self.FK_Pacient_Cerere_Donare" FromRole="Cerere_Donare" ToRole="Pacient" />
         </EntityType>
         <EntityType Name="Chestionar_Medical">
           <Key>
@@ -443,8 +426,7 @@
           <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_spital" Type="Int32" Nullable="false" />
-          <Property Name="id_cerere" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cerere_Donare" Relationship="Self.FK_Pacient_Cerere_Donare" FromRole="Pacient" ToRole="Cerere_Donare" />
+          <Property Name="nume_spital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Spital" Relationship="Self.FK_Pacient_Spital" FromRole="Pacient" ToRole="Spital" />
         </EntityType>
         <EntityType Name="Personal_Recoltare">
@@ -491,18 +473,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_Pacient_Cerere_Donare">
-          <End Role="Cerere_Donare" Type="Self.Cerere_Donare" Multiplicity="1" />
-          <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cerere_Donare">
-              <PropertyRef Name="id_cerere" />
-            </Principal>
-            <Dependent Role="Pacient">
-              <PropertyRef Name="id_cerere" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Chestionar_Medical_Donator">
           <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
           <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="*" />
@@ -624,10 +594,6 @@
           <EntitySet Name="Punga_Sange" EntityType="Self.Punga_Sange" />
           <EntitySet Name="Spitals" EntityType="Self.Spital" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_Pacient_Cerere_Donare" Association="Self.FK_Pacient_Cerere_Donare">
-            <End Role="Cerere_Donare" EntitySet="Cerere_Donare" />
-            <End Role="Pacient" EntitySet="Pacients" />
-          </AssociationSet>
           <AssociationSet Name="FK_Chestionar_Medical_Donator" Association="Self.FK_Chestionar_Medical_Donator">
             <End Role="Donator" EntitySet="Donators" />
             <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />
@@ -811,7 +777,7 @@
                 <ScalarProperty Name="nume" ColumnName="nume" />
                 <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
                 <ScalarProperty Name="id_spital" ColumnName="id_spital" />
-                <ScalarProperty Name="id_cerere" ColumnName="id_cerere" />
+                <ScalarProperty Name="nume_spital" ColumnName="nume_spital" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

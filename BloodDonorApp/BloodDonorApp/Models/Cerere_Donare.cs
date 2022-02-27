@@ -14,19 +14,12 @@ namespace BloodDonorApp.Models
     
     public partial class Cerere_Donare
     {
-        public Cerere_Donare()
-        {
-            this.Pacients = new HashSet<Pacient>();
-        }
-    
-        public int id_cerere { get; set; }
+        public string id_cerere { get; set; }
         public string status { get; set; }
         public string grupa_sanguina { get; set; }
         public bool trombocite { get; set; }
         public bool globule_rosii { get; set; }
         public bool plasma { get; set; }
         public int id_medic { get; set; }
-    
-        public virtual ICollection<Pacient> Pacients { get; set; }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\
 BloodDonorApp
 none
 false
 DEBUG;TRACE
-D:\Facultate Alin\Anul III\Sem I\Inginerie Software\Proiect\RNABloodDonorApp\BloodDonorApp\BloodDonorApp\App.xaml
-211700911446
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\App.xaml
+22-1030384060
 259362905
-772071264067
-18-526727460
-MainWindow.xaml;Views\ApproveWindow.xaml;Views\ChangeStatusWindow.xaml;Views\CheckDonationsWindow.xaml;Views\CheckPartsWindow.xaml;Views\DonateWindow.xaml;Views\HelpWindow.xaml;Views\Login\DonorLoginWindow.xaml;Views\Login\MedicLoginWindow.xaml;Views\Login\StaffLoginWindow.xaml;Views\Register\DonorRegisterWindow.xaml;Views\DonorWindow.xaml;Views\Register\MedicRegisterWindow.xaml;Views\MedicWindow.xaml;Views\LoginMenu\DonorPreLoginWindow.xaml;Views\LoginMenu\MedicPreLoginWindow.xaml;Views\LoginMenu\StaffPreLoginWindow.xaml;Views\RequestWindow.xaml;Views\Register\StaffRegisterWindow.xaml;Views\StaffWindow.xaml;Views\ThankYouWindow.xaml;
+81-2001916460
+18-1995966708
+MainWindow.xaml;Views\ApproveWindow.xaml;Views\ChangeStatusWindow.xaml;Views\CheckDonationsWindow.xaml;Views\CheckPartsWindow.xaml;Views\DonateWindow.xaml;Views\HelpWindow.xaml;Views\Login\DonorLoginWindow.xaml;Views\Login\MedicLoginWindow.xaml;Views\Login\StaffLoginWindow.xaml;Views\PatientAddWindow.xaml;Views\Register\DonorRegisterWindow.xaml;Views\DonorWindow.xaml;Views\Register\MedicRegisterWindow.xaml;Views\MedicWindow.xaml;Views\LoginMenu\DonorPreLoginWindow.xaml;Views\LoginMenu\MedicPreLoginWindow.xaml;Views\LoginMenu\StaffPreLoginWindow.xaml;Views\RequestWindow.xaml;Views\Register\StaffRegisterWindow.xaml;Views\StaffWindow.xaml;Views\ThankYouWindow.xaml;
 
 False
 

@@ -69,6 +69,7 @@
     <Compile Include="Converters\CheckDonationsConvert.cs" />
     <Compile Include="Converters\MedicalFormConvert.cs" />
     <Compile Include="Converters\Account\StaffAccountConvert.cs" />
+    <Compile Include="Converters\PatientConvert.cs" />
     <Compile Include="Converters\RequestFormConvert.cs" />
     <Compile Include="Converters\StatusConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Models\Actions\CheckDonationsActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
     <Compile Include="Models\Actions\Account\StaffAccountActions.cs" />
+    <Compile Include="Models\Actions\PatientActions.cs" />
     <Compile Include="Models\Actions\RequestFormActions.cs" />
     <Compile Include="Models\Actions\StatusActions.cs" />
     <Compile Include="Models\Cerere_Donare.cs">
@@ -149,6 +151,7 @@
     <Compile Include="ViewModels\DonorPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\MedicPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\Account\StaffAccountVM.cs" />
+    <Compile Include="ViewModels\PatientVM.cs" />
     <Compile Include="ViewModels\RequestFormVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
@@ -180,6 +183,9 @@
     </Compile>
     <Compile Include="Views\Login\StaffLoginWindow.xaml.cs">
       <DependentUpon>StaffLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientAddWindow.xaml.cs">
+      <DependentUpon>PatientAddWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register\DonorRegisterWindow.xaml.cs">
       <DependentUpon>DonorRegisterWindow.xaml</DependentUpon>
@@ -259,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Login\StaffLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PatientAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,6 +404,12 @@
     <Resource Include="Images\background2.jpg" />
     <Resource Include="Images\backgroundMain.jpg" />
     <Resource Include="Images\Buttons\showButton.png" />
+    <Resource Include="Images\Buttons\addPatientButton.png" />
+    <Resource Include="Images\enterPatient.png" />
+    <Resource Include="Images\orJust.png" />
+    <Resource Include="Images\Buttons\deleteButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

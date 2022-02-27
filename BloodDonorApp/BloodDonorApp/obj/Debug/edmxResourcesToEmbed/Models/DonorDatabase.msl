@@ -92,7 +92,7 @@
           <ScalarProperty Name="nume" ColumnName="nume" />
           <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
           <ScalarProperty Name="id_spital" ColumnName="id_spital" />
-          <ScalarProperty Name="id_cerere" ColumnName="id_cerere" />
+          <ScalarProperty Name="nume_spital" ColumnName="nume_spital" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
