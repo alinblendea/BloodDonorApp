@@ -21,6 +21,27 @@ namespace BloodDonorApp.Models.Actions
             this.hospitalContext = hospitalContext;
         }
 
+        public void RefreshMethod(object obj)
+        {
+
+            HospitalAddWindow mainWindow1 = (Application.Current.MainWindow as HospitalAddWindow);
+            List<Spital> hospitals = context.Spitals.ToList();
+            mainWindow1.comboHospital.Items.Clear();
+            bool passedFirst = false;
+
+            foreach (Spital spital in hospitals)
+            {
+                if (passedFirst)
+                {
+                    mainWindow1.comboHospital.Items.Add(spital.denumire);
+                }
+                else
+                {
+                    passedFirst = true;
+                }
+            }
+        }
+
         public void AddMethod(object obj)
         {
             HospitalVM hospitalVM = obj as HospitalVM;
