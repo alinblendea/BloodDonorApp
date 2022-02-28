@@ -23,34 +23,38 @@
         <WrapPanel Margin="0,-30,0,0" HorizontalAlignment="Center">
             <Image Source="/Images/orJust.png" Height="81" Width="678"/>
         </WrapPanel>
-        <WrapPanel Margin="0,25,0,0" HorizontalAlignment="Center">
+        <WrapPanel Margin="0,15,0,0" HorizontalAlignment="Center">
             <TextBlock Name="txtMail" Width="261" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Text="[mail]" HorizontalAlignment="Center"/>
         </WrapPanel>
 
         <WrapPanel Margin="0,10,0,0" HorizontalAlignment="Center">
-            <Label Width="82" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Nume:"/>
+            <Label Width="82" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Nume:" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="txtName" Width="141" HorizontalAlignment="Left"
                         />
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center">
-            <Label Width="82" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="CNP:"/>
+            <Label Width="82" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="CNP:" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="txtCnp" Width="141" HorizontalAlignment="Left"
                        />
         </WrapPanel>
-        <WrapPanel HorizontalAlignment="Center">
-            <Label Width="82" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Spital:"/>
-            <TextBox x:Name="txtHospital" Width="141" HorizontalAlignment="Left"
+        <WrapPanel HorizontalAlignment="Center" Height="64" Margin="156,0,109.6,0" Width="528">
+            <Label Width="211" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Spital:" HorizontalContentAlignment="Right" Height="37"/>
+            <ComboBox x:Name="txtHospital" Width="140" HorizontalAlignment="Left" Height="34"
                        />
+            <Button Margin="15" Width="100" Height="30" Command="{Binding RefreshCommand}" BorderBrush="Black" BorderThickness="2">
+                <Image Source="/Images/Buttons/refreshButton.png" Width="71"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </WrapPanel>
 
         <WrapPanel Margin="0,0,0,0" HorizontalAlignment="Center">
             <Label Width="158" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Grupa Sanguina: "/>
             <TextBox x:Name="txtGrupa" Width="64" HorizontalAlignment="Left"
                        />
-        </WrapPanel>
-
-        <WrapPanel HorizontalAlignment="Center">
-            <Label Name="lblMessage" Content="{Binding Message}" Height="30" FontSize="15" Foreground="Blue"/>
         </WrapPanel>
 
         <WrapPanel HorizontalAlignment="Center">
@@ -65,7 +69,7 @@
                     <MultiBinding Converter="{StaticResource patientConvert}">
                         <Binding ElementName="txtCnp" Path="Text"/>
                         <Binding ElementName="txtName" Path="Text"/>
-                        <Binding ElementName="txtHospital" Path="Text"/>
+                        <Binding ElementName="txtHospital" Path="SelectedItem"/>
                         <Binding ElementName="txtGrupa" Path="Text"/>
                     </MultiBinding>
                 </Button.CommandParameter>

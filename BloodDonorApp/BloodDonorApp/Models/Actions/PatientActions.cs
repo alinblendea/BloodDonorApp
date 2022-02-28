@@ -21,56 +21,85 @@ namespace BloodDonorApp.Models.Actions
             this.patientContext = patientContext;
         }
 
+        public void RefreshMethod(object obj)
+        {
+            PatientAddWindow mainWindow1 = (Application.Current.MainWindow as PatientAddWindow);
+            List<Spital> hospitals = context.Spitals.ToList();
+            mainWindow1.txtHospital.Items.Clear();
+            bool passedFirst = false;
+
+            foreach (Spital spital in hospitals)
+            {
+                if (passedFirst)
+                {
+                    mainWindow1.txtHospital.Items.Add(spital.denumire);
+                }
+                else
+                {
+                    passedFirst = true;
+                }
+            }
+        }
+
         public void AddMethod(object obj)
         {
             PatientVM patientVM = obj as PatientVM;
             if (patientVM != null)
             {
-                if (String.IsNullOrEmpty(patientVM.Name)
-                    || String.IsNullOrEmpty(patientVM.PatientCnp)
-                    || String.IsNullOrEmpty(patientVM.Grupa)
-                    || String.IsNullOrEmpty(patientVM.HospitalName))
+                PatientAddWindow mainWindow2 = (Application.Current.MainWindow as PatientAddWindow);
+                if(String.IsNullOrEmpty(mainWindow2.txtHospital.Text))
                 {
-                    patientContext.Message = "Toate datele trebuie completate.";
+                    patientContext.Message = "Selectati spitalul din care face parte pacientul.";
                     MessageBox.Show(patientContext.Message);
                 }
                 else
                 {
-                    bool alreadyExists = false;
-                    List<Pacient> patients = context.Pacients.ToList();
-
-                    foreach (Pacient patient in patients)
+                    if (String.IsNullOrEmpty(patientVM.Name)
+                        || String.IsNullOrEmpty(patientVM.PatientCnp)
+                        || String.IsNullOrEmpty(patientVM.Grupa)
+                        || String.IsNullOrEmpty(patientVM.HospitalName))
                     {
-                        if (patient.cnp_pacient.Equals(patientVM.PatientCnp))
-                        {
-                            alreadyExists = true;
-                            break;
-                        }
-                    }
-                    if (!alreadyExists)
-                    {
-                        context.Pacients.Add(new Pacient() { cnp_pacient = patientVM.PatientCnp, nume = patientVM.Name, grupa_sanguina = patientVM.Grupa, id_spital = 0, nume_spital = patientVM.HospitalName });
-
-                        PatientAddWindow mainWindow = (Application.Current.MainWindow as PatientAddWindow);
-                        List<Medic> medics = context.Medics.ToList();
-                        int idMedic = 0;
-                        foreach (Medic medic in medics)
-                        {
-                            if (medic.email.Equals(mainWindow.txtMail.Text))
-                            {
-                                idMedic = medic.id_medic;
-                            }
-                        }
-
-                        context.Cerere_Donare.Add(new Cerere_Donare() { id_cerere = context.Cerere_Donare.OrderByDescending(p => p.id_cerere).FirstOrDefault().id_cerere + 1, status = "NOT DONE", grupa_sanguina = patientVM.Grupa, trombocite = true, globule_rosii = true, plasma = true, id_medic = idMedic });
-                        context.SaveChanges();
-                        MessageBox.Show("Pacient inregistrat cu succes! O cerere pentru sange de grupa " + patientVM.Grupa + " a fost trimisa.");
-                        patientContext.Message = "";
+                        patientContext.Message = "Toate datele trebuie completate.";
+                        MessageBox.Show(patientContext.Message);
                     }
                     else
                     {
-                        patientContext.Message = "Pacientul se afla deja in baza de date.";
-                        MessageBox.Show(patientContext.Message);
+                        bool alreadyExists = false;
+                        List<Pacient> patients = context.Pacients.ToList();
+
+                        foreach (Pacient patient in patients)
+                        {
+                            if (patient.cnp_pacient.Equals(patientVM.PatientCnp))
+                            {
+                                alreadyExists = true;
+                                break;
+                            }
+                        }
+                        if (!alreadyExists)
+                        {
+                            context.Pacients.Add(new Pacient() { cnp_pacient = patientVM.PatientCnp, nume = patientVM.Name, grupa_sanguina = patientVM.Grupa, id_spital = 0, nume_spital = patientVM.HospitalName });
+
+                            PatientAddWindow mainWindow = (Application.Current.MainWindow as PatientAddWindow);
+                            List<Medic> medics = context.Medics.ToList();
+                            int idMedic = 0;
+                            foreach (Medic medic in medics)
+                            {
+                                if (medic.email.Equals(mainWindow.txtMail.Text))
+                                {
+                                    idMedic = medic.id_medic;
+                                }
+                            }
+
+                            context.Cerere_Donare.Add(new Cerere_Donare() { id_cerere = context.Cerere_Donare.OrderByDescending(p => p.id_cerere).FirstOrDefault().id_cerere + 1, status = "NOT DONE", grupa_sanguina = patientVM.Grupa, trombocite = true, globule_rosii = true, plasma = true, id_medic = idMedic });
+                            context.SaveChanges();
+                            MessageBox.Show("Pacient inregistrat cu succes! O cerere pentru sange de grupa " + patientVM.Grupa + " a fost trimisa.");
+                            patientContext.Message = "";
+                        }
+                        else
+                        {
+                            patientContext.Message = "Pacientul se afla deja in baza de date.";
+                            MessageBox.Show(patientContext.Message);
+                        }
                     }
                 }
             }

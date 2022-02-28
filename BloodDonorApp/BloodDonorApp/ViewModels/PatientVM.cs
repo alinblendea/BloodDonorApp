@@ -109,6 +109,19 @@ namespace BloodDonorApp.ViewModels
 
         #region Command Members
 
+        private ICommand refreshCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                if (refreshCommand == null)
+                {
+                    refreshCommand = new RelayCommand(pAct.RefreshMethod);
+                }
+                return refreshCommand;
+            }
+        }
+
         private ICommand addCommand;
         public ICommand AddCommand
         {
