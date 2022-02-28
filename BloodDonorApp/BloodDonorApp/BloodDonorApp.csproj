@@ -422,6 +422,8 @@
   <ItemGroup>
     <Resource Include="Images\Buttons\addHospitalButton.png" />
     <Resource Include="Images\enterHospital.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

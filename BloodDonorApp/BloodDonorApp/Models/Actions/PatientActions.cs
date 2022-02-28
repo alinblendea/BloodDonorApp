@@ -78,7 +78,41 @@ namespace BloodDonorApp.Models.Actions
 
         public void DeleteMethod(object obj)
         {
-            
+            PatientVM patientVM = obj as PatientVM;
+            if (patientVM != null)
+            {
+                if (String.IsNullOrEmpty(patientVM.PatientCnp))
+                {
+                    patientContext.Message = "CNP-ul pacientului trebuie introdus pentru stergere.";
+                    MessageBox.Show(patientContext.Message);
+                }
+                else
+                {
+                    bool alreadyExists = false;
+                    List<Pacient> patients = context.Pacients.ToList();
+
+                    foreach (Pacient patient in patients)
+                    {
+                        if (patient.cnp_pacient.Equals(patientVM.PatientCnp))
+                        {
+                            alreadyExists = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyExists)
+                    {
+                        patientContext.Message = "Pacientul cu CNP " + patientVM.PatientCnp + " nu poate fi sters pentru ca nu se afla in baza de date.";
+                        MessageBox.Show(patientContext.Message);
+                    }
+                    else
+                    {
+                        context.DeletePatientByCNP(patientVM.PatientCnp);
+                        context.SaveChanges();
+                        patientContext.Message = "";
+                        MessageBox.Show("Pacientul cu CNP " + patientVM.PatientCnp + " a fost sters din baza de date.");
+                    }
+                }
+            }
         }
 
         public void BackMethod(object obj)

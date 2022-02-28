@@ -67,6 +67,15 @@ namespace BloodDonorApp.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ApproveForm", donorCnpParameter, approveParameter);
         }
     
+        public virtual int DeletePatientByCNP(string patientCnp)
+        {
+            var patientCnpParameter = patientCnp != null ?
+                new ObjectParameter("PatientCnp", patientCnp) :
+                new ObjectParameter("PatientCnp", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeletePatientByCNP", patientCnpParameter);
+        }
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?

@@ -24,7 +24,6 @@ namespace BloodDonorApp.ViewModels
         private string grupa_sanguina;
         private string nume_spital;
         private int id_spital;
-        private int id_cerere;
         private string message;
 
         #region Data Members

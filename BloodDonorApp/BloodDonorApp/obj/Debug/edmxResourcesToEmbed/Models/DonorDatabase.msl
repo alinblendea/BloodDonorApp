@@ -139,6 +139,7 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="ApproveDonation" FunctionName="BloodDonorModel.Store.ApproveDonation" />
     <FunctionImportMapping FunctionImportName="ApproveForm" FunctionName="BloodDonorModel.Store.ApproveForm" />
+    <FunctionImportMapping FunctionImportName="DeletePatientByCNP" FunctionName="BloodDonorModel.Store.DeletePatientByCNP" />
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BloodDonorModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BloodDonorModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BloodDonorModel.Store.sp_dropdiagram" />

@@ -245,6 +245,9 @@
           <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
           <Parameter Name="Approve" Type="bit" Mode="In" />
         </Function>
+        <Function Name="DeletePatientByCNP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatientCnp" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -638,6 +641,9 @@
             <Parameter Name="DonorCnp" Mode="In" Type="String" />
             <Parameter Name="Approve" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="DeletePatientByCNP">
+            <Parameter Name="PatientCnp" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -824,6 +830,7 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ApproveDonation" FunctionName="BloodDonorModel.Store.ApproveDonation" />
           <FunctionImportMapping FunctionImportName="ApproveForm" FunctionName="BloodDonorModel.Store.ApproveForm" />
+          <FunctionImportMapping FunctionImportName="DeletePatientByCNP" FunctionName="BloodDonorModel.Store.DeletePatientByCNP" />
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BloodDonorModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BloodDonorModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BloodDonorModel.Store.sp_dropdiagram" />
