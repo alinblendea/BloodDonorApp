@@ -46,6 +46,13 @@ namespace BloodDonorApp.ViewModels
                     break;
 
                 case "3":
+                    StaffWindow mainWindow3 = (Application.Current.MainWindow as StaffWindow);
+                    Application.Current.MainWindow = new HospitalAddWindow();
+                    Application.Current.MainWindow.Show();
+                    mainWindow3.Close();
+                    break;
+
+                case "4":
                     StaffWindow mainWindow = (Application.Current.MainWindow as StaffWindow);
                     Application.Current.MainWindow = new StaffLoginWindow();
                     Application.Current.MainWindow.Show();
