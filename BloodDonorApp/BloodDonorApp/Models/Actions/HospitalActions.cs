@@ -27,18 +27,10 @@ namespace BloodDonorApp.Models.Actions
             HospitalAddWindow mainWindow1 = (Application.Current.MainWindow as HospitalAddWindow);
             List<Spital> hospitals = context.Spitals.ToList();
             mainWindow1.comboHospital.Items.Clear();
-            bool passedFirst = false;
 
             foreach (Spital spital in hospitals)
-            {
-                if (passedFirst)
-                {
-                    mainWindow1.comboHospital.Items.Add(spital.denumire);
-                }
-                else
-                {
-                    passedFirst = true;
-                }
+            {                    
+                mainWindow1.comboHospital.Items.Add(spital.denumire);
             }
         }
 

@@ -26,18 +26,10 @@ namespace BloodDonorApp.Models.Actions
             PatientAddWindow mainWindow1 = (Application.Current.MainWindow as PatientAddWindow);
             List<Spital> hospitals = context.Spitals.ToList();
             mainWindow1.txtHospital.Items.Clear();
-            bool passedFirst = false;
 
             foreach (Spital spital in hospitals)
             {
-                if (passedFirst)
-                {
-                    mainWindow1.txtHospital.Items.Add(spital.denumire);
-                }
-                else
-                {
-                    passedFirst = true;
-                }
+                mainWindow1.txtHospital.Items.Add(spital.denumire);
             }
         }
 
@@ -77,7 +69,18 @@ namespace BloodDonorApp.Models.Actions
                         }
                         if (!alreadyExists)
                         {
-                            context.Pacients.Add(new Pacient() { cnp_pacient = patientVM.PatientCnp, nume = patientVM.Name, grupa_sanguina = patientVM.Grupa, id_spital = 0, nume_spital = patientVM.HospitalName });
+                            int idSpital = 1;
+                            List<Spital> spitale = context.Spitals.ToList();
+
+                            foreach(Spital spital in spitale)
+                            {
+                                if(spital.denumire == patientVM.HospitalName)
+                                {
+                                    idSpital = spital.id_spital;
+                                }
+                            }
+
+                            context.Pacients.Add(new Pacient() { cnp_pacient = patientVM.PatientCnp, nume = patientVM.Name, grupa_sanguina = patientVM.Grupa, id_spital = idSpital, nume_spital = patientVM.HospitalName });
 
                             PatientAddWindow mainWindow = (Application.Current.MainWindow as PatientAddWindow);
                             List<Medic> medics = context.Medics.ToList();
