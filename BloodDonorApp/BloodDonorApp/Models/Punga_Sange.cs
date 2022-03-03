@@ -19,6 +19,7 @@ namespace BloodDonorApp.Models
         public string grupa_sanguina { get; set; }
         public string cnp_donator { get; set; }
         public int id_personal { get; set; }
+        public string nume_pacient { get; set; }
     
         public virtual Componente_Punga Componente_Punga { get; set; }
         public virtual Donator Donator { get; set; }

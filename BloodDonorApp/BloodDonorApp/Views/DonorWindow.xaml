@@ -23,7 +23,7 @@
             </Button.Resources>
         </Button>
         <Button Margin="294,200,299.6,183" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/seeDonationsButton.png" Width="200" Height="76"></Image>
+            <Image Source="/Images/Buttons/seeDonationsButton.png" Width="190" Height="27"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>

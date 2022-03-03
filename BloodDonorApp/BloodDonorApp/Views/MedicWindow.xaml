@@ -15,7 +15,7 @@
     <Grid>
         <Image Source="/Images/whatToDo.png" HorizontalAlignment="Center" Margin="62,49,61.6,283"/>
         <Button Margin="294,158,299.6,225" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/requestButton.png" Width="200" Height="72"></Image>
+            <Image Source="/Images/Buttons/requestButton.png" Width="190" Height="27"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>
@@ -23,7 +23,7 @@
             </Button.Resources>
         </Button>
         <Button Margin="294,200,299.6,183" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/seeNeededPartsButton.png" Width="200" Height="70"></Image>
+            <Image Source="/Images/Buttons/seeNeededPartsButton.png" Width="190" Height="27"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>
@@ -31,7 +31,7 @@
             </Button.Resources>
         </Button>
         <Button Margin="294,242,299.6,141" Command="{Binding OpenWindowCommand}" CommandParameter="3" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/addPatientButton.png" Width="190" Height="37"></Image>
+            <Image Source="/Images/Buttons/addPatientButton.png" Width="190" Height="27"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>

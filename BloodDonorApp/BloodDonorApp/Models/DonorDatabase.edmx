@@ -16,6 +16,7 @@
           <Property Name="globule_rosii" Type="bit" Nullable="false" />
           <Property Name="plasma" Type="bit" Nullable="false" />
           <Property Name="id_medic" Type="int" Nullable="false" />
+          <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Chestionar_Medical">
           <Key>
@@ -32,6 +33,7 @@
           <Property Name="alte_boli" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="aprobat" Type="bit" Nullable="false" />
           <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Componente_Punga">
           <Key>
@@ -60,6 +62,7 @@
           <Property Name="isDone" Type="bit" Nullable="false" />
           <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Donator">
           <Key>
@@ -110,6 +113,7 @@
           <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="id_personal" Type="int" Nullable="false" />
+          <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Spital">
           <Key>
@@ -345,6 +349,7 @@
           <Property Name="globule_rosii" Type="Boolean" Nullable="false" />
           <Property Name="plasma" Type="Boolean" Nullable="false" />
           <Property Name="id_medic" Type="Int32" Nullable="false" />
+          <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Chestionar_Medical">
           <Key>
@@ -361,6 +366,7 @@
           <Property Name="alte_boli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aprobat" Type="Boolean" Nullable="false" />
           <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Donator" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Chestionar_Medical" ToRole="Donator" />
         </EntityType>
         <EntityType Name="Componente_Punga">
@@ -393,6 +399,7 @@
           <Property Name="isDone" Type="Boolean" Nullable="false" />
           <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
         </EntityType>
         <EntityType Name="Donator">
@@ -452,6 +459,7 @@
           <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_personal" Type="Int32" Nullable="false" />
+          <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Componente_Punga" Relationship="Self.FK_Componente_Punga_Punga_Sange" FromRole="Punga_Sange" ToRole="Componente_Punga" />
           <NavigationProperty Name="Donator" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Punga_Sange" ToRole="Donator" />
           <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Punga_Sange_Personal_Recoltare" FromRole="Punga_Sange" ToRole="Personal_Recoltare" />
@@ -702,6 +710,7 @@
                 <ScalarProperty Name="globule_rosii" ColumnName="globule_rosii" />
                 <ScalarProperty Name="plasma" ColumnName="plasma" />
                 <ScalarProperty Name="id_medic" ColumnName="id_medic" />
+                <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -719,6 +728,7 @@
                 <ScalarProperty Name="alte_boli" ColumnName="alte_boli" />
                 <ScalarProperty Name="aprobat" ColumnName="aprobat" />
                 <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
+                <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -750,6 +760,7 @@
                 <ScalarProperty Name="isDone" ColumnName="isDone" />
                 <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -805,6 +816,7 @@
                 <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
                 <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
                 <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+                <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

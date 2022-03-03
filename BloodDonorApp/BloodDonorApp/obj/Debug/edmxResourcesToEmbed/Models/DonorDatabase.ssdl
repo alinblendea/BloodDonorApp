@@ -11,6 +11,7 @@
     <Property Name="globule_rosii" Type="bit" Nullable="false" />
     <Property Name="plasma" Type="bit" Nullable="false" />
     <Property Name="id_medic" Type="int" Nullable="false" />
+    <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Chestionar_Medical">
     <Key>
@@ -27,6 +28,7 @@
     <Property Name="alte_boli" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="aprobat" Type="bit" Nullable="false" />
     <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Componente_Punga">
     <Key>
@@ -55,6 +57,7 @@
     <Property Name="isDone" Type="bit" Nullable="false" />
     <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Donator">
     <Key>
@@ -105,6 +108,7 @@
     <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="id_personal" Type="int" Nullable="false" />
+    <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Spital">
     <Key>

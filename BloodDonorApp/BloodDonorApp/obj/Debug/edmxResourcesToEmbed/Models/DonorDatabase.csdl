@@ -11,6 +11,7 @@
     <Property Name="globule_rosii" Type="Boolean" Nullable="false" />
     <Property Name="plasma" Type="Boolean" Nullable="false" />
     <Property Name="id_medic" Type="Int32" Nullable="false" />
+    <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Chestionar_Medical">
     <Key>
@@ -27,6 +28,7 @@
     <Property Name="alte_boli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="aprobat" Type="Boolean" Nullable="false" />
     <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Chestionar_Medical" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Componente_Punga">
@@ -59,6 +61,7 @@
     <Property Name="isDone" Type="Boolean" Nullable="false" />
     <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Donator">
@@ -118,6 +121,7 @@
     <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="id_personal" Type="Int32" Nullable="false" />
+    <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Componente_Punga" Relationship="Self.FK_Componente_Punga_Punga_Sange" FromRole="Punga_Sange" ToRole="Componente_Punga" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Punga_Sange" ToRole="Donator" />
     <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Punga_Sange_Personal_Recoltare" FromRole="Punga_Sange" ToRole="Personal_Recoltare" />

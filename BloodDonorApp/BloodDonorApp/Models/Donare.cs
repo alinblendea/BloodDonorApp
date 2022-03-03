@@ -19,6 +19,7 @@ namespace BloodDonorApp.Models
         public bool isDone { get; set; }
         public string cnp_donator { get; set; }
         public string email { get; set; }
+        public string nume_pacient { get; set; }
     
         public virtual Donator Donator { get; set; }
     }

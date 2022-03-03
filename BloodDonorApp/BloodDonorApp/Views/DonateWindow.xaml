@@ -71,8 +71,11 @@
             <CheckBox x:Name="checkConsumGrasimi" Width="28" HorizontalAlignment="Left"
                         />
             <Label Width="100" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Tratament:"/>
-            <CheckBox x:Name="checkTratament" Width="146" HorizontalAlignment="Left"
+            <CheckBox x:Name="checkTratament" Width="40" HorizontalAlignment="Left"
                        />
+            <Label Width="205" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="(OPTIONAL) Pacient:"/>
+            <TextBox x:Name="txtPacient" Width="112" HorizontalAlignment="Left" Height="28"
+                        />
         </WrapPanel>
 
         <WrapPanel>
@@ -104,6 +107,7 @@
                         <Binding ElementName="checkSarcina" Path="IsChecked"/>
                         <Binding ElementName="checkConsumGrasimi" Path="IsChecked"/>
                         <Binding ElementName="checkTratament" Path="IsChecked"/>
+                        <Binding ElementName="txtPacient" Path="Text"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>

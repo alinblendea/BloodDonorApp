@@ -36,6 +36,7 @@ namespace BloodDonorApp.ViewModels
         private bool sarcina;
         private bool grasimi;
         private int id_chestionar;
+        private string nume_pacient;
         private string message;
 
         public string DonorCnp
@@ -233,6 +234,19 @@ namespace BloodDonorApp.ViewModels
             }
         }
 
+        public string PatientName
+        {
+            get
+            {
+                return nume_pacient;
+            }
+            set
+            {
+                nume_pacient = value;
+                NotifyPropertyChanged("PatientName");
+            }
+        }
+
         public string Message
         {
             get
@@ -262,6 +276,7 @@ namespace BloodDonorApp.ViewModels
                 return addCommand;
             }
         }
+
 
         private ICommand backCommand;
         public ICommand BackCommand

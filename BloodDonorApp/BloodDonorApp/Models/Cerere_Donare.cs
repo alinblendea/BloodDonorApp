@@ -21,5 +21,6 @@ namespace BloodDonorApp.Models
         public bool globule_rosii { get; set; }
         public bool plasma { get; set; }
         public int id_medic { get; set; }
+        public string nume_pacient { get; set; }
     }
 }

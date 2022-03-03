@@ -25,6 +25,7 @@ namespace BloodDonorApp.Models
         public string alte_boli { get; set; }
         public bool aprobat { get; set; }
         public string cnp_donator { get; set; }
+        public string nume_pacient { get; set; }
     
         public virtual Donator Donator { get; set; }
     }
