@@ -62,6 +62,7 @@ namespace BloodDonorApp.Models.Actions
                 {
                     DonorCnp = don.cnp_donator,
                     Data = don.data,
+                    PatientName = don.nume_pacient,
                     Completed = don.isDone
                 });
             }

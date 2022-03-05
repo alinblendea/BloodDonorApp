@@ -94,6 +94,8 @@ namespace BloodDonorApp.Models.Actions
                     else
                     {
                         //SE VERIFICA DACA MAI POATE DONA O DATA
+                        MessageBox.Show("Donatorul exista deja in baza de date. Se va verifica daca mai poate dona inca o data.");
+                        medicalFormContext.Message = "";
                     }
                 }
             }

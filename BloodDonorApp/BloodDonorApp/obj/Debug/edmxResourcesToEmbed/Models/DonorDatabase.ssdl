@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="id_cerere" />
     </Key>
-    <Property Name="id_cerere" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_cerere" Type="int" Nullable="false" />
     <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="trombocite" Type="bit" Nullable="false" />

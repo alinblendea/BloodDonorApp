@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,8 @@ namespace BloodDonorApp.ViewModels
         private bool tratament;
         private string alte_boli;
         private bool aprobat;
+        private string nume_pacient;
+        private DateTime approved_date;
         private string message;
         private ObservableCollection<ApproveWindowVM> formsList;
 
@@ -48,6 +51,19 @@ namespace BloodDonorApp.ViewModels
             {
                 cnp_donator = value;
                 NotifyPropertyChanged("DonorCnp");
+            }
+        }
+
+        public string PatientName
+        {
+            get
+            {
+                return nume_pacient;
+            }
+            set
+            {
+                nume_pacient = value;
+                NotifyPropertyChanged("PatientName");
             }
         }
 
@@ -178,6 +194,19 @@ namespace BloodDonorApp.ViewModels
             {
                 aprobat = value;
                 NotifyPropertyChanged("Aprobat");
+            }
+        }
+
+        public DateTime DateApproved
+        {
+            get
+            {
+                return approved_date;
+            }
+            set
+            {
+                approved_date = value;
+                NotifyPropertyChanged("DateApproved");
             }
         }
 

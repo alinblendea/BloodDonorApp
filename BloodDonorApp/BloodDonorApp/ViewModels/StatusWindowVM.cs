@@ -27,6 +27,7 @@ namespace BloodDonorApp.ViewModels
         private string cnp_donator;
         private System.DateTime data;
         private bool completed;
+        private string nume_pacient;
         private string message;
         private ObservableCollection<StatusWindowVM> donationsList;
 
@@ -40,6 +41,19 @@ namespace BloodDonorApp.ViewModels
             {
                 cnp_donator = value;
                 NotifyPropertyChanged("DonorCnp");
+            }
+        }
+
+        public string PatientName
+        {
+            get
+            {
+                return nume_pacient;
+            }
+            set
+            {
+                nume_pacient = value;
+                NotifyPropertyChanged("PatientName");
             }
         }
 

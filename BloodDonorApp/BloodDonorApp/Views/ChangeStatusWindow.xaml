@@ -49,8 +49,9 @@
         <DataGrid Background="LightGreen" Name="donationsGrid"  Margin="10,15,9.6,0" AutoGenerateColumns="False" Height="307"
                   ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding DonationsList}" BorderBrush="Black" BorderThickness="3">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="CNP" Binding="{Binding DonorCnp}" />
+                <DataGridTextColumn Header="CNP Donator" Binding="{Binding DonorCnp}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Pacientul pentru care se doneaza" Binding="{Binding PatientName}" />
                 <DataGridTextColumn Header="Completed" Binding="{Binding Completed}" />
             </DataGrid.Columns>
         </DataGrid>

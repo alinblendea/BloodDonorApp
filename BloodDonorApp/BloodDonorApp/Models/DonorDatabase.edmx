@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id_cerere" />
           </Key>
-          <Property Name="id_cerere" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_cerere" Type="int" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="trombocite" Type="bit" Nullable="false" />
@@ -342,7 +342,7 @@
           <Key>
             <PropertyRef Name="id_cerere" />
           </Key>
-          <Property Name="id_cerere" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_cerere" Type="Int32" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="trombocite" Type="Boolean" Nullable="false" />

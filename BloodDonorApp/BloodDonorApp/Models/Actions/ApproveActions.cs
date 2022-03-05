@@ -38,12 +38,31 @@ namespace BloodDonorApp.Models.Actions
                     DateTime date;
                     if(DateTime.TryParseExact(mainWindow1.txtDate.Text, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date))
                     {
-                        context.ApproveForm(formVM.DonorCnp, true);
+                        if (date > DateTime.Now.Date)
+                        {
+                            if (formVM.Aprobat == true || (formVM.Aprobat == false && formVM.DateApproved == DateTime.Now.Date))
+                            {
+                                MessageBox.Show("Chestionarul a fost deja aprobat");
+                            }
+                            else
+                            {
+                                context.ApproveForm(formVM.DonorCnp, true);
 
-                        context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail });
+                                context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail, nume_pacient = formVM.PatientName });
 
-                        context.SaveChanges();
-                        formContext.FormsList = AllForms();
+                                context.SaveChanges();
+                                formContext.FormsList = AllForms();
+
+                                ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
+                                Application.Current.MainWindow = new ApproveWindow();
+                                Application.Current.MainWindow.Show();
+                                mainWindow.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data este invalida.");
+                        }
                     }
                     else
                     {
@@ -98,8 +117,9 @@ namespace BloodDonorApp.Models.Actions
                     Grasimi = form.consum_grasimi,
                     Tratament = form.tratament,
                     AlteBoli = form.alte_boli,
+                    PatientName = form.nume_pacient,
                     Aprobat = form.aprobat
-                }); 
+                });  
             }
             return result;
         }

@@ -61,6 +61,7 @@
                 <DataGridTextColumn Header="Consum Grasimi" Binding="{Binding Grasimi}" />
                 <DataGridTextColumn Header="Tratament" Binding="{Binding Tratament}" />
                 <DataGridTextColumn Header="Alte Boli" Binding="{Binding AlteBoli}" />
+                <DataGridTextColumn Header="Pacient" Binding="{Binding PatientName}" />
                 <DataGridTextColumn Header="APROBARE" Binding="{Binding Aprobat}" />
             </DataGrid.Columns>
         </DataGrid>

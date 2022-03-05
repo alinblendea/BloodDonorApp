@@ -93,7 +93,10 @@ namespace BloodDonorApp.Models.Actions
                                 }
                             }
 
-                            context.Cerere_Donare.Add(new Cerere_Donare() { id_cerere = context.Cerere_Donare.OrderByDescending(p => p.id_cerere).FirstOrDefault().id_cerere + 1, status = "NOT DONE", grupa_sanguina = patientVM.Grupa, trombocite = true, globule_rosii = true, plasma = true, id_medic = idMedic });
+                            bool tromb = (bool)mainWindow.checkTrombocite.IsChecked;
+                            bool glob = (bool)mainWindow.checkGlobule.IsChecked;
+                            bool plasm = (bool)mainWindow.checkPlasma.IsChecked;
+                            context.Cerere_Donare.Add(new Cerere_Donare() { id_cerere = context.Cerere_Donare.OrderByDescending(p => p.id_cerere).FirstOrDefault().id_cerere + 1, status = "NOT DONE", grupa_sanguina = patientVM.Grupa, trombocite = tromb, globule_rosii = glob, plasma = plasm, id_medic = idMedic });
                             context.SaveChanges();
                             MessageBox.Show("Pacient inregistrat cu succes! O cerere pentru sange de grupa " + patientVM.Grupa + " a fost trimisa.");
                             patientContext.Message = "";

@@ -14,7 +14,7 @@ namespace BloodDonorApp.Models
     
     public partial class Cerere_Donare
     {
-        public string id_cerere { get; set; }
+        public int id_cerere { get; set; }
         public string status { get; set; }
         public string grupa_sanguina { get; set; }
         public bool trombocite { get; set; }
