@@ -11,7 +11,7 @@ using BloodDonorApp.Views.Login;
 
 namespace BloodDonorApp.ViewModels
 {
-    class StaffWindowVM
+    class BloodBagWindowVM
     {
         private ICommand openWindowCommand;
         public ICommand OpenWindowCommand
@@ -32,36 +32,22 @@ namespace BloodDonorApp.ViewModels
             switch (nr)
             {
                 case "1":
-                    StaffWindow mainWindow1 = (Application.Current.MainWindow as StaffWindow);
-                    Application.Current.MainWindow = new ApproveWindow();
+                    BloodBagWindow mainWindow1 = (Application.Current.MainWindow as BloodBagWindow);
+                    Application.Current.MainWindow = new BloodBagAddWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow1.Close();
                     break;
 
                 case "2":
-                    StaffWindow mainWindow2 = (Application.Current.MainWindow as StaffWindow);
-                    Application.Current.MainWindow = new ChangeStatusWindow();
+                    BloodBagWindow mainWindow2 = (Application.Current.MainWindow as BloodBagWindow);
+                    Application.Current.MainWindow = new SendBloodBagWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow2.Close();
                     break;
 
                 case "3":
-                    StaffWindow mainWindow3 = (Application.Current.MainWindow as StaffWindow);
-                    Application.Current.MainWindow = new HospitalAddWindow();
-                    Application.Current.MainWindow.Show();
-                    mainWindow3.Close();
-                    break;
-
-                case "4":
-                    StaffWindow mainWindow4 = (Application.Current.MainWindow as StaffWindow);
-                    Application.Current.MainWindow = new BloodBagWindow();
-                    Application.Current.MainWindow.Show();
-                    mainWindow4.Close();
-                    break;
-
-                case "5":
-                    StaffWindow mainWindow = (Application.Current.MainWindow as StaffWindow);
-                    Application.Current.MainWindow = new StaffLoginWindow();
+                    BloodBagWindow mainWindow = (Application.Current.MainWindow as BloodBagWindow);
+                    Application.Current.MainWindow = new StaffWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow.Close();
                     break;
