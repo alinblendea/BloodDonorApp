@@ -37,6 +37,7 @@ namespace BloodDonorApp.ViewModels
         private string alte_boli;
         private bool aprobat;
         private string nume_pacient;
+        private string grupa_sanguina;
         private DateTime approved_date;
         private string message;
         private ObservableCollection<ApproveWindowVM> formsList;
@@ -51,6 +52,19 @@ namespace BloodDonorApp.ViewModels
             {
                 cnp_donator = value;
                 NotifyPropertyChanged("DonorCnp");
+            }
+        }
+
+        public string Grupa
+        {
+            get
+            {
+                return grupa_sanguina;
+            }
+            set
+            {
+                grupa_sanguina = value;
+                NotifyPropertyChanged("Grupa");
             }
         }
 
@@ -259,6 +273,19 @@ namespace BloodDonorApp.ViewModels
                     aprobareCommand = new RelayCommand(pAct.AprobareMethod);
                 }
                 return aprobareCommand;
+            }
+        }
+
+        private ICommand updateCommand;
+        public ICommand UpdateCommand
+        {
+            get
+            {
+                if (updateCommand == null)
+                {
+                    updateCommand = new RelayCommand(pAct.UpdateMethod);
+                }
+                return updateCommand;
             }
         }
 

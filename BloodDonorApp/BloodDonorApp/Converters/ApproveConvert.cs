@@ -17,7 +17,7 @@ namespace BloodDonorApp.Converters
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
         {
             ApproveWindowVM pers = value as ApproveWindowVM;
-            object[] result = new object[2] { pers.DonorCnp, pers.Greutate };
+            object[] result = new object[5] { pers.DonorCnp, pers.Greutate, pers.Puls, pers.Tensiune, pers.Grupa };
             return result;
         }
     }

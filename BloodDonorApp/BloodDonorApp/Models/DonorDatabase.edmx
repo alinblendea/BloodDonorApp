@@ -23,9 +23,9 @@
             <PropertyRef Name="id_chestionar" />
           </Key>
           <Property Name="id_chestionar" Type="int" Nullable="false" />
-          <Property Name="greutate" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="puls" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="tensiune" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="greutate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="puls" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tensiune" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="interventii_chirurgicale_recente" Type="bit" Nullable="false" />
           <Property Name="sarcina" Type="bit" Nullable="false" />
           <Property Name="consum_grasimi" Type="bit" Nullable="false" />
@@ -34,6 +34,7 @@
           <Property Name="aprobat" Type="bit" Nullable="false" />
           <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
+          <Property Name="grupa_sanguina" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Componente_Punga">
           <Key>
@@ -74,6 +75,7 @@
           <Property Name="resedinta" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="telefon" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="grupa_sanguina" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Medic">
           <Key>
@@ -283,6 +285,13 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateMedicalForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
+          <Parameter Name="Greutate" Type="varchar" Mode="In" />
+          <Parameter Name="Puls" Type="varchar" Mode="In" />
+          <Parameter Name="Tensiune" Type="varchar" Mode="In" />
+          <Parameter Name="Grupa" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="BloodDonorModelStoreContainer">
           <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />
@@ -356,9 +365,9 @@
             <PropertyRef Name="id_chestionar" />
           </Key>
           <Property Name="id_chestionar" Type="Int32" Nullable="false" />
-          <Property Name="greutate" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="puls" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tensiune" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="greutate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="puls" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tensiune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="interventii_chirurgicale_recente" Type="Boolean" Nullable="false" />
           <Property Name="sarcina" Type="Boolean" Nullable="false" />
           <Property Name="consum_grasimi" Type="Boolean" Nullable="false" />
@@ -367,6 +376,7 @@
           <Property Name="aprobat" Type="Boolean" Nullable="false" />
           <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="grupa_sanguina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Donator" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Chestionar_Medical" ToRole="Donator" />
         </EntityType>
         <EntityType Name="Componente_Punga">
@@ -412,6 +422,7 @@
           <Property Name="resedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="grupa_sanguina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Donator" ToRole="Chestionar_Medical" />
           <NavigationProperty Name="Donares" Relationship="Self.FK_Donare_Donator" FromRole="Donator" ToRole="Donare" />
           <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Donator" ToRole="Punga_Sange" />
@@ -682,6 +693,13 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="UpdateMedicalForm">
+            <Parameter Name="DonorCnp" Mode="In" Type="String" />
+            <Parameter Name="Greutate" Mode="In" Type="String" />
+            <Parameter Name="Puls" Mode="In" Type="String" />
+            <Parameter Name="Tensiune" Mode="In" Type="String" />
+            <Parameter Name="Grupa" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -729,6 +747,7 @@
                 <ScalarProperty Name="aprobat" ColumnName="aprobat" />
                 <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
                 <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
+                <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -773,6 +792,7 @@
                 <ScalarProperty Name="resedinta" ColumnName="resedinta" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -867,6 +887,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BloodDonorModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BloodDonorModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateMedicalForm" FunctionName="BloodDonorModel.Store.UpdateMedicalForm" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

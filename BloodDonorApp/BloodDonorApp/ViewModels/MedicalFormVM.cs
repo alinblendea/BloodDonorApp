@@ -37,6 +37,7 @@ namespace BloodDonorApp.ViewModels
         private bool grasimi;
         private int id_chestionar;
         private string nume_pacient;
+        private string grupa_sanguina;
         private string message;
 
         public string DonorCnp
@@ -49,6 +50,19 @@ namespace BloodDonorApp.ViewModels
             {
                 cnp_donator = value;
                 NotifyPropertyChanged("DonorCnp");
+            }
+        }
+
+        public string Grupa
+        {
+            get
+            {
+                return grupa_sanguina;
+            }
+            set
+            {
+                grupa_sanguina = value;
+                NotifyPropertyChanged("Grupa");
             }
         }
 
@@ -276,7 +290,6 @@ namespace BloodDonorApp.ViewModels
                 return addCommand;
             }
         }
-
 
         private ICommand backCommand;
         public ICommand BackCommand

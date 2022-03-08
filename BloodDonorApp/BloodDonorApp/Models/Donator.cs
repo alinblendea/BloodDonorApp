@@ -27,6 +27,7 @@ namespace BloodDonorApp.Models
         public string resedinta { get; set; }
         public string email { get; set; }
         public string telefon { get; set; }
+        public string grupa_sanguina { get; set; }
     
         public virtual ICollection<Chestionar_Medical> Chestionar_Medical { get; set; }
         public virtual ICollection<Donare> Donares { get; set; }

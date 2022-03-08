@@ -178,5 +178,30 @@ namespace BloodDonorApp.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual int UpdateMedicalForm(string donorCnp, string greutate, string puls, string tensiune, string grupa)
+        {
+            var donorCnpParameter = donorCnp != null ?
+                new ObjectParameter("DonorCnp", donorCnp) :
+                new ObjectParameter("DonorCnp", typeof(string));
+    
+            var greutateParameter = greutate != null ?
+                new ObjectParameter("Greutate", greutate) :
+                new ObjectParameter("Greutate", typeof(string));
+    
+            var pulsParameter = puls != null ?
+                new ObjectParameter("Puls", puls) :
+                new ObjectParameter("Puls", typeof(string));
+    
+            var tensiuneParameter = tensiune != null ?
+                new ObjectParameter("Tensiune", tensiune) :
+                new ObjectParameter("Tensiune", typeof(string));
+    
+            var grupaParameter = grupa != null ?
+                new ObjectParameter("Grupa", grupa) :
+                new ObjectParameter("Grupa", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateMedicalForm", donorCnpParameter, greutateParameter, pulsParameter, tensiuneParameter, grupaParameter);
+        }
     }
 }

@@ -18,9 +18,9 @@
       <PropertyRef Name="id_chestionar" />
     </Key>
     <Property Name="id_chestionar" Type="Int32" Nullable="false" />
-    <Property Name="greutate" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="puls" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="tensiune" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="greutate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="puls" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tensiune" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="interventii_chirurgicale_recente" Type="Boolean" Nullable="false" />
     <Property Name="sarcina" Type="Boolean" Nullable="false" />
     <Property Name="consum_grasimi" Type="Boolean" Nullable="false" />
@@ -29,6 +29,7 @@
     <Property Name="aprobat" Type="Boolean" Nullable="false" />
     <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grupa_sanguina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Chestionar_Medical" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Componente_Punga">
@@ -74,6 +75,7 @@
     <Property Name="resedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="telefon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="grupa_sanguina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Chestionar_Medical" Relationship="Self.FK_Chestionar_Medical_Donator" FromRole="Donator" ToRole="Chestionar_Medical" />
     <NavigationProperty Name="Donares" Relationship="Self.FK_Donare_Donator" FromRole="Donator" ToRole="Donare" />
     <NavigationProperty Name="Punga_Sange" Relationship="Self.FK_Punga_Sange_Donator" FromRole="Donator" ToRole="Punga_Sange" />
@@ -344,6 +346,13 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="UpdateMedicalForm">
+      <Parameter Name="DonorCnp" Mode="In" Type="String" />
+      <Parameter Name="Greutate" Mode="In" Type="String" />
+      <Parameter Name="Puls" Mode="In" Type="String" />
+      <Parameter Name="Tensiune" Mode="In" Type="String" />
+      <Parameter Name="Grupa" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />

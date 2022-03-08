@@ -30,6 +30,7 @@
           <ScalarProperty Name="aprobat" ColumnName="aprobat" />
           <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
           <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
+          <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -74,6 +75,7 @@
           <ScalarProperty Name="resedinta" ColumnName="resedinta" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -168,5 +170,6 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BloodDonorModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BloodDonorModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateMedicalForm" FunctionName="BloodDonorModel.Store.UpdateMedicalForm" />
   </EntityContainerMapping>
 </Mapping>

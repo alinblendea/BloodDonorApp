@@ -30,7 +30,8 @@ namespace BloodDonorApp.Converters
                     Sarcina = (bool)values[11],
                     Grasimi = (bool)values[12],
                     Tratament = (bool)values[13],
-                    PatientName = values[14].ToString()
+                    PatientName = values[14].ToString(),
+                    Grupa = values[15].ToString()
                 };
             }
             else
@@ -41,7 +42,7 @@ namespace BloodDonorApp.Converters
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
         {
             MedicalFormVM pers = value as MedicalFormVM;
-            object[] result = new object[8] { pers.DonorCnp, pers.Name, pers.Domiciliu, pers.Resedinta, pers.Email, pers.PhoneNr, pers.FormId, pers.PatientName};
+            object[] result = new object[9] { pers.DonorCnp, pers.Name, pers.Domiciliu, pers.Resedinta, pers.Email, pers.PhoneNr, pers.FormId, pers.PatientName, pers.Grupa };
             return result;
         }
     }

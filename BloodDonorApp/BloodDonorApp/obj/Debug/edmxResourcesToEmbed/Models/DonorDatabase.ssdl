@@ -18,9 +18,9 @@
       <PropertyRef Name="id_chestionar" />
     </Key>
     <Property Name="id_chestionar" Type="int" Nullable="false" />
-    <Property Name="greutate" Type="varchar" MaxLength="3" Nullable="false" />
-    <Property Name="puls" Type="varchar" MaxLength="3" Nullable="false" />
-    <Property Name="tensiune" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="greutate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="puls" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tensiune" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="interventii_chirurgicale_recente" Type="bit" Nullable="false" />
     <Property Name="sarcina" Type="bit" Nullable="false" />
     <Property Name="consum_grasimi" Type="bit" Nullable="false" />
@@ -29,6 +29,7 @@
     <Property Name="aprobat" Type="bit" Nullable="false" />
     <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
+    <Property Name="grupa_sanguina" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Componente_Punga">
     <Key>
@@ -69,6 +70,7 @@
     <Property Name="resedinta" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="telefon" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="grupa_sanguina" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Medic">
     <Key>
@@ -278,6 +280,13 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UpdateMedicalForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
+    <Parameter Name="Greutate" Type="varchar" Mode="In" />
+    <Parameter Name="Puls" Type="varchar" Mode="In" />
+    <Parameter Name="Tensiune" Type="varchar" Mode="In" />
+    <Parameter Name="Grupa" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="BloodDonorModelStoreContainer">
     <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />

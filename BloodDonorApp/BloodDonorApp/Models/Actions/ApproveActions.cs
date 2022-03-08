@@ -76,6 +76,37 @@ namespace BloodDonorApp.Models.Actions
             }
         }
 
+        public void UpdateMethod(object obj)
+        {
+            String cnpDonator = obj as String;
+            ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
+
+            if (!String.IsNullOrEmpty(cnpDonator))
+            {
+                if (String.IsNullOrEmpty(mainWindow.txtGreutate.Text)
+                    || String.IsNullOrEmpty(mainWindow.txtGrupa.Text)
+                    || String.IsNullOrEmpty(mainWindow.txtPuls.Text)
+                    || String.IsNullOrEmpty(mainWindow.txtTensiune.Text))
+                {
+                    MessageBox.Show("Nu pot fi lasate campuri libere la modificarea datelor.");
+                }
+                else
+                {
+                    context.UpdateMedicalForm(mainWindow.labelCnp.ToString().Substring(mainWindow.labelCnp.ToString().Length - 13), mainWindow.txtGreutate.Text, mainWindow.txtPuls.Text, mainWindow.txtTensiune.Text, mainWindow.txtGrupa.Text);
+                    context.SaveChanges();
+
+                    ApproveWindow mainWindow1 = (Application.Current.MainWindow as ApproveWindow);
+                    Application.Current.MainWindow = new ApproveWindow();
+                    Application.Current.MainWindow.Show();
+                    mainWindow1.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nu a fost selectat niciun chestionar medical.");
+            }
+        }
+
         public void BackMethod(object obj)
         {
             ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
@@ -118,7 +149,8 @@ namespace BloodDonorApp.Models.Actions
                     Tratament = form.tratament,
                     AlteBoli = form.alte_boli,
                     PatientName = form.nume_pacient,
-                    Aprobat = form.aprobat
+                    Aprobat = form.aprobat,
+                    Grupa = form.grupa_sanguina
                 });  
             }
             return result;
