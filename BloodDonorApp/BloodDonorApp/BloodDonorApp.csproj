@@ -398,7 +398,6 @@
     <Resource Include="Images\Buttons\seeDonationsButton.png" />
     <Resource Include="Images\Buttons\requestButton.png" />
     <Resource Include="Images\Buttons\seeNeededPartsButton.png" />
-    <Resource Include="Images\Buttons\approveDonorsButton.png" />
     <Resource Include="Images\Buttons\addButton.png" />
     <Resource Include="Images\Buttons\loginButton.png" />
     <Resource Include="Images\Buttons\registerButton.png" />
@@ -453,6 +452,7 @@
     <Resource Include="Images\Buttons\updateButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\approveDonorsButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
