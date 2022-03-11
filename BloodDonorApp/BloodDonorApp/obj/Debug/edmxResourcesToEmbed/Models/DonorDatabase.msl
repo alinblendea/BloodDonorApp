@@ -63,6 +63,7 @@
           <ScalarProperty Name="cnp_donator" ColumnName="cnp_donator" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
+          <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

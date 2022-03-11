@@ -63,6 +63,7 @@
     <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Donator">

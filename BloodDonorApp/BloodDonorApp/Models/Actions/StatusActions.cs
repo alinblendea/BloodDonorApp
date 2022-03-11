@@ -30,11 +30,14 @@ namespace BloodDonorApp.Models.Actions
                 context.ApproveDonation(donVM.DonorCnp, true);
                 
                 context.SaveChanges();
-                donationContext.DonationsList = AllDonations();
+                ChangeStatusWindow mainWindow = (Application.Current.MainWindow as ChangeStatusWindow);
+                Application.Current.MainWindow = new ChangeStatusWindow();
+                Application.Current.MainWindow.Show();
+                mainWindow.Close();
             }
             else
             {
-                MessageBox.Show("Nu a fost selectat nicio donare.");
+                MessageBox.Show("Nu a fost selectata nicio donare.");
             }
         }
 
@@ -46,11 +49,6 @@ namespace BloodDonorApp.Models.Actions
             mainWindow.Close();
         }
 
-        public void RefreshMethod(object obj)
-        {
-            donationContext.DonationsList = AllDonations();
-        }
-
         public ObservableCollection<StatusWindowVM> AllDonations()
         {
             List<Donare> dons = context.Donares.ToList();
@@ -58,13 +56,17 @@ namespace BloodDonorApp.Models.Actions
 
             foreach (Donare don in dons)
             {
-                result.Add(new StatusWindowVM()
+                if (don.isDone == false)
                 {
-                    DonorCnp = don.cnp_donator,
-                    Data = don.data,
-                    PatientName = don.nume_pacient,
-                    Completed = don.isDone
-                });
+                    result.Add(new StatusWindowVM()
+                    {
+                        DonorCnp = don.cnp_donator,
+                        Data = don.data,
+                        PatientName = don.nume_pacient,
+                        Grupa = don.grupa_sanguina,
+                        Completed = don.isDone
+                    });
+                }
             }
             return result;
         }

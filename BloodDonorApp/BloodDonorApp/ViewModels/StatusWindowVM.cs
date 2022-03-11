@@ -28,6 +28,7 @@ namespace BloodDonorApp.ViewModels
         private System.DateTime data;
         private bool completed;
         private string nume_pacient;
+        private string grupa_sanguina;
         private string message;
         private ObservableCollection<StatusWindowVM> donationsList;
 
@@ -54,6 +55,19 @@ namespace BloodDonorApp.ViewModels
             {
                 nume_pacient = value;
                 NotifyPropertyChanged("PatientName");
+            }
+        }
+
+        public string Grupa
+        {
+            get
+            {
+                return grupa_sanguina;
+            }
+            set
+            {
+                grupa_sanguina = value;
+                NotifyPropertyChanged("Grupa");
             }
         }
 
@@ -145,19 +159,6 @@ namespace BloodDonorApp.ViewModels
                     backCommand = new RelayCommand(pAct.BackMethod);
                 }
                 return backCommand;
-            }
-        }
-
-        private ICommand refreshCommand;
-        public ICommand RefreshCommand
-        {
-            get
-            {
-                if (refreshCommand == null)
-                {
-                    refreshCommand = new RelayCommand(pAct.RefreshMethod);
-                }
-                return refreshCommand;
             }
         }
 

@@ -48,7 +48,7 @@ namespace BloodDonorApp.Models.Actions
                             {
                                 context.ApproveForm(formVM.DonorCnp, true);
 
-                                context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail, nume_pacient = formVM.PatientName });
+                                context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail, nume_pacient = formVM.PatientName, grupa_sanguina = formVM.Grupa });
 
                                 context.SaveChanges();
 

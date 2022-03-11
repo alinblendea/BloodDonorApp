@@ -459,6 +459,7 @@
     <Resource Include="Images\Buttons\denyButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\completeButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

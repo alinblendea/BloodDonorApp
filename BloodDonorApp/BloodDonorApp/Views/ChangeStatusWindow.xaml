@@ -20,15 +20,7 @@
         <WrapPanel>
             <Button Margin="15" Width="100" Height="30" Command="{Binding CompleteCommand}" 
                     CommandParameter="{Binding ElementName=donationsGrid, Path=SelectedItem}" BorderBrush="Black" BorderThickness="2">
-                <Image Source="/Images/Buttons/approveButton.png" Width="71"></Image>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="12"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding RefreshCommand}" BorderBrush="Black" BorderThickness="2">
-                <Image Source="/Images/Buttons/refreshButton.png" Width="71"></Image>
+                <Image Source="/Images/Buttons/completeButton.png" Width="71"></Image>
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="12"/>
@@ -52,6 +44,7 @@
                 <DataGridTextColumn Header="CNP Donator" Binding="{Binding DonorCnp}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
                 <DataGridTextColumn Header="Pacientul pentru care se doneaza" Binding="{Binding PatientName}" />
+                <DataGridTextColumn Header="Grupa" Binding="{Binding Grupa}" />
                 <DataGridTextColumn Header="Completed" Binding="{Binding Completed}" />
             </DataGrid.Columns>
         </DataGrid>
