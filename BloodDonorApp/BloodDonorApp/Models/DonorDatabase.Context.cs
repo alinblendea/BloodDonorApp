@@ -40,6 +40,7 @@ namespace BloodDonorApp.Models
         public DbSet<Punga_Sange> Punga_Sange { get; set; }
         public DbSet<Spital> Spitals { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<Denied_Donor> Denied_Donor { get; set; }
     
         public virtual int ApproveDonation(string donorCnp, Nullable<bool> approve)
         {
@@ -65,6 +66,15 @@ namespace BloodDonorApp.Models
                 new ObjectParameter("Approve", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ApproveForm", donorCnpParameter, approveParameter);
+        }
+    
+        public virtual int DeleteDonorByCNP(string donorCnp)
+        {
+            var donorCnpParameter = donorCnp != null ?
+                new ObjectParameter("DonorCnp", donorCnp) :
+                new ObjectParameter("DonorCnp", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteDonorByCNP", donorCnpParameter);
         }
     
         public virtual int DeletePatientByCNP(string patientCnp)

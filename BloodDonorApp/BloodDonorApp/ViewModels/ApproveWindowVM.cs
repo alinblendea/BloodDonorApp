@@ -302,16 +302,16 @@ namespace BloodDonorApp.ViewModels
             }
         }
 
-        private ICommand refreshCommand;
-        public ICommand RefreshCommand
+        private ICommand denyCommand;
+        public ICommand DenyCommand
         {
             get
             {
-                if (refreshCommand == null)
+                if (denyCommand == null)
                 {
-                    refreshCommand = new RelayCommand(pAct.RefreshMethod);
+                    denyCommand = new RelayCommand(pAct.DenyMethod);
                 }
-                return refreshCommand;
+                return denyCommand;
             }
         }
 

@@ -96,6 +96,9 @@
     <Compile Include="Models\Cont.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Denied_Donor.cs">
+      <DependentUpon>DonorDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
@@ -453,6 +456,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\approveDonorsButton.png" />
+    <Resource Include="Images\Buttons\denyButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

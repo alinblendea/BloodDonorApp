@@ -143,8 +143,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Denied_Donor">
+      <EntityTypeMapping TypeName="BloodDonorModel.Denied_Donor">
+        <MappingFragment StoreEntitySet="Denied_Donor">
+          <ScalarProperty Name="id_denied" ColumnName="id_denied" />
+          <ScalarProperty Name="cnp_denied" ColumnName="cnp_denied" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="ApproveDonation" FunctionName="BloodDonorModel.Store.ApproveDonation" />
     <FunctionImportMapping FunctionImportName="ApproveForm" FunctionName="BloodDonorModel.Store.ApproveForm" />
+    <FunctionImportMapping FunctionImportName="DeleteDonorByCNP" FunctionName="BloodDonorModel.Store.DeleteDonorByCNP" />
     <FunctionImportMapping FunctionImportName="DeletePatientByCNP" FunctionName="BloodDonorModel.Store.DeletePatientByCNP" />
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BloodDonorModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BloodDonorModel.Store.sp_creatediagram" />

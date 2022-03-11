@@ -64,17 +64,18 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding UpdateCommand}" 
-                    CommandParameter="labelCnp" BorderBrush="Black" BorderThickness="2">
-                <Image Source="/Images/Buttons/updateButton.png" Width="71"></Image>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding DenyCommand}" 
+                    CommandParameter="{Binding ElementName=formsGrid, Path=SelectedItem}" BorderBrush="Black" BorderThickness="2">
+                <Image Source="/Images/Buttons/denyButton.png" Width="71"></Image>
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="12"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Margin="15" Width="100" Height="30" Command="{Binding RefreshCommand}" BorderBrush="Black" BorderThickness="2">
-                <Image Source="/Images/Buttons/refreshButton.png" Width="71"></Image>
+            <Button Margin="15" Width="100" Height="30" Command="{Binding UpdateCommand}" 
+                    CommandParameter="labelCnp" BorderBrush="Black" BorderThickness="2">
+                <Image Source="/Images/Buttons/updateButton.png" Width="71"></Image>
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="12"/>

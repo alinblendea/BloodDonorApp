@@ -49,6 +49,16 @@
     <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Denied_Donor">
+    <Key>
+      <PropertyRef Name="id_denied" />
+      <PropertyRef Name="cnp_denied" />
+    </Key>
+    <Property Name="id_denied" Type="int" Nullable="false" />
+    <Property Name="cnp_denied" Type="varchar" MaxLength="13" Nullable="false" />
+  </EntityType>
   <EntityType Name="Donare">
     <Key>
       <PropertyRef Name="id_donare" />
@@ -246,6 +256,9 @@
     <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
     <Parameter Name="Approve" Type="bit" Mode="In" />
   </Function>
+  <Function Name="DeleteDonorByCNP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="DeletePatientByCNP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="PatientCnp" Type="varchar" Mode="In" />
   </Function>
@@ -300,6 +313,12 @@
     <EntitySet Name="Punga_Sange" EntityType="Self.Punga_Sange" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Spital" EntityType="Self.Spital" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Denied_Donor" EntityType="Self.Denied_Donor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Denied_Donor].[id_denied] AS [id_denied], 
+[Denied_Donor].[cnp_denied] AS [cnp_denied]
+FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Chestionar_Medical_Donator" Association="Self.FK_Chestionar_Medical_Donator">
       <End Role="Donator" EntitySet="Donator" />
       <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />

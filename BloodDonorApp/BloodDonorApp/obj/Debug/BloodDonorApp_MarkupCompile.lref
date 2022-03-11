@@ -2,6 +2,7 @@
 
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\MainWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\ApproveWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\BloodBagAddWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\BloodBagWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\ChangeStatusWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\CheckDonationsWindow.xaml;;
@@ -22,8 +23,7 @@ FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Login
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\LoginMenu\StaffPreLoginWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\RequestWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Register\StaffRegisterWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\SendBloodBagWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\StaffWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\ThankYouWindow.xaml;;
-FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\BloodBagAddWindow.xaml;;
-FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\SendBloodBagWindow.xaml;;
 

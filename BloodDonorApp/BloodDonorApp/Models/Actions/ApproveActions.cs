@@ -51,6 +51,9 @@ namespace BloodDonorApp.Models.Actions
                                 context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail, nume_pacient = formVM.PatientName });
 
                                 context.SaveChanges();
+
+                                // SEND NOTIFICATION / EMAIL
+
                                 formContext.FormsList = AllForms();
 
                                 ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
@@ -115,9 +118,25 @@ namespace BloodDonorApp.Models.Actions
             mainWindow.Close();
         }
 
-        public void RefreshMethod(object obj)
+        public void DenyMethod(object obj)
         {
-            formContext.FormsList = AllForms();
+            ApproveWindowVM formVM = obj as ApproveWindowVM;
+
+            if (formVM != null)
+            {
+                context.DeleteDonorByCNP(formVM.DonorCnp);
+
+                //SEND NOTIFICATION / EMAIL
+
+                ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
+                Application.Current.MainWindow = new ApproveWindow();
+                Application.Current.MainWindow.Show();
+                mainWindow.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nu a fost selectat niciun chestionar medical.");
+            }
         }
 
         public ObservableCollection<ApproveWindowVM> AllForms()
@@ -136,22 +155,25 @@ namespace BloodDonorApp.Models.Actions
                         mail = donor.email;
                 }
 
-                result.Add(new ApproveWindowVM()
+                if (form.aprobat == false)
                 {
-                    DonorCnp = form.cnp_donator,
-                    Mail = mail,
-                    Greutate = form.greutate,
-                    Puls = form.puls,
-                    Tensiune = form.tensiune,
-                    Interventii = form.interventii_chirurgicale_recente,
-                    Sarcina = form.sarcina,
-                    Grasimi = form.consum_grasimi,
-                    Tratament = form.tratament,
-                    AlteBoli = form.alte_boli,
-                    PatientName = form.nume_pacient,
-                    Aprobat = form.aprobat,
-                    Grupa = form.grupa_sanguina
-                });  
+                    result.Add(new ApproveWindowVM()
+                    {
+                        DonorCnp = form.cnp_donator,
+                        Mail = mail,
+                        Greutate = form.greutate,
+                        Puls = form.puls,
+                        Tensiune = form.tensiune,
+                        Interventii = form.interventii_chirurgicale_recente,
+                        Sarcina = form.sarcina,
+                        Grasimi = form.consum_grasimi,
+                        Tratament = form.tratament,
+                        AlteBoli = form.alte_boli,
+                        PatientName = form.nume_pacient,
+                        Aprobat = form.aprobat,
+                        Grupa = form.grupa_sanguina
+                    });
+                }
             }
             return result;
         }
