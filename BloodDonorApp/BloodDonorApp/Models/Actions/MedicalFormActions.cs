@@ -109,6 +109,31 @@ namespace BloodDonorApp.Models.Actions
             return false;
         }
 
+        public bool canDonate(string cnp)
+        {
+            List<DateTime> datesDonated = new List<DateTime>();
+            List<Donare> donations = context.Donares.ToList();
+            foreach (Donare donation in donations)
+            {
+                if (donation.cnp_donator.Equals(cnp))
+                {
+                    if (donation.isDone == false)
+                        return false;
+                    else
+                    {
+                        datesDonated.Add(donation.data);
+                    }
+                }
+            }
+
+            datesDonated.OrderByDescending(d => d);
+
+            if (datesDonated[datesDonated.Count - 1].AddMonths(6) > DateTime.Now)
+                return false;
+
+            return true;
+        }
+
         public void addDonor(MedicalFormVM medicalFormVM, int option)
         {
             string message = null;
@@ -190,17 +215,44 @@ namespace BloodDonorApp.Models.Actions
                                 }
                                 else
                                 {
-                                    /* SE VERIFICA DACA MAI POATE DONA SI SE DONEAZA DACA DA / MESAJ DACA NU
-                                    
-                                    !!! FUNCTIE CAN DONATE AGAIN !!!
-
-                                    List<Donare> donations = context.Donares.ToList();
-                                    foreach(Donare donation in donations)
+                                    if(canDonate(medicalFormVM.DonorCnp))
                                     {
+                                        bool exists = false;
+                                        String grupaPacient = "";
+                                        List<Pacient> patients = context.Pacients.ToList();
+                                        foreach (Pacient patient in patients)
+                                        {
+                                            if (patient.nume.Equals(medicalFormVM.PatientName))
+                                            {
+                                                exists = true;
+                                                grupaPacient = patient.grupa_sanguina;
+                                                break;
+                                            }
+                                        }
 
-                                    }*/
-                                    MessageBox.Show("Donatorul exista deja in baza de date.");
-                                    medicalFormContext.Message = "";
+                                        if (exists)
+                                        {
+                                            if (grupaPacient.Equals(medicalFormVM.Grupa))
+                                            {
+                                                addDonor(medicalFormVM, 1);
+                                            }
+                                            else
+                                            {
+                                                medicalFormContext.Message = "Pacientul nu are aceeasi grupa de sange cu dumneavoastra.";
+                                                MessageBox.Show(medicalFormContext.Message);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            medicalFormVM.PatientName = "";
+                                            addDonor(medicalFormVM, 2);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Asteptati sa primiti aprobarea ultimei cereri de donare sau asteptati sa treaca 6 luni de la ultima dumneavoastra donare. Va multumim pentru implicare!");
+                                        medicalFormContext.Message = "";
+                                    }
                                 }
                             }
                             else
