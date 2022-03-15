@@ -21,107 +21,140 @@ namespace BloodDonorApp.Models.Actions
             this.medicalFormContext = medicalFormContext;
         }
 
-        public void AddMethod(object obj)
+        public bool nothingEmpty(MedicalFormVM medicalFormVM)
         {
-            MedicalFormVM medicalFormVM = obj as MedicalFormVM;
-            if (medicalFormVM != null)
-            {
-                if (String.IsNullOrEmpty(medicalFormVM.Name)
+            if (String.IsNullOrEmpty(medicalFormVM.Name)
                     || String.IsNullOrEmpty(medicalFormVM.DonorCnp)
                     || String.IsNullOrEmpty(medicalFormVM.Domiciliu)
                     || String.IsNullOrEmpty(medicalFormVM.Resedinta)
                     || String.IsNullOrEmpty(medicalFormVM.Email)
                     || String.IsNullOrEmpty(medicalFormVM.PhoneNr))
+                return false;
+            return true;
+        }
+
+        public bool correctCnp(string cnp)
+        {
+            if (cnp.Length != 13)
+                return false;
+
+            if (cnp[0] != '1' &&
+                cnp[0] != '2' &&
+                cnp[0] != '5' &&
+                cnp[0] != '6')
+                return false;
+
+            foreach (char c in cnp)
+                if (c < '0' || c > '9')
+                    return false;
+
+            return true;
+        }
+
+        public bool correctAge(string cnp)
+        {
+            String dateOfBirthString = null;
+
+            if (cnp[0] == '1' || cnp[0] == '2')
+            {
+                dateOfBirthString = "19" +
+                    cnp[1] + cnp[2] + "/" +
+                    cnp[3] + cnp[4] + "/" +
+                    cnp[5] + cnp[6];
+            }
+            else
+            {
+                dateOfBirthString = "20" +
+                    cnp[1] + cnp[2] + "/" +
+                    cnp[3] + cnp[4] + "/" +
+                    cnp[5] + cnp[6];
+            }
+            DateTime dob;
+            try
+            {
+                dob = Convert.ToDateTime(dateOfBirthString);
+            }
+            catch (System.FormatException)
+            {
+                return false;
+            }
+
+            int age = 0;
+            age = DateTime.Now.Year - dob.Year;
+            if (DateTime.Now.DayOfYear < dob.DayOfYear)
+                age = age - 1;
+
+            if (age > 60 || age < 18)
+                return false;
+
+            return true;
+        }
+
+        public bool correctWeight(string weight)
+        {
+            if (Int32.Parse(weight) < 60)
+                return false;
+
+            return true;
+        }
+
+        public bool donorExists(string cnp)
+        {
+            List<Donator> donors = context.Donators.ToList();
+
+            foreach (Donator donor in donors)
+                if (donor.cnp_donator.Equals(cnp))
+                    return true;
+
+            return false;
+        }
+
+        public void addDonor(MedicalFormVM medicalFormVM, int option)
+        {
+            string message = null;
+            switch (option)
+            {
+                case 1:
+                    message = "Chestionar trimis cu succes!";
+                    break;
+
+                case 2:
+                    message = "Pacientul introdus nu se afla in baza de date. A fost creata o cerere de programare la donare fara pacient.";
+                    break;
+            }
+
+            context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, grupa_sanguina = medicalFormVM.Grupa });
+            context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, greutate = medicalFormVM.Greutate, puls = medicalFormVM.Puls, tensiune = medicalFormVM.Tensiune, interventii_chirurgicale_recente = medicalFormVM.Interventii, sarcina = medicalFormVM.Sarcina, alte_boli = medicalFormVM.AlteBoli, consum_grasimi = medicalFormVM.Grasimi, tratament = medicalFormVM.Tratament, aprobat = false, cnp_donator = medicalFormVM.DonorCnp, nume_pacient = medicalFormVM.PatientName, grupa_sanguina = medicalFormVM.Grupa });
+            context.SaveChanges();
+            MessageBox.Show(message);
+            medicalFormContext.Message = "";
+
+            DonateWindow mainWindow = (Application.Current.MainWindow as DonateWindow);
+            Application.Current.MainWindow = new ThankYouWindow(medicalFormVM.Name.ToString());
+            Application.Current.MainWindow.Show();
+            mainWindow.Close();
+        }
+
+        public void AddMethod(object obj)
+        {
+            MedicalFormVM medicalFormVM = obj as MedicalFormVM;
+            if (medicalFormVM != null)
+            {
+                if (!nothingEmpty(medicalFormVM))
                 {
                     medicalFormContext.Message = "Toate datele obligatorii trebuie completate.";
                     MessageBox.Show(medicalFormContext.Message);
                 }
                 else
                 {
-                    bool corect = true;
-
-                    if (medicalFormVM.DonorCnp[0] != '1' &&
-                        medicalFormVM.DonorCnp[0] != '2' &&
-                        medicalFormVM.DonorCnp[0] != '5' &&
-                        medicalFormVM.DonorCnp[0] != '6')
-                        corect = false;
-
-                    foreach (char c in medicalFormVM.DonorCnp)
+                    if (correctCnp(medicalFormVM.DonorCnp))
                     {
-                        if (c < '0' || c > '9')
-                            corect = false;
-                    }
-
-                    if (medicalFormVM.DonorCnp.Length == 13 && corect)
-                    {
-                        bool correctAge = true;
-                        String dateOfBirthString = null;
-                        if(medicalFormVM.DonorCnp[0] == '1' || medicalFormVM.DonorCnp[0] == '2')
+                        if (correctAge(medicalFormVM.DonorCnp))
                         {
-                            dateOfBirthString = "19" +
-                                medicalFormVM.DonorCnp[1] +
-                                medicalFormVM.DonorCnp[2] +
-                                "/" +
-                                medicalFormVM.DonorCnp[3] +
-                                medicalFormVM.DonorCnp[4] +
-                                "/" +
-                                medicalFormVM.DonorCnp[5] +
-                                medicalFormVM.DonorCnp[6]
-                            ;
-                        }
-                        else
-                        {
-                            dateOfBirthString = "20" +
-                                medicalFormVM.DonorCnp[1] +
-                                medicalFormVM.DonorCnp[2] +
-                                "/" +
-                                medicalFormVM.DonorCnp[3] +
-                                medicalFormVM.DonorCnp[4] +
-                                "/" +
-                                medicalFormVM.DonorCnp[5] +
-                                medicalFormVM.DonorCnp[6]
-                            ;
-                        }
-                        DateTime dob;
-                        try
-                        {
-                            dob = Convert.ToDateTime(dateOfBirthString);
-                        }
-                        catch(System.FormatException)
-                        {
-                            MessageBox.Show("CNP incorect.");
-                            medicalFormContext.Message = "";
-                            return;
-                        }
-
-                        int age = 0;
-                        age = DateTime.Now.Year - dob.Year;
-                        if (DateTime.Now.DayOfYear < dob.DayOfYear)
-                            age = age - 1;
-
-                        if (age > 60 || age < 18)
-                            correctAge = false;
-
-                        if (correctAge)
-                        {
-                            bool correctWeight = true;
-                            if (Int32.Parse(medicalFormVM.Greutate) < 60)
-                                correctWeight = false;
-
-                            if (correctWeight)
+                            if (correctWeight(medicalFormVM.Greutate))
                             {
-                                bool alreadyExists = false;
-                                List<Donator> donors = context.Donators.ToList();
-
-                                foreach (Donator donor in donors)
-                                {
-                                    if (donor.cnp_donator.Equals(medicalFormVM.DonorCnp))
-                                    {
-                                        alreadyExists = true;
-                                        break;
-                                    }
-                                }
-                                if (!alreadyExists)
+                                
+                                if (!donorExists(medicalFormVM.DonorCnp))
                                 {
 
                                     bool exists = false;
@@ -141,16 +174,7 @@ namespace BloodDonorApp.Models.Actions
                                     {
                                         if (grupaPacient.Equals(medicalFormVM.Grupa))
                                         {
-                                            context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, grupa_sanguina = medicalFormVM.Grupa });
-                                            context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, greutate = medicalFormVM.Greutate, puls = medicalFormVM.Puls, tensiune = medicalFormVM.Tensiune, interventii_chirurgicale_recente = medicalFormVM.Interventii, sarcina = medicalFormVM.Sarcina, alte_boli = medicalFormVM.AlteBoli, consum_grasimi = medicalFormVM.Grasimi, tratament = medicalFormVM.Tratament, aprobat = false, cnp_donator = medicalFormVM.DonorCnp, nume_pacient = medicalFormVM.PatientName, grupa_sanguina = medicalFormVM.Grupa });
-                                            context.SaveChanges();
-                                            MessageBox.Show("Chestionar trimis cu succes!");
-                                            medicalFormContext.Message = "";
-
-                                            DonateWindow mainWindow = (Application.Current.MainWindow as DonateWindow);
-                                            Application.Current.MainWindow = new ThankYouWindow(medicalFormVM.Name.ToString());
-                                            Application.Current.MainWindow.Show();
-                                            mainWindow.Close();
+                                            addDonor(medicalFormVM, 1);
                                         }
                                         else
                                         {
@@ -161,21 +185,20 @@ namespace BloodDonorApp.Models.Actions
                                     else
                                     {
                                         medicalFormVM.PatientName = "";
-                                        context.Donators.Add(new Donator() { cnp_donator = medicalFormVM.DonorCnp, nume = medicalFormVM.Name, domiciliu = medicalFormVM.Domiciliu, resedinta = medicalFormVM.Resedinta, email = medicalFormVM.Email, telefon = medicalFormVM.PhoneNr, grupa_sanguina = medicalFormVM.Grupa });
-                                        context.Chestionar_Medical.Add(new Chestionar_Medical() { id_chestionar = context.Chestionar_Medical.OrderByDescending(p => p.id_chestionar).FirstOrDefault().id_chestionar + 1, greutate = medicalFormVM.Greutate, puls = medicalFormVM.Puls, tensiune = medicalFormVM.Tensiune, interventii_chirurgicale_recente = medicalFormVM.Interventii, sarcina = medicalFormVM.Sarcina, alte_boli = medicalFormVM.AlteBoli, consum_grasimi = medicalFormVM.Grasimi, tratament = medicalFormVM.Tratament, aprobat = false, cnp_donator = medicalFormVM.DonorCnp, nume_pacient = medicalFormVM.PatientName, grupa_sanguina = medicalFormVM.Grupa });
-                                        context.SaveChanges();
-                                        MessageBox.Show("Pacientul introdus nu se afla in baza de date. A fost creata o cerere de programare la donare fara pacient.");
-                                        medicalFormContext.Message = "";
-
-                                        DonateWindow mainWindow = (Application.Current.MainWindow as DonateWindow);
-                                        Application.Current.MainWindow = new ThankYouWindow(medicalFormVM.Name.ToString());
-                                        Application.Current.MainWindow.Show();
-                                        mainWindow.Close();
+                                        addDonor(medicalFormVM, 2);
                                     }
                                 }
                                 else
                                 {
-                                    //SE VERIFICA DACA MAI POATE DONA O DATA
+                                    /* SE VERIFICA DACA MAI POATE DONA SI SE DONEAZA DACA DA / MESAJ DACA NU
+                                    
+                                    !!! FUNCTIE CAN DONATE AGAIN !!!
+
+                                    List<Donare> donations = context.Donares.ToList();
+                                    foreach(Donare donation in donations)
+                                    {
+
+                                    }*/
                                     MessageBox.Show("Donatorul exista deja in baza de date.");
                                     medicalFormContext.Message = "";
                                 }
