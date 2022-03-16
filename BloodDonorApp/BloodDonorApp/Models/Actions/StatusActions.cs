@@ -68,6 +68,7 @@ namespace BloodDonorApp.Models.Actions
                     });
                 }
             }
+            result.OrderByDescending(d => d.Data);
             return result;
         }
     }
