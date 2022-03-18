@@ -27,13 +27,27 @@ namespace BloodDonorApp.Models.Actions
             
             if (donVM != null)
             {
-                context.ApproveDonation(donVM.DonorCnp, true);
-                
-                context.SaveChanges();
+
                 ChangeStatusWindow mainWindow = (Application.Current.MainWindow as ChangeStatusWindow);
-                Application.Current.MainWindow = new ChangeStatusWindow();
-                Application.Current.MainWindow.Show();
-                mainWindow.Close();
+                if (!String.IsNullOrEmpty(mainWindow.txtQuantity.Text))
+                {
+                    try
+                    {
+                        context.ApproveDonation(donVM.DonorCnp, true, Int32.Parse(mainWindow.txtQuantity.Text));
+                        context.SaveChanges();
+                        Application.Current.MainWindow = new ChangeStatusWindow();
+                        Application.Current.MainWindow.Show();
+                        mainWindow.Close();
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show("Valoare cantitate invalida.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cantitatea donata trebuie introdusa inainte de completarea doanrii.");
+                }
             }
             else
             {

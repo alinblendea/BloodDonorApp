@@ -35,6 +35,9 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Label Width="211" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Height="33">Cantitate donata (mL):</Label>
+            <TextBox Name="txtQuantity" Width="132" Height="29">
+            </TextBox>
 
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0"/>

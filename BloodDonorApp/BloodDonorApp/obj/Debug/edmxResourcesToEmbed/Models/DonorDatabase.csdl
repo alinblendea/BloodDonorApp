@@ -64,6 +64,7 @@
     <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="cantitate_ml" Type="Int32" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Donator">
@@ -318,6 +319,7 @@
     <FunctionImport Name="ApproveDonation">
       <Parameter Name="DonorCnp" Mode="In" Type="String" />
       <Parameter Name="Approve" Mode="In" Type="Boolean" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="ApproveForm">
       <Parameter Name="DonorCnp" Mode="In" Type="String" />

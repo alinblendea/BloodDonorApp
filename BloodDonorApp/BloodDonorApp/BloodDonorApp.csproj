@@ -460,6 +460,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\completeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

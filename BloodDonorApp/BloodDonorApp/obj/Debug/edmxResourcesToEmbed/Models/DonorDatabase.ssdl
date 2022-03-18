@@ -70,6 +70,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
     <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
     <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" />
+    <Property Name="cantitate_ml" Type="int" />
   </EntityType>
   <EntityType Name="Donator">
     <Key>
@@ -252,6 +253,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
   <Function Name="ApproveDonation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
     <Parameter Name="Approve" Type="bit" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
   </Function>
   <Function Name="ApproveForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
