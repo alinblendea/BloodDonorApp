@@ -29,11 +29,24 @@ namespace BloodDonorApp.Models.Actions
             {
 
                 ChangeStatusWindow mainWindow = (Application.Current.MainWindow as ChangeStatusWindow);
-                if (!String.IsNullOrEmpty(mainWindow.txtQuantity.Text))
+                if (!String.IsNullOrEmpty(mainWindow.txtQuantity.Text) && mainWindow.comboBenefit.SelectedItem != null)
                 {
                     try
                     {
-                        context.ApproveDonation(donVM.DonorCnp, true, Int32.Parse(mainWindow.txtQuantity.Text));
+                        int idBen = 0;
+                        List<Benefit> benefits = context.Benefits.ToList();
+                        foreach (Benefit benefit in benefits)
+                        {
+                            if (benefit.denumire.Equals(mainWindow.comboBenefit.SelectedItem))
+                            {
+                                idBen = benefit.id_beneficiu;
+                                if(idBen != 0)
+                                    benefit.nr_ramase--;
+                                break;
+                            }
+                        }
+
+                        context.ApproveDonation(donVM.DonorCnp, true, Int32.Parse(mainWindow.txtQuantity.Text), idBen);
                         context.SaveChanges();
                         Application.Current.MainWindow = new ChangeStatusWindow();
                         Application.Current.MainWindow.Show();
@@ -46,7 +59,7 @@ namespace BloodDonorApp.Models.Actions
                 }
                 else
                 {
-                    MessageBox.Show("Cantitatea donata trebuie introdusa inainte de completarea doanrii.");
+                    MessageBox.Show("Cantitatea donata si beneficiul primit trebuie introduse inainte de completarea donarii.");
                 }
             }
             else

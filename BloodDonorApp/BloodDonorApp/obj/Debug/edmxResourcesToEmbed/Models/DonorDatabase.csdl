@@ -76,7 +76,7 @@
     <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
     <Property Name="cantitate_ml" Type="Int32" />
-    <Property Name="id_beneficiu" Type="Int32" Nullable="false" />
+    <Property Name="id_beneficiu" Type="Int32" />
     <NavigationProperty Name="Benefit" Relationship="Self.FK_Donare_Benefits" FromRole="Donare" ToRole="Benefits" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
   </EntityType>
@@ -172,7 +172,7 @@
     <Property Name="cnp_denied" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <Association Name="FK_Donare_Benefits">
-    <End Role="Benefits" Type="Self.Benefit" Multiplicity="1" />
+    <End Role="Benefits" Type="Self.Benefit" Multiplicity="0..1" />
     <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Benefits">
@@ -350,6 +350,7 @@
       <Parameter Name="DonorCnp" Mode="In" Type="String" />
       <Parameter Name="Approve" Mode="In" Type="Boolean" />
       <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="BenID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="ApproveForm">
       <Parameter Name="DonorCnp" Mode="In" Type="String" />

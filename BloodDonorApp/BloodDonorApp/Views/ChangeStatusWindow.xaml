@@ -35,10 +35,13 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Label Width="211" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Height="33">Cantitate donata (mL):</Label>
-            <TextBox Name="txtQuantity" Width="132" Height="29">
+            <Label Width="146" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Height="33">Cantitate (mL):</Label>
+            <TextBox Name="txtQuantity" Width="98" Height="29">
             </TextBox>
-
+            <Label Width="86" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Height="33" Margin="15">Benefit:</Label>
+            <ComboBox Name="comboBenefit" Width="132" Height="29">
+            </ComboBox>
+            
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0"/>
         <DataGrid Background="LightGreen" Name="donationsGrid"  Margin="10,15,9.6,0" AutoGenerateColumns="False" Height="307"

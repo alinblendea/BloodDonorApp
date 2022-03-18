@@ -81,7 +81,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
     <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
     <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" />
     <Property Name="cantitate_ml" Type="int" />
-    <Property Name="id_beneficiu" Type="int" Nullable="false" />
+    <Property Name="id_beneficiu" Type="int" />
   </EntityType>
   <EntityType Name="Donator">
     <Key>
@@ -178,7 +178,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Donare_Benefits">
-    <End Role="Benefits" Type="Self.Benefits" Multiplicity="1" />
+    <End Role="Benefits" Type="Self.Benefits" Multiplicity="0..1" />
     <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Benefits">
@@ -277,6 +277,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
     <Parameter Name="DonorCnp" Type="varchar" Mode="In" />
     <Parameter Name="Approve" Type="bit" Mode="In" />
     <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="BenID" Type="int" Mode="In" />
   </Function>
   <Function Name="ApproveForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DonorCnp" Type="varchar" Mode="In" />

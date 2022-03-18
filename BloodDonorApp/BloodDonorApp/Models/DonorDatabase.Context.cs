@@ -43,7 +43,7 @@ namespace BloodDonorApp.Models
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Denied_Donor> Denied_Donor { get; set; }
     
-        public virtual int ApproveDonation(string donorCnp, Nullable<bool> approve, Nullable<int> quantity)
+        public virtual int ApproveDonation(string donorCnp, Nullable<bool> approve, Nullable<int> quantity, Nullable<int> benID)
         {
             var donorCnpParameter = donorCnp != null ?
                 new ObjectParameter("DonorCnp", donorCnp) :
@@ -57,7 +57,11 @@ namespace BloodDonorApp.Models
                 new ObjectParameter("Quantity", quantity) :
                 new ObjectParameter("Quantity", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ApproveDonation", donorCnpParameter, approveParameter, quantityParameter);
+            var benIDParameter = benID.HasValue ?
+                new ObjectParameter("BenID", benID) :
+                new ObjectParameter("BenID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ApproveDonation", donorCnpParameter, approveParameter, quantityParameter, benIDParameter);
         }
     
         public virtual int ApproveForm(string donorCnp, Nullable<bool> approve)
