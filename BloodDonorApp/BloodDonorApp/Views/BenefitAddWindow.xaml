@@ -1,16 +1,16 @@
-﻿<Window x:Class="BloodDonorApp.Views.BloodBagAddWindow"
+﻿<Window x:Class="BloodDonorApp.Views.BenefitAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
         mc:Ignorable="d"
-        Title="Blood Donor - Add Blood Bags" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
+        Title="Blood Donor - Add Benefits" Height="450" Width="800" ResizeMode="NoResize" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
     </Window.Background>
     <Window.DataContext>
-        <local:BloodBagWindowVM/>
+        <local:BenefitsWindowVM/>
     </Window.DataContext>
     <Grid>
         

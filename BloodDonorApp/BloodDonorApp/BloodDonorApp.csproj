@@ -149,7 +149,7 @@
     </Compile>
     <Compile Include="ViewModels\Account\DonorAccountVM.cs" />
     <Compile Include="ViewModels\ApproveWindowVM.cs" />
-    <Compile Include="ViewModels\BloodBagWindowVM.cs" />
+    <Compile Include="ViewModels\BenefitsWindowVM.cs" />
     <Compile Include="ViewModels\CheckDonationsVM.cs" />
     <Compile Include="ViewModels\CheckPartsWindowVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
@@ -170,11 +170,11 @@
     <Compile Include="Views\ApproveWindow.xaml.cs">
       <DependentUpon>ApproveWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BloodBagAddWindow.xaml.cs">
-      <DependentUpon>BloodBagAddWindow.xaml</DependentUpon>
+    <Compile Include="Views\BenefitAddWindow.xaml.cs">
+      <DependentUpon>BenefitAddWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BloodBagWindow.xaml.cs">
-      <DependentUpon>BloodBagWindow.xaml</DependentUpon>
+    <Compile Include="Views\BenefitsWindow.xaml.cs">
+      <DependentUpon>BenefitsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ChangeStatusWindow.xaml.cs">
       <DependentUpon>ChangeStatusWindow.xaml</DependentUpon>
@@ -233,8 +233,8 @@
     <Compile Include="Views\Register\StaffRegisterWindow.xaml.cs">
       <DependentUpon>StaffRegisterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SendBloodBagWindow.xaml.cs">
-      <DependentUpon>SendBloodBagWindow.xaml</DependentUpon>
+    <Compile Include="Views\BenefitIncreaseWindow.xaml.cs">
+      <DependentUpon>BenefitIncreaseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StaffWindow.xaml.cs">
       <DependentUpon>StaffWindow.xaml</DependentUpon>
@@ -258,11 +258,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BloodBagAddWindow.xaml">
+    <Page Include="Views\BenefitAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BloodBagWindow.xaml">
+    <Page Include="Views\BenefitsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,7 +342,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SendBloodBagWindow.xaml">
+    <Page Include="Views\BenefitIncreaseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -465,6 +465,10 @@
     <Resource Include="Images\Buttons\completeButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\manageBenefitsButton.png" />
+    <Resource Include="Images\benefitsManagement.png" />
+    <Resource Include="Images\Buttons\increaseButton.png" />
+    <Resource Include="Images\Buttons\addBenefitButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

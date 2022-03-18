@@ -41,7 +41,7 @@
         </Button>
 
         <Button Margin="294,284,299.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="4" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/mabageBloodBagsButton.png" Width="190" Height="27"></Image>
+            <Image Source="/Images/Buttons/manageBenefitsButton.png" Width="190" Height="27"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>

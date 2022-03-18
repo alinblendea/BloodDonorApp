@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace BloodDonorApp.Views
 {
     /// <summary>
-    /// Interaction logic for BloodBagAddWindow.xaml
+    /// Interaction logic for BenefitAddWindow.xaml
     /// </summary>
-    public partial class BloodBagAddWindow : Window
+    public partial class BenefitAddWindow : Window
     {
-        public BloodBagAddWindow()
+        public BenefitAddWindow()
         {
             InitializeComponent();
         }

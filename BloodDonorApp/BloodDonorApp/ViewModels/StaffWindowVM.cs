@@ -54,7 +54,7 @@ namespace BloodDonorApp.ViewModels
 
                 case "4":
                     StaffWindow mainWindow4 = (Application.Current.MainWindow as StaffWindow);
-                    Application.Current.MainWindow = new BloodBagWindow();
+                    Application.Current.MainWindow = new BenefitsWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow4.Close();
                     break;

@@ -11,7 +11,7 @@ using BloodDonorApp.Views.Login;
 
 namespace BloodDonorApp.ViewModels
 {
-    class BloodBagWindowVM
+    class BenefitsWindowVM
     {
         private ICommand openWindowCommand;
         public ICommand OpenWindowCommand
@@ -32,21 +32,21 @@ namespace BloodDonorApp.ViewModels
             switch (nr)
             {
                 case "1":
-                    BloodBagWindow mainWindow1 = (Application.Current.MainWindow as BloodBagWindow);
-                    Application.Current.MainWindow = new BloodBagAddWindow();
+                    BenefitsWindow mainWindow1 = (Application.Current.MainWindow as BenefitsWindow);
+                    Application.Current.MainWindow = new BenefitAddWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow1.Close();
                     break;
 
                 case "2":
-                    BloodBagWindow mainWindow2 = (Application.Current.MainWindow as BloodBagWindow);
-                    Application.Current.MainWindow = new SendBloodBagWindow();
+                    BenefitsWindow mainWindow2 = (Application.Current.MainWindow as BenefitsWindow);
+                    Application.Current.MainWindow = new BenefitIncreaseWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow2.Close();
                     break;
 
                 case "3":
-                    BloodBagWindow mainWindow = (Application.Current.MainWindow as BloodBagWindow);
+                    BenefitsWindow mainWindow = (Application.Current.MainWindow as BenefitsWindow);
                     Application.Current.MainWindow = new StaffWindow();
                     Application.Current.MainWindow.Show();
                     mainWindow.Close();
