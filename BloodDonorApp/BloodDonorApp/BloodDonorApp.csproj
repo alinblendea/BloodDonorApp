@@ -84,6 +84,9 @@
     <Compile Include="Models\Actions\PatientActions.cs" />
     <Compile Include="Models\Actions\RequestFormActions.cs" />
     <Compile Include="Models\Actions\StatusActions.cs" />
+    <Compile Include="Models\Benefit.cs">
+      <DependentUpon>DonorDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cerere_Donare.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>

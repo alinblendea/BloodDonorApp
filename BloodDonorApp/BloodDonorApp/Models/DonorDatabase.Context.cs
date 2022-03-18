@@ -28,6 +28,7 @@ namespace BloodDonorApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Benefit> Benefits { get; set; }
         public DbSet<Cerere_Donare> Cerere_Donare { get; set; }
         public DbSet<Chestionar_Medical> Chestionar_Medical { get; set; }
         public DbSet<Componente_Punga> Componente_Punga { get; set; }

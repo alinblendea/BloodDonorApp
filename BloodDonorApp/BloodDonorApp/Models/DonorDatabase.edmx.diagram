@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e50db716785949c084b0b5a5784e7f9e" Name="Diagram1">
-        <EntityTypeShape EntityType="BloodDonorModel.Cerere_Donare" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
+      <Diagram DiagramId="7122b51e76e94b06a71ab5ca5dcd2650" Name="Diagram1">
+        <EntityTypeShape EntityType="BloodDonorModel.Benefit" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodDonorModel.Cerere_Donare" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Chestionar_Medical" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Componente_Punga" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Cont" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
@@ -16,8 +17,8 @@
         <EntityTypeShape EntityType="BloodDonorModel.Personal_Recoltare" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Punga_Sange" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Spital" Width="1.5" PointX="8.75" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BloodDonorModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BloodDonorModel.Denied_Donor" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodDonorModel.sysdiagram" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodDonorModel.Denied_Donor" Width="1.5" PointX="5.75" PointY="10.875" IsExpanded="true" />
         <AssociationConnector Association="BloodDonorModel.FK_Chestionar_Medical_Donator" ManuallyRouted="false" />
         <AssociationConnector Association="BloodDonorModel.FK_Componente_Punga_Punga_Sange" ManuallyRouted="false" />
         <AssociationConnector Association="BloodDonorModel.FK_Medic_Cont" ManuallyRouted="false" />

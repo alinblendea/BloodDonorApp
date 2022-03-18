@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BloodDonorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Benefit">
+    <Key>
+      <PropertyRef Name="id_beneficiu" />
+    </Key>
+    <Property Name="id_beneficiu" Type="Int32" Nullable="false" />
+    <Property Name="denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nr_total" Type="Int32" Nullable="false" />
+    <Property Name="nr_ramase" Type="Int32" Nullable="false" />
+    <Property Name="cost_per_buc" Type="Int32" />
+  </EntityType>
   <EntityType Name="Cerere_Donare">
     <Key>
       <PropertyRef Name="id_cerere" />
@@ -267,6 +277,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="BloodDonorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Benefits" EntityType="Self.Benefit" />
     <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" />
     <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" />
     <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" />

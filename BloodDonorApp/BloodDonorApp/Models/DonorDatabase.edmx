@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="BloodDonorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Benefits">
+          <Key>
+            <PropertyRef Name="id_beneficiu" />
+          </Key>
+          <Property Name="id_beneficiu" Type="int" Nullable="false" />
+          <Property Name="denumire" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nr_total" Type="int" Nullable="false" />
+          <Property Name="nr_ramase" Type="int" Nullable="false" />
+          <Property Name="cost_per_buc" Type="int" />
+        </EntityType>
         <EntityType Name="Cerere_Donare">
           <Key>
             <PropertyRef Name="id_cerere" />
@@ -309,6 +319,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
           <Parameter Name="Grupa" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="BloodDonorModelStoreContainer">
+          <EntitySet Name="Benefits" EntityType="Self.Benefits" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" Schema="dbo" store:Type="Tables" />
@@ -369,6 +380,16 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BloodDonorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Benefit">
+          <Key>
+            <PropertyRef Name="id_beneficiu" />
+          </Key>
+          <Property Name="id_beneficiu" Type="Int32" Nullable="false" />
+          <Property Name="denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nr_total" Type="Int32" Nullable="false" />
+          <Property Name="nr_ramase" Type="Int32" Nullable="false" />
+          <Property Name="cost_per_buc" Type="Int32" />
+        </EntityType>
         <EntityType Name="Cerere_Donare">
           <Key>
             <PropertyRef Name="id_cerere" />
@@ -636,6 +657,7 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BloodDonorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Benefits" EntityType="Self.Benefit" />
           <EntitySet Name="Cerere_Donare" EntityType="Self.Cerere_Donare" />
           <EntitySet Name="Chestionar_Medical" EntityType="Self.Chestionar_Medical" />
           <EntitySet Name="Componente_Punga" EntityType="Self.Componente_Punga" />
@@ -755,6 +777,17 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BloodDonorModelStoreContainer" CdmEntityContainer="BloodDonorEntities">
+          <EntitySetMapping Name="Benefits">
+            <EntityTypeMapping TypeName="BloodDonorModel.Benefit">
+              <MappingFragment StoreEntitySet="Benefits">
+                <ScalarProperty Name="id_beneficiu" ColumnName="id_beneficiu" />
+                <ScalarProperty Name="denumire" ColumnName="denumire" />
+                <ScalarProperty Name="nr_total" ColumnName="nr_total" />
+                <ScalarProperty Name="nr_ramase" ColumnName="nr_ramase" />
+                <ScalarProperty Name="cost_per_buc" ColumnName="cost_per_buc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Cerere_Donare">
             <EntityTypeMapping TypeName="BloodDonorModel.Cerere_Donare">
               <MappingFragment StoreEntitySet="Cerere_Donare">

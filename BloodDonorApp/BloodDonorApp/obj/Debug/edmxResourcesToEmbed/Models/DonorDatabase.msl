@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="BloodDonorModelStoreContainer" CdmEntityContainer="BloodDonorEntities">
+    <EntitySetMapping Name="Benefits">
+      <EntityTypeMapping TypeName="BloodDonorModel.Benefit">
+        <MappingFragment StoreEntitySet="Benefits">
+          <ScalarProperty Name="id_beneficiu" ColumnName="id_beneficiu" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="nr_total" ColumnName="nr_total" />
+          <ScalarProperty Name="nr_ramase" ColumnName="nr_ramase" />
+          <ScalarProperty Name="cost_per_buc" ColumnName="cost_per_buc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Cerere_Donare">
       <EntityTypeMapping TypeName="BloodDonorModel.Cerere_Donare">
         <MappingFragment StoreEntitySet="Cerere_Donare">
