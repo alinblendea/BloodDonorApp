@@ -14,10 +14,17 @@ namespace BloodDonorApp.Models
     
     public partial class Benefit
     {
+        public Benefit()
+        {
+            this.Donares = new HashSet<Donare>();
+        }
+    
         public int id_beneficiu { get; set; }
         public string denumire { get; set; }
         public int nr_total { get; set; }
         public int nr_ramase { get; set; }
         public Nullable<int> cost_per_buc { get; set; }
+    
+        public virtual ICollection<Donare> Donares { get; set; }
     }
 }

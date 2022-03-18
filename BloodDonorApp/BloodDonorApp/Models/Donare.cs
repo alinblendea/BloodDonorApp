@@ -22,7 +22,9 @@ namespace BloodDonorApp.Models
         public string nume_pacient { get; set; }
         public string grupa_sanguina { get; set; }
         public Nullable<int> cantitate_ml { get; set; }
+        public int id_beneficiu { get; set; }
     
+        public virtual Benefit Benefit { get; set; }
         public virtual Donator Donator { get; set; }
     }
 }

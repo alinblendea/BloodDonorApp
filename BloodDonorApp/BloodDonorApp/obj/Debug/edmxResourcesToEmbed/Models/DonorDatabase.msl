@@ -76,6 +76,7 @@
           <ScalarProperty Name="nume_pacient" ColumnName="nume_pacient" />
           <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
           <ScalarProperty Name="cantitate_ml" ColumnName="cantitate_ml" />
+          <ScalarProperty Name="id_beneficiu" ColumnName="id_beneficiu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

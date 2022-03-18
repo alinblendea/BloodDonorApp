@@ -9,6 +9,7 @@
     <Property Name="nr_total" Type="Int32" Nullable="false" />
     <Property Name="nr_ramase" Type="Int32" Nullable="false" />
     <Property Name="cost_per_buc" Type="Int32" />
+    <NavigationProperty Name="Donares" Relationship="Self.FK_Donare_Benefits" FromRole="Benefits" ToRole="Donare" />
   </EntityType>
   <EntityType Name="Cerere_Donare">
     <Key>
@@ -75,6 +76,8 @@
     <Property Name="nume_pacient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
     <Property Name="cantitate_ml" Type="Int32" />
+    <Property Name="id_beneficiu" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Benefit" Relationship="Self.FK_Donare_Benefits" FromRole="Donare" ToRole="Benefits" />
     <NavigationProperty Name="Donator" Relationship="Self.FK_Donare_Donator" FromRole="Donare" ToRole="Donator" />
   </EntityType>
   <EntityType Name="Donator">
@@ -168,6 +171,18 @@
     <Property Name="id_denied" Type="Int32" Nullable="false" />
     <Property Name="cnp_denied" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Donare_Benefits">
+    <End Role="Benefits" Type="Self.Benefit" Multiplicity="1" />
+    <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Benefits">
+        <PropertyRef Name="id_beneficiu" />
+      </Principal>
+      <Dependent Role="Donare">
+        <PropertyRef Name="id_beneficiu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Chestionar_Medical_Donator">
     <End Role="Donator" Type="Self.Donator" Multiplicity="1" />
     <End Role="Chestionar_Medical" Type="Self.Chestionar_Medical" Multiplicity="*" />
@@ -291,6 +306,10 @@
     <EntitySet Name="Spitals" EntityType="Self.Spital" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Denied_Donor" EntityType="Self.Denied_Donor" />
+    <AssociationSet Name="FK_Donare_Benefits" Association="Self.FK_Donare_Benefits">
+      <End Role="Benefits" EntitySet="Benefits" />
+      <End Role="Donare" EntitySet="Donares" />
+    </AssociationSet>
     <AssociationSet Name="FK_Chestionar_Medical_Donator" Association="Self.FK_Chestionar_Medical_Donator">
       <End Role="Donator" EntitySet="Donators" />
       <End Role="Chestionar_Medical" EntitySet="Chestionar_Medical" />

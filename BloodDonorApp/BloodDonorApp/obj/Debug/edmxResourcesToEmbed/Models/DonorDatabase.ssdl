@@ -81,6 +81,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
     <Property Name="nume_pacient" Type="varchar" MaxLength="50" />
     <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" />
     <Property Name="cantitate_ml" Type="int" />
+    <Property Name="id_beneficiu" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Donator">
     <Key>
@@ -173,6 +174,18 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
       </Principal>
       <Dependent Role="Componente_Punga">
         <PropertyRef Name="id_punga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donare_Benefits">
+    <End Role="Benefits" Type="Self.Benefits" Multiplicity="1" />
+    <End Role="Donare" Type="Self.Donare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Benefits">
+        <PropertyRef Name="id_beneficiu" />
+      </Principal>
+      <Dependent Role="Donare">
+        <PropertyRef Name="id_beneficiu" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -340,6 +353,10 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
     <AssociationSet Name="FK_Componente_Punga_Punga_Sange" Association="Self.FK_Componente_Punga_Punga_Sange">
       <End Role="Punga_Sange" EntitySet="Punga_Sange" />
       <End Role="Componente_Punga" EntitySet="Componente_Punga" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donare_Benefits" Association="Self.FK_Donare_Benefits">
+      <End Role="Benefits" EntitySet="Benefits" />
+      <End Role="Donare" EntitySet="Donare" />
     </AssociationSet>
     <AssociationSet Name="FK_Donare_Donator" Association="Self.FK_Donare_Donator">
       <End Role="Donator" EntitySet="Donator" />
