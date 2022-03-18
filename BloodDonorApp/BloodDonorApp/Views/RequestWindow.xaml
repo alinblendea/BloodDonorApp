@@ -44,7 +44,7 @@
 
         <WrapPanel Margin="0,0,0,0" HorizontalAlignment="Center">
             <Label Width="158" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Grupa Sanguina: "/>
-            <TextBox x:Name="txtGrupa" Width="61" HorizontalAlignment="Left"
+            <ComboBox x:Name="txtGrupa" Width="61" HorizontalAlignment="Left"
                        />
         </WrapPanel>
 

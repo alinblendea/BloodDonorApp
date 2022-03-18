@@ -80,7 +80,7 @@
             
         <WrapPanel>
             <Label Width="158" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="Grupa sanguina:"/>
-            <TextBox x:Name="txtGrupa" Width="142" HorizontalAlignment="Left" Height="28"
+            <ComboBox x:Name="txtGrupa" Width="142" HorizontalAlignment="Left" Height="28"
                      />
             <Label Name="lblMessage" Content="{Binding Message}" Height="30" FontSize="15" Foreground="Blue"/>
         </WrapPanel>

@@ -23,6 +23,15 @@ namespace BloodDonorApp.Views
         {
             InitializeComponent();
             txtMail.Text = mail;
+            txtGrupa.Items.Add("");
+            txtGrupa.Items.Add("0-");
+            txtGrupa.Items.Add("0+");
+            txtGrupa.Items.Add("A-");
+            txtGrupa.Items.Add("A+");
+            txtGrupa.Items.Add("B-");
+            txtGrupa.Items.Add("B+");
+            txtGrupa.Items.Add("AB-");
+            txtGrupa.Items.Add("AB+");
         }
     }
 }
