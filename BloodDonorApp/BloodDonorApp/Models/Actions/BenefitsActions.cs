@@ -43,9 +43,27 @@ namespace BloodDonorApp.Models.Actions
                     return;
                 }
 
-                context.Benefits.Add(new Benefit() { id_beneficiu = context.Benefits.OrderByDescending(p => p.id_beneficiu).FirstOrDefault().id_beneficiu + 1, denumire = company + " " + name, nr_total = nr,  nr_ramase = nr, cost_per_buc = cost });
-                context.SaveChanges();
-                MessageBox.Show("Beneficiul a fost adaugat cu succes!");
+                bool exists = false;
+                List<Benefit> benefits = context.Benefits.ToList();
+                foreach (Benefit benefit in benefits)
+                {
+                    if (benefit.denumire.Equals(company + " " + name) && benefit.cost_per_buc == cost)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    context.Benefits.Add(new Benefit() { id_beneficiu = context.Benefits.OrderByDescending(p => p.id_beneficiu).FirstOrDefault().id_beneficiu + 1, denumire = company + " " + name, nr_total = nr, nr_ramase = nr, cost_per_buc = cost });
+                    context.SaveChanges();
+                    MessageBox.Show("Beneficiul a fost adaugat cu succes!");
+                }
+                else
+                {
+                    MessageBox.Show("Beneficiul introdus exista deja in baza de date.");
+                }
             }
             else
             {
