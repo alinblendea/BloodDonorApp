@@ -77,6 +77,7 @@
     <Compile Include="Models\Actions\Account\DonorAccountActions.cs" />
     <Compile Include="Models\Actions\Account\MedicAccountActions.cs" />
     <Compile Include="Models\Actions\ApproveActions.cs" />
+    <Compile Include="Models\Actions\BenefitsActions.cs" />
     <Compile Include="Models\Actions\CheckDonationsActions.cs" />
     <Compile Include="Models\Actions\HospitalActions.cs" />
     <Compile Include="Models\Actions\MedicalFormActions.cs" />
@@ -148,6 +149,7 @@
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Account\DonorAccountVM.cs" />
+    <Compile Include="ViewModels\AddBenefitsVM.cs" />
     <Compile Include="ViewModels\ApproveWindowVM.cs" />
     <Compile Include="ViewModels\BenefitsWindowVM.cs" />
     <Compile Include="ViewModels\CheckDonationsVM.cs" />
@@ -469,6 +471,8 @@
     <Resource Include="Images\benefitsManagement.png" />
     <Resource Include="Images\Buttons\increaseButton.png" />
     <Resource Include="Images\Buttons\addBenefitButton.png" />
+    <Resource Include="Images\addANew.png" />
+    <Resource Include="Images\toThe.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
