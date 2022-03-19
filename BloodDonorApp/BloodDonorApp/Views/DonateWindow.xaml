@@ -74,7 +74,7 @@
             <CheckBox x:Name="checkTratament" Width="40" HorizontalAlignment="Left"
                        />
             <Label Width="205" Foreground="DarkRed" FontFamily="Arial" FontSize="20" Content="(OPTIONAL) Pacient:"/>
-            <TextBox x:Name="txtPacient" Width="112" HorizontalAlignment="Left" Height="28"
+            <ComboBox x:Name="txtPacient" Width="112" HorizontalAlignment="Left" Height="28"
                         />
         </WrapPanel>
             

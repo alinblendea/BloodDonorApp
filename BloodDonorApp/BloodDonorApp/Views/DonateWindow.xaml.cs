@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonorApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace BloodDonorApp.Views
             InitializeComponent();
             InitializeMail(mail);
             InitializeBloodTypes();
+            InitializePatients();
         }
 
         public void InitializeMail(string mail)
@@ -42,6 +44,21 @@ namespace BloodDonorApp.Views
             txtGrupa.Items.Add("B+");
             txtGrupa.Items.Add("AB-");
             txtGrupa.Items.Add("AB+");
+        }
+
+        public void InitializePatients()
+        {
+            BloodDonorEntities context = new BloodDonorEntities();
+
+            List<Pacient> patients = context.Pacients.ToList();
+            txtPacient.Items.Clear();
+
+            txtPacient.Items.Add("");
+
+            foreach (Pacient pacient in patients)
+            {
+                txtPacient.Items.Add(pacient.nume);
+            }
         }
     }
 }
