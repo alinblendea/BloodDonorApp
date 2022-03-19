@@ -23,7 +23,11 @@ namespace BloodDonorApp.Views
         public HospitalAddWindow()
         {
             InitializeComponent();
+            InitializeHospitals();
+        }
 
+        public void InitializeHospitals()
+        {
             BloodDonorEntities context = new BloodDonorEntities();
 
             List<Spital> hospitals = context.Spitals.ToList();

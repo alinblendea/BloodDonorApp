@@ -23,12 +23,16 @@ namespace BloodDonorApp.Views
         public ChangeStatusWindow()
         {
             InitializeComponent();
-            
+            InitializeBenefits();
+        }
+
+        public void InitializeBenefits()
+        {
             BloodDonorEntities context = new BloodDonorEntities();
             List<Benefit> benefits = context.Benefits.ToList();
-            foreach(Benefit benefit in benefits)
+            foreach (Benefit benefit in benefits)
             {
-                if(benefit.nr_ramase != 0)
+                if (benefit.nr_ramase != 0)
                     comboBenefit.Items.Add(benefit.denumire);
             }
         }

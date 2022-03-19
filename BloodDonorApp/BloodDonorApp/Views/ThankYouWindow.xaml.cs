@@ -22,6 +22,11 @@ namespace BloodDonorApp.Views
         public ThankYouWindow(string name)
         {
             InitializeComponent();
+            InitializeName(name);
+        }
+
+        public void InitializeName(string name)
+        {
             txtName.Text = name;
         }
     }

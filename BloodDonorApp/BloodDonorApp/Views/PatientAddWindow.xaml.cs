@@ -23,7 +23,18 @@ namespace BloodDonorApp.Views
         public PatientAddWindow(string mail)
         {
             InitializeComponent();
+            InitializeMail(mail);
+            InitializeBloodTypes();
+            InitializeHospitals();
+        }
+
+        public void InitializeMail(string mail)
+        {
             txtMail.Text = mail;
+        }
+
+        public void InitializeBloodTypes()
+        {
             txtGrupa.Items.Add("");
             txtGrupa.Items.Add("0-");
             txtGrupa.Items.Add("0+");
@@ -33,7 +44,10 @@ namespace BloodDonorApp.Views
             txtGrupa.Items.Add("B+");
             txtGrupa.Items.Add("AB-");
             txtGrupa.Items.Add("AB+");
+        }
 
+        public void InitializeHospitals()
+        {
             BloodDonorEntities context = new BloodDonorEntities();
             List<Spital> hospitals = context.Spitals.ToList();
             txtHospital.Items.Clear();

@@ -22,6 +22,11 @@ namespace BloodDonorApp.Views
         public CheckDonationsWindow(string mail)
         {
             InitializeComponent();
+            InitializeMail(mail);
+        }
+
+        public void InitializeMail(string mail)
+        {
             txtmail.Text = mail;
         }
     }

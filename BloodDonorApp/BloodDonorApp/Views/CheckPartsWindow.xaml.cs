@@ -23,8 +23,17 @@ namespace BloodDonorApp.Views
         public CheckPartsWindow(string mail)
         {
             InitializeComponent();
-            txtMail.Text = mail;
+            InitializeMail(mail);
+            InitializeParts();
+        }
 
+        public void InitializeMail(string mail)
+        {
+            txtMail.Text = mail;
+        }
+
+        public void InitializeParts()
+        {
             BloodDonorEntities context = new BloodDonorEntities();
 
             List<Cerere_Donare> cereri = context.Cerere_Donare.ToList();

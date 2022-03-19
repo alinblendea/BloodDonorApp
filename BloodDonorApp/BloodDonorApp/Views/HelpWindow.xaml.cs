@@ -22,14 +22,7 @@ namespace BloodDonorApp.Views
         public HelpWindow()
         {
             InitializeComponent();
-            txtHelp.Text = "There are 3 types of users: \n" +
-                           "\n     -Donors, which can sign up for a donation and view its donations;" +
-                           "\n     -Medics, which can request a donation and view now manu requests have \n been made " +
-                           "for each blood part;" +
-                           "\n     -Staff members, who can approve donors based on their medical form and \n who can " +
-                           "set the donations' status as DONE whenever a donation has \n been completed;" +
-                           "\n\n\n Each type of user needs to register with an email and \n password. If your account doesn't work on " +
-                           "login, you may have chosen another \n type of user to login as.";
+            InitializeInfo();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,6 +31,18 @@ namespace BloodDonorApp.Views
             Application.Current.MainWindow = new MainWindow();
             Application.Current.MainWindow.Show();
             mainWindow.Close();
+        }
+
+        public void InitializeInfo()
+        {
+            txtHelp.Text = "There are 3 types of users: \n" +
+                           "\n     -Donors, which can sign up for a donation and view its donations;" +
+                           "\n     -Medics, which can request a donation and view now manu requests have \n been made " +
+                           "for each blood part;" +
+                           "\n     -Staff members, who can approve donors based on their medical form and \n who can " +
+                           "set the donations' status as DONE whenever a donation has \n been completed;" +
+                           "\n\n\n Each type of user needs to register with an email and \n password. If your account doesn't work on " +
+                           "login, you may have chosen another \n type of user to login as.";
         }
     }
 }

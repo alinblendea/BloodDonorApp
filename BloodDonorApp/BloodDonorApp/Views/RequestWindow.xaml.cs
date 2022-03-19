@@ -22,7 +22,17 @@ namespace BloodDonorApp.Views
         public RequestWindow(string mail)
         {
             InitializeComponent();
+            InitializeMail(mail);
+            InitializeBloodTypes();
+        }
+
+        public void InitializeMail(string mail)
+        {
             txtMail.Text = mail;
+        }
+
+        public void InitializeBloodTypes()
+        {
             txtGrupa.Items.Add("");
             txtGrupa.Items.Add("0-");
             txtGrupa.Items.Add("0+");
