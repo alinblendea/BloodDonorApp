@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonorApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace BloodDonorApp.Views
         {
             InitializeComponent();
             txtMail.Text = mail;
+
+            BloodDonorEntities context = new BloodDonorEntities();
+
+            List<Cerere_Donare> cereri = context.Cerere_Donare.ToList();
+            int nrPlasma = 0, nrTrombocite = 0, nrGlobule = 0;
+
+            foreach (Cerere_Donare cerere in cereri)
+            {
+                if (cerere.plasma)
+                    nrPlasma++;
+                if (cerere.trombocite)
+                    nrTrombocite++;
+                if (cerere.globule_rosii)
+                    nrGlobule++;
+            }
+
+            txtPlasma.Text = nrPlasma.ToString();
+            txtPlatelets.Text = nrTrombocite.ToString();
+            txtRedCells.Text = nrGlobule.ToString();
         }
     }
 }

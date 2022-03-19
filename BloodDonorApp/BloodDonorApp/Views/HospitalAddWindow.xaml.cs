@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonorApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace BloodDonorApp.Views
         public HospitalAddWindow()
         {
             InitializeComponent();
+
+            BloodDonorEntities context = new BloodDonorEntities();
+
+            List<Spital> hospitals = context.Spitals.ToList();
+            comboHospital.Items.Clear();
+
+            foreach (Spital spital in hospitals)
+            {
+                comboHospital.Items.Add(spital.denumire);
+            }
         }
     }
 }

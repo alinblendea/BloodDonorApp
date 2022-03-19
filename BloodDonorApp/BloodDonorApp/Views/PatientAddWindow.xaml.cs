@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonorApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,15 @@ namespace BloodDonorApp.Views
             txtGrupa.Items.Add("B+");
             txtGrupa.Items.Add("AB-");
             txtGrupa.Items.Add("AB+");
+
+            BloodDonorEntities context = new BloodDonorEntities();
+            List<Spital> hospitals = context.Spitals.ToList();
+            txtHospital.Items.Clear();
+
+            foreach (Spital spital in hospitals)
+            {
+                txtHospital.Items.Add(spital.denumire);
+            }
         }
     }
 }

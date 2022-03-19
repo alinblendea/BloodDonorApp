@@ -21,18 +21,6 @@ namespace BloodDonorApp.Models.Actions
             this.patientContext = patientContext;
         }
 
-        public void RefreshMethod(object obj)
-        {
-            PatientAddWindow mainWindow1 = (Application.Current.MainWindow as PatientAddWindow);
-            List<Spital> hospitals = context.Spitals.ToList();
-            mainWindow1.txtHospital.Items.Clear();
-
-            foreach (Spital spital in hospitals)
-            {
-                mainWindow1.txtHospital.Items.Add(spital.denumire);
-            }
-        }
-
         public void AddMethod(object obj)
         {
             PatientVM patientVM = obj as PatientVM;

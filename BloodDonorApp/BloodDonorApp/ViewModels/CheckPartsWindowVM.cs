@@ -30,46 +30,6 @@ namespace BloodDonorApp.ViewModels
             }
         }
 
-        private ICommand refreshCommand;
-        public ICommand RefreshCommand
-        {
-            get
-            {
-                if (refreshCommand == null)
-                {
-                    refreshCommand = new RelayCommand(RefreshWindow);
-                }
-                return refreshCommand;
-            }
-        }
-
-        public void RefreshWindow(object obj)
-        {
-            string nr = obj as string;
-            if(nr.Equals("1"))
-            {
-                BloodDonorEntities context = new BloodDonorEntities();
-
-                List<Cerere_Donare> cereri = context.Cerere_Donare.ToList();
-                int nrPlasma = 0, nrTrombocite = 0, nrGlobule = 0;
-
-                foreach(Cerere_Donare cerere in cereri)
-                {
-                    if (cerere.plasma)
-                        nrPlasma++;
-                    if (cerere.trombocite)
-                        nrTrombocite++;
-                    if (cerere.globule_rosii)
-                        nrGlobule++;
-                }
-
-                CheckPartsWindow mainWindow = (Application.Current.MainWindow as CheckPartsWindow);
-                mainWindow.txtPlasma.Text = nrPlasma.ToString();
-                mainWindow.txtPlatelets.Text = nrTrombocite.ToString();
-                mainWindow.txtRedCells.Text = nrGlobule.ToString();
-            }
-        }
-
         public void OpenWindow(object obj)
         {
             string nr = obj as string;
