@@ -123,6 +123,32 @@ namespace BloodDonorApp.ViewModels
             }
         }
 
+        private ICommand back2Command;
+        public ICommand Back2Command
+        {
+            get
+            {
+                if (back2Command == null)
+                {
+                    back2Command = new RelayCommand(pAct.Back2Method);
+                }
+                return back2Command;
+            }
+        }
+
+        private ICommand updateCommand;
+        public ICommand UpdateCommand
+        {
+            get
+            {
+                if (updateCommand == null)
+                {
+                    updateCommand = new RelayCommand(pAct.UpdateMethod);
+                }
+                return updateCommand;
+            }
+        }
+
         #endregion
     }
 }

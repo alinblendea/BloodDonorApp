@@ -473,6 +473,8 @@
     <Resource Include="Images\Buttons\addBenefitButton.png" />
     <Resource Include="Images\addANew.png" />
     <Resource Include="Images\toThe.png" />
+    <Resource Include="Images\addANumber.png" />
+    <Resource Include="Images\toAn.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

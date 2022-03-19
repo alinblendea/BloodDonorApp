@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonorApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace BloodDonorApp.Views
         public BenefitIncreaseWindow()
         {
             InitializeComponent();
+            InitializeBenefits();
+        }
+
+        public void InitializeBenefits()
+        {
+            BloodDonorEntities context = new BloodDonorEntities();
+            List<Benefit> benefits = context.Benefits.ToList();
+            foreach (Benefit benefit in benefits)
+            {
+                if (benefit.nr_ramase != 0)
+                    txtName.Items.Add(benefit.denumire);
+            }
         }
     }
 }

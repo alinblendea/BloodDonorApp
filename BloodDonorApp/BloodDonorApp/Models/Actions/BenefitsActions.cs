@@ -71,9 +71,54 @@ namespace BloodDonorApp.Models.Actions
             }
         }
 
+        public void UpdateMethod(object obj)
+        {
+            BenefitIncreaseWindow mainWindow = (Application.Current.MainWindow as BenefitIncreaseWindow);
+
+            if(!String.IsNullOrEmpty(mainWindow.txtName.Text) && !String.IsNullOrEmpty(mainWindow.txtNr.Text))
+            {
+                int nr = 0;
+                try
+                {
+                    nr = Int32.Parse(mainWindow.txtNr.Text);
+
+                    List<Benefit> benefits = context.Benefits.ToList();
+                    foreach(Benefit benefit in benefits)
+                    {
+                        if(benefit.denumire.Equals(mainWindow.txtName.Text))
+                        {
+                            benefit.nr_total += nr;
+                            benefit.nr_ramase += nr;
+                            break;
+                        }
+                    }
+
+                    context.SaveChanges();
+                    MessageBox.Show("Adaugare realizata cu succes.");
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Numar invalid.");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ambele campuri trebuie completate.");
+            }
+        }
+
         public void BackMethod(object obj)
         {
             BenefitAddWindow mainWindow = (Application.Current.MainWindow as BenefitAddWindow);
+            Application.Current.MainWindow = new BenefitsWindow();
+            Application.Current.MainWindow.Show();
+            mainWindow.Close();
+        }
+
+        public void Back2Method(object obj)
+        {
+            BenefitIncreaseWindow mainWindow = (Application.Current.MainWindow as BenefitIncreaseWindow);
             Application.Current.MainWindow = new BenefitsWindow();
             Application.Current.MainWindow.Show();
             mainWindow.Close();
