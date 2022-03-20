@@ -154,6 +154,7 @@
     <Compile Include="ViewModels\BenefitsWindowVM.cs" />
     <Compile Include="ViewModels\CheckDonationsVM.cs" />
     <Compile Include="ViewModels\CheckPartsWindowVM.cs" />
+    <Compile Include="ViewModels\DetailsWindowVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\HospitalVM.cs" />
     <Compile Include="ViewModels\InfoWindowVM.cs" />
@@ -492,6 +493,11 @@
     <Resource Include="Images\toAn.png" />
     <Resource Include="Images\seeDonorInfo.png" />
     <Resource Include="Images\Buttons\donorInfoButton.png" />
+    <Resource Include="Images\personalInformation.png" />
+    <Resource Include="Images\benefitsTaken.png" />
+    <Resource Include="Images\benefitsTotal.png" />
+    <Resource Include="Images\numberOf.png" />
+    <Resource Include="Images\name.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

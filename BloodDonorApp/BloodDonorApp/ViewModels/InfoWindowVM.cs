@@ -49,7 +49,7 @@ namespace BloodDonorApp.ViewModels
                     }
                     if (ok)
                     {
-                        Application.Current.MainWindow = new DetailsWindow(mainWindow1.txtmail.Text);
+                        Application.Current.MainWindow = new DetailsWindow(mainWindow1.txtmail.Text, mainWindow1.txtCnp.Text);
                         Application.Current.MainWindow.Show();
                         mainWindow1.Close();
                     }
