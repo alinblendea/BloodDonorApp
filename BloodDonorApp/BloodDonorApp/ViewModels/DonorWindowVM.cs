@@ -51,6 +51,13 @@ namespace BloodDonorApp.ViewModels
                     Application.Current.MainWindow.Show();
                     mainWindow.Close();
                     break;
+
+                case "4":
+                    DonorWindow mainWindow3 = (Application.Current.MainWindow as DonorWindow);
+                    Application.Current.MainWindow = new InfoWindow(mainWindow3.txtmail.Text);
+                    Application.Current.MainWindow.Show();
+                    mainWindow3.Close();
+                    break;
             }
         }
     }

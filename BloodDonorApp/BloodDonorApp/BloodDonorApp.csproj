@@ -156,6 +156,7 @@
     <Compile Include="ViewModels\CheckPartsWindowVM.cs" />
     <Compile Include="ViewModels\DonorWindowVM.cs" />
     <Compile Include="ViewModels\HospitalVM.cs" />
+    <Compile Include="ViewModels\InfoWindowVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\Account\MedicAccountVM.cs" />
     <Compile Include="ViewModels\MedicalFormVM.cs" />
@@ -187,6 +188,9 @@
     <Compile Include="Views\CheckPartsWindow.xaml.cs">
       <DependentUpon>CheckPartsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DetailsWindow.xaml.cs">
+      <DependentUpon>DetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DonateWindow.xaml.cs">
       <DependentUpon>DonateWindow.xaml</DependentUpon>
     </Compile>
@@ -195,6 +199,9 @@
     </Compile>
     <Compile Include="Views\HospitalAddWindow.xaml.cs">
       <DependentUpon>HospitalAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\DonorLoginWindow.xaml.cs">
       <DependentUpon>DonorLoginWindow.xaml</DependentUpon>
@@ -280,6 +287,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DonateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -289,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HospitalAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -475,6 +490,8 @@
     <Resource Include="Images\toThe.png" />
     <Resource Include="Images\addANumber.png" />
     <Resource Include="Images\toAn.png" />
+    <Resource Include="Images\seeDonorInfo.png" />
+    <Resource Include="Images\Buttons\donorInfoButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
