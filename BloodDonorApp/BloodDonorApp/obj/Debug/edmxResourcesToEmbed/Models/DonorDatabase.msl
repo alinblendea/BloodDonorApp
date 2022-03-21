@@ -112,6 +112,7 @@
           <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
           <ScalarProperty Name="id_spital" ColumnName="id_spital" />
           <ScalarProperty Name="nume_spital" ColumnName="nume_spital" />
+          <ScalarProperty Name="high_priority" ColumnName="high_priority" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

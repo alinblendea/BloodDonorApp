@@ -116,6 +116,7 @@
     <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="id_spital" Type="Int32" Nullable="false" />
     <Property Name="nume_spital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="high_priority" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Spital" Relationship="Self.FK_Pacient_Spital" FromRole="Pacient" ToRole="Spital" />
   </EntityType>
   <EntityType Name="Personal_Recoltare">

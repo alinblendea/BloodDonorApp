@@ -498,6 +498,8 @@
     <Resource Include="Images\benefitsTotal.png" />
     <Resource Include="Images\numberOf.png" />
     <Resource Include="Images\name.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

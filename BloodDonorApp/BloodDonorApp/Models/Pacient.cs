@@ -19,6 +19,7 @@ namespace BloodDonorApp.Models
         public string grupa_sanguina { get; set; }
         public int id_spital { get; set; }
         public string nume_spital { get; set; }
+        public bool high_priority { get; set; }
     
         public virtual Spital Spital { get; set; }
     }

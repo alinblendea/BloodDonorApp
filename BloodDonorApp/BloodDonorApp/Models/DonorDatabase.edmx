@@ -119,6 +119,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
           <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="id_spital" Type="int" Nullable="false" />
           <Property Name="nume_spital" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="high_priority" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Personal_Recoltare">
           <Key>
@@ -514,6 +515,7 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
           <Property Name="grupa_sanguina" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_spital" Type="Int32" Nullable="false" />
           <Property Name="nume_spital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="high_priority" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Spital" Relationship="Self.FK_Pacient_Spital" FromRole="Pacient" ToRole="Spital" />
         </EntityType>
         <EntityType Name="Personal_Recoltare">
@@ -926,6 +928,7 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
                 <ScalarProperty Name="grupa_sanguina" ColumnName="grupa_sanguina" />
                 <ScalarProperty Name="id_spital" ColumnName="id_spital" />
                 <ScalarProperty Name="nume_spital" ColumnName="nume_spital" />
+                <ScalarProperty Name="high_priority" ColumnName="high_priority" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

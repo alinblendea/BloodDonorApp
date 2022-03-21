@@ -88,9 +88,10 @@ namespace BloodDonorApp.Models.Actions
                                     }
                                 }
 
-                                context.Pacients.Add(new Pacient() { cnp_pacient = patientVM.PatientCnp, nume = patientVM.Name, grupa_sanguina = patientVM.Grupa, id_spital = idSpital, nume_spital = patientVM.HospitalName });
-
                                 PatientAddWindow mainWindow = (Application.Current.MainWindow as PatientAddWindow);
+                                bool priority = (bool)mainWindow.checkPriority.IsChecked;
+                                context.Pacients.Add(new Pacient() { cnp_pacient = patientVM.PatientCnp, nume = patientVM.Name, grupa_sanguina = patientVM.Grupa, id_spital = idSpital, nume_spital = patientVM.HospitalName, high_priority = priority });
+
                                 List<Medic> medics = context.Medics.ToList();
                                 int idMedic = 0;
                                 foreach (Medic medic in medics)
@@ -104,6 +105,7 @@ namespace BloodDonorApp.Models.Actions
                                 bool tromb = (bool)mainWindow.checkTrombocite.IsChecked;
                                 bool glob = (bool)mainWindow.checkGlobule.IsChecked;
                                 bool plasm = (bool)mainWindow.checkPlasma.IsChecked;
+
                                 context.Cerere_Donare.Add(new Cerere_Donare() { id_cerere = context.Cerere_Donare.OrderByDescending(p => p.id_cerere).FirstOrDefault().id_cerere + 1, status = "NOT DONE", grupa_sanguina = patientVM.Grupa, trombocite = tromb, globule_rosii = glob, plasma = plasm, id_medic = idMedic });
                                 context.SaveChanges();
                                 MessageBox.Show("Pacient inregistrat cu succes! O cerere pentru sange de grupa " + patientVM.Grupa + " a fost trimisa.");

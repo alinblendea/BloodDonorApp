@@ -114,6 +114,7 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
     <Property Name="grupa_sanguina" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="id_spital" Type="int" Nullable="false" />
     <Property Name="nume_spital" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="high_priority" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Personal_Recoltare">
     <Key>

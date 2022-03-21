@@ -53,11 +53,24 @@ namespace BloodDonorApp.Views
             List<Pacient> patients = context.Pacients.ToList();
             txtPacient.Items.Clear();
 
-            txtPacient.Items.Add("");
+            ComboBoxItem cbi = new ComboBoxItem();
+            cbi.Background = Brushes.White;
+            cbi.Content = "";
+            txtPacient.Items.Add(cbi);
 
             foreach (Pacient pacient in patients)
             {
-                txtPacient.Items.Add(pacient.nume);
+                ComboBoxItem cbip = new ComboBoxItem();
+                if (pacient.high_priority)
+                {
+                    cbip.Background = Brushes.Red;
+                }
+                else
+                {
+                    cbip.Background = Brushes.White;
+                }
+                cbip.Content = pacient.nume;
+                txtPacient.Items.Add(cbip);
             }
         }
     }
