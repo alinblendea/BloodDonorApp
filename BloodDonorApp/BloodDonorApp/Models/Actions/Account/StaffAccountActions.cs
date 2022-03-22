@@ -12,6 +12,12 @@ using BloodDonorApp.Views.LoginMenu;
 using BloodDonorApp.Views.Login;
 using BloodDonorApp.Views;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Security.Cryptography;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -23,6 +29,55 @@ namespace BloodDonorApp.Models.Actions.Account
         public StaffAccountActions(StaffAccountVM staffAccountContext)
         {
             this.staffAccountContext = staffAccountContext;
+        }
+
+        /* 
+         * AES ENCRYPTED
+         * 
+         */
+
+        private string Encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+        private string Decrypt(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
         }
 
         public void AddMethod(object obj)
@@ -75,7 +130,7 @@ namespace BloodDonorApp.Models.Actions.Account
                     {
                         int idcont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1;
                         context.Personal_Recoltare.Add(new Personal_Recoltare() { id_personal = context.Personal_Recoltare.OrderByDescending(p => p.id_personal).FirstOrDefault().id_personal + 1, email = staffAccountVM.Email, nume = staffAccountVM.Name, id_cont = idcont });
-                        context.Conts.Add(new Cont() { id_cont = idcont, email = staffAccountVM.Email, parola = staffAccountVM.Password, type = "Staff" });
+                        context.Conts.Add(new Cont() { id_cont = idcont, email = staffAccountVM.Email, parola = Encrypt(staffAccountVM.Password), type = "Staff" });
                         context.SaveChanges();
                         staffAccountContext.Message = "Cont creat cu succes!";
                         MessageBox.Show(staffAccountContext.Message);
@@ -109,7 +164,7 @@ namespace BloodDonorApp.Models.Actions.Account
                         if (acc.email.Equals(staffAccountVM.Email))
                         {
                             foundMail = true;
-                            if (acc.parola.Equals(staffAccountVM.Password))
+                            if (Decrypt(acc.parola).Equals(staffAccountVM.Password))
                             {
                                 if (acc.type.Equals("Staff"))
                                 {

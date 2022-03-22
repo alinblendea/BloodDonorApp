@@ -61,7 +61,7 @@
           </Key>
           <Property Name="id_cont" Type="int" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="parola" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -458,7 +458,7 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
           </Key>
           <Property Name="id_cont" Type="Int32" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="parola" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parola" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Medics" Relationship="Self.FK_Medic_Cont" FromRole="Cont" ToRole="Medic" />
           <NavigationProperty Name="Personal_Recoltare" Relationship="Self.FK_Personal_Recoltare_Cont" FromRole="Cont" ToRole="Personal_Recoltare" />

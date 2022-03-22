@@ -56,7 +56,7 @@
     </Key>
     <Property Name="id_cont" Type="int" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="parola" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="parola" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:

@@ -12,6 +12,12 @@ using BloodDonorApp.Views.LoginMenu;
 using BloodDonorApp.Views.Login;
 using BloodDonorApp.Views;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Security.Cryptography;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -23,6 +29,55 @@ namespace BloodDonorApp.Models.Actions.Account
         public MedicAccountActions(MedicAccountVM medicAccountContext)
         {
             this.medicAccountContext = medicAccountContext;
+        }
+
+        /* 
+         * AES ENCRYPTED
+         * 
+         */
+
+        private string Encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+        private string Decrypt(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
         }
 
         public void AddMethod(object obj)
@@ -95,7 +150,7 @@ namespace BloodDonorApp.Models.Actions.Account
                             context.Spitals.Add(new Spital() { id_spital = idspital, denumire = medicAccountVM.Hospital, judet = "BV" });
                         }
 
-                        context.Conts.Add(new Cont() { id_cont = idcont, email = medicAccountVM.Email, parola = medicAccountVM.Password, type = "Medic" });
+                        context.Conts.Add(new Cont() { id_cont = idcont, email = medicAccountVM.Email, parola = Encrypt(medicAccountVM.Password), type = "Medic" });
                         context.Medics.Add(new Medic() { id_medic = context.Medics.OrderByDescending(p => p.id_medic).FirstOrDefault().id_medic + 1, email = medicAccountVM.Email, nume = medicAccountVM.Name, id_cont = idcont, id_spital = idspital });
                         context.SaveChanges();
                         medicAccountContext.Message = "Cont creat cu succes!";
@@ -130,7 +185,7 @@ namespace BloodDonorApp.Models.Actions.Account
                         if (acc.email.Equals(medicAccountVM.Email))
                         {
                             foundMail = true;
-                            if (acc.parola.Equals(medicAccountVM.Password))
+                            if (Decrypt(acc.parola).Equals(medicAccountVM.Password))
                             {
                                 if (acc.type.Equals("Medic"))
                                 {

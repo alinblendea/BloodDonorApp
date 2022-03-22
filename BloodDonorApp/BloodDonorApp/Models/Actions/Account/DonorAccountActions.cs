@@ -12,6 +12,12 @@ using BloodDonorApp.Views.LoginMenu;
 using BloodDonorApp.Views.Login;
 using BloodDonorApp.Views;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Security.Cryptography;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -23,6 +29,55 @@ namespace BloodDonorApp.Models.Actions.Account
         public DonorAccountActions(DonorAccountVM donorAccountContext)
         {
             this.donorAccountContext = donorAccountContext;
+        }
+
+        /* 
+         * AES ENCRYPTED
+         * 
+         */
+
+        private string Encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+        private string Decrypt(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
         }
 
         public void AddMethod(object obj)
@@ -72,7 +127,7 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = donorAccountVM.Email, parola = donorAccountVM.Password, type = "Donor" });
+                        context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = donorAccountVM.Email, parola = Encrypt(donorAccountVM.Password), type = "Donor" });
                         context.SaveChanges();
                         donorAccountContext.Message = "Cont creat cu succes!";
                         MessageBox.Show(donorAccountContext.Message);
@@ -106,7 +161,7 @@ namespace BloodDonorApp.Models.Actions.Account
                         if (acc.email.Equals(donorAccountVM.Email))
                         {
                             foundMail = true;
-                            if (acc.parola.Equals(donorAccountVM.Password))
+                            if (Decrypt(acc.parola).Equals(donorAccountVM.Password))
                             {
                                 if(acc.type.Equals("Donor"))
                                 {

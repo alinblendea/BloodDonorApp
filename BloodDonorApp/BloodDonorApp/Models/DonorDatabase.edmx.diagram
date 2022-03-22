@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="31eeeb04258b4353a02fe08d9893700d" Name="Diagram1">
+      <Diagram DiagramId="d3fa2cc20fb142d6aba61750361902b7" Name="Diagram1">
         <EntityTypeShape EntityType="BloodDonorModel.Benefit" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Cerere_Donare" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodDonorModel.Chestionar_Medical" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
