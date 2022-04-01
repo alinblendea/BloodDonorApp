@@ -63,6 +63,13 @@ namespace BloodDonorApp.ViewModels
                     Application.Current.MainWindow.Show();
                     mainWindow4.Close();
                     break;
+
+                case "6":
+                    MainWindow mainWindow5 = (Application.Current.MainWindow as MainWindow);
+                    Application.Current.MainWindow = new StatsOptionsWindow();
+                    Application.Current.MainWindow.Show();
+                    mainWindow5.Close();
+                    break;
             }
         }
     }

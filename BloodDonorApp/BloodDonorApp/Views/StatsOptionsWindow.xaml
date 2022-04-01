@@ -1,0 +1,50 @@
+﻿<Window x:Class="BloodDonorApp.Views.StatsOptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        Title="Blood Donor - Stats Options" Height="450" Width="800" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background2.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Window.DataContext>
+        <local:StatsOptionsWindowVM/>
+    </Window.DataContext>
+    <Grid>
+        <WrapPanel HorizontalAlignment="Center">
+            <Image Source="/Images/chooseOption.png" HorizontalAlignment="Center" Margin="62,49,61.6,283" Height="73"/>
+        </WrapPanel>
+        <Button Margin="294,158,299.6,225" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
+            <Image Source="/Images/Buttons/benefitsOfferedButton.png" Width="190" Height="27"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Margin="294,200,299.6,183" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
+            <Image Source="/Images/Buttons/benefitsTakenButton.png" Width="190" Height="27"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Margin="294,242,299.6,141" Command="{Binding OpenWindowCommand}" CommandParameter="3" BorderBrush="Black" BorderThickness="2">
+            <Image Source="/Images/Buttons/volumeDonatedButton.png" Width="200" Height="27"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Margin="294,303,299.6,79" Command="{Binding OpenWindowCommand}" CommandParameter="4" BorderBrush="Black" BorderThickness="2">
+            <Image Source="/Images/Buttons/backButton.png" Width="134"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>

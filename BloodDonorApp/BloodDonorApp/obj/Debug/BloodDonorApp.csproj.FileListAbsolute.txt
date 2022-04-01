@@ -132,3 +132,5 @@ D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Vi
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\InfoWindow.baml
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\DetailsWindow.g.cs
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\DetailsWindow.baml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\StatsOptionsWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\StatsOptionsWindow.baml

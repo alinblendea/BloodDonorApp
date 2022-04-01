@@ -1,7 +1,7 @@
 ﻿<Window x:Class="BloodDonorApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
+        xmlns:local="clr-namespace:BloodDonorApp.ViewModels"
         Title="Blood Donor" Height="450" Width="800" Icon="/Images/icon.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Images/backgroundMain.jpg" Stretch="Fill" />
@@ -18,7 +18,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Margin="197,272,465.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
+        <Button Margin="127,271,535.6,100" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/donorButton.png" Width="134"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
@@ -26,7 +26,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Margin="333,272,320.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
+        <Button Margin="263,271,390.6,100" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/medicButton.png"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
@@ -34,8 +34,16 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Margin="478,272,188.6,99" Command="{Binding OpenWindowCommand}" CommandParameter="3" BorderBrush="Black" BorderThickness="2">
+        <Button Margin="408,271,258.6,100" Command="{Binding OpenWindowCommand}" CommandParameter="3" BorderBrush="Black" BorderThickness="2">
             <Image Source="/Images/Buttons/staffButton.png" Height="40" Width="127"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Margin="540,271,126.6,100" Command="{Binding OpenWindowCommand}" CommandParameter="6" BorderBrush="Black" BorderThickness="2">
+            <Image Source="/Images/Buttons/statsButton.png" Height="40" Width="127"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>

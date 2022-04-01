@@ -169,6 +169,7 @@
     <Compile Include="ViewModels\RequestFormVM.cs" />
     <Compile Include="ViewModels\StaffPreLoginWindowVM.cs" />
     <Compile Include="ViewModels\StaffWindowVM.cs" />
+    <Compile Include="ViewModels\StatsOptionsWindowVM.cs" />
     <Compile Include="ViewModels\StatusWindowVM.cs" />
     <Compile Include="ViewModels\ThankYouWindowVM.cs" />
     <Compile Include="Views\ApproveWindow.xaml.cs">
@@ -248,6 +249,9 @@
     </Compile>
     <Compile Include="Views\StaffWindow.xaml.cs">
       <DependentUpon>StaffWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatsOptionsWindow.xaml.cs">
+      <DependentUpon>StatsOptionsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThankYouWindow.xaml.cs">
       <DependentUpon>ThankYouWindow.xaml</DependentUpon>
@@ -365,6 +369,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StaffWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatsOptionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -500,6 +508,11 @@
     <Resource Include="Images\name.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\statsButton.png" />
+    <Resource Include="Images\chooseOption.png" />
+    <Resource Include="Images\Buttons\benefitsOfferedButton.png" />
+    <Resource Include="Images\Buttons\volumeDonatedButton.png" />
+    <Resource Include="Images\Buttons\benefitsTakenButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>
