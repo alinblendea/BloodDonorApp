@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,6 +21,34 @@ namespace BloodDonorApp.Models.Actions
         public ApproveActions(ApproveWindowVM formContext)
         {
             this.formContext = formContext;
+        }
+
+        private void sendMail(string mail, string cnp, string date)
+        {
+            string name = "";
+            List<Donator> donors = context.Donators.ToList();
+            foreach(Donator donor in donors)
+            {
+                if(donor.cnp_donator.Equals(cnp))
+                {
+                    name = donor.nume;
+                    break;
+                }
+            }
+
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "036998aA."),
+                EnableSsl = true,
+            };
+
+            string body = "[nu raspundeti acestui e-mail]\n\n\n" +
+                "Buna ziua!\n\n" +
+                "Donatorul " + name +", CNP" + cnp + " fost programat/a la donare de sange in data de " + date + ".\n\n" +
+                "Va multumim pentru contributia dumneavoastra in salvarea vietilor omenesti!";
+
+            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Programare la donare de sange", body);
         }
 
         public void AprobareMethod(object obj)
@@ -52,11 +82,13 @@ namespace BloodDonorApp.Models.Actions
 
                                 context.SaveChanges();
 
-                                // SEND NOTIFICATION / EMAIL
+                                ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
+
+                                sendMail(formVM.Mail, formVM.DonorCnp, mainWindow.txtDate.Text);
 
                                 formContext.FormsList = AllForms();
 
-                                ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
+                                
                                 Application.Current.MainWindow = new ApproveWindow();
                                 Application.Current.MainWindow.Show();
                                 mainWindow.Close();
