@@ -18,6 +18,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Cryptography;
+using System.Net.Mail;
+using System.Net;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -80,6 +82,37 @@ namespace BloodDonorApp.Models.Actions.Account
             return cipherText;
         }
 
+        private string GenerateCode()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[6];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            return finalString;
+        }
+
+        private void SendCodeViaEmail(string code, string mail)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "036998aA."),
+                EnableSsl = true,
+            };
+
+            string body = "[nu raspundeti acestui e-mail]\n\n\n" +
+                "Buna ziua!\n\n" +
+                "Codul de confirmare a adresei de mail este: " + code;
+
+            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Activare cont medic", body);
+        }
         public void AddMethod(object obj)
         {
             MedicAccountVM medicAccountVM = obj as MedicAccountVM;
@@ -150,11 +183,12 @@ namespace BloodDonorApp.Models.Actions.Account
                             context.Spitals.Add(new Spital() { id_spital = idspital, denumire = medicAccountVM.Hospital, judet = "BV" });
                         }
 
-                        context.Conts.Add(new Cont() { id_cont = idcont, email = medicAccountVM.Email, parola = Encrypt(medicAccountVM.Password), type = "Medic" });
-                        context.Medics.Add(new Medic() { id_medic = context.Medics.OrderByDescending(p => p.id_medic).FirstOrDefault().id_medic + 1, email = medicAccountVM.Email, nume = medicAccountVM.Name, id_cont = idcont, id_spital = idspital });
-                        context.SaveChanges();
-                        medicAccountContext.Message = "Cont creat cu succes!";
-                        MessageBox.Show(medicAccountContext.Message);
+                        string code = GenerateCode();
+
+                        SendCodeViaEmail(code, medicAccountVM.Email);
+
+                        CodeConfirmMedicWindow confirmWindow = new CodeConfirmMedicWindow(code, medicAccountVM.Email, Encrypt(medicAccountVM.Password), "Medic", medicAccountVM.Name, idspital);
+                        confirmWindow.Show();
                     }
                     else
                     {

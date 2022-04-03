@@ -190,6 +190,15 @@
     <Compile Include="Views\CheckPartsWindow.xaml.cs">
       <DependentUpon>CheckPartsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeConfirmMedicWindow.xaml.cs">
+      <DependentUpon>CodeConfirmMedicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeConfirmStaffWindow.xaml.cs">
+      <DependentUpon>CodeConfirmStaffWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeConfirmWindow.xaml.cs">
+      <DependentUpon>CodeConfirmWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailsWindow.xaml.cs">
       <DependentUpon>DetailsWindow.xaml</DependentUpon>
     </Compile>
@@ -289,6 +298,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CheckPartsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeConfirmMedicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeConfirmStaffWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeConfirmWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -513,6 +534,9 @@
     <Resource Include="Images\Buttons\benefitsOfferedButton.png" />
     <Resource Include="Images\Buttons\volumeDonatedButton.png" />
     <Resource Include="Images\Buttons\benefitsTakenButton.png" />
+    <Resource Include="Images\enterCode.png" />
+    <Resource Include="Images\Buttons\validateButton.png" />
+    <Resource Include="Images\backgroundValidate.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

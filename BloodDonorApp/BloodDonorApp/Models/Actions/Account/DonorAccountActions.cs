@@ -18,6 +18,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Cryptography;
+using System.Net.Mail;
+using System.Net;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -80,6 +82,38 @@ namespace BloodDonorApp.Models.Actions.Account
             return cipherText;
         }
 
+        private string GenerateCode()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[6];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            return finalString;
+        }
+
+        private void SendCodeViaEmail(string code, string mail)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "036998aA."),
+                EnableSsl = true,
+            };
+
+            string body = "[nu raspundeti acestui e-mail]\n\n\n" +
+                "Buna ziua!\n\n" +
+                "Codul de confirmare a adresei de mail este: " + code;
+
+            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Activare cont donator", body);
+        }
+
         public void AddMethod(object obj)
         {
             DonorAccountVM donorAccountVM = obj as DonorAccountVM;
@@ -127,10 +161,12 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        context.Conts.Add(new Cont() { id_cont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1, email = donorAccountVM.Email, parola = Encrypt(donorAccountVM.Password), type = "Donor" });
-                        context.SaveChanges();
-                        donorAccountContext.Message = "Cont creat cu succes!";
-                        MessageBox.Show(donorAccountContext.Message);
+                        string code = GenerateCode();
+
+                        SendCodeViaEmail(code, donorAccountVM.Email);
+
+                        CodeConfirmWindow confirmWindow = new CodeConfirmWindow(code, donorAccountVM.Email, Encrypt(donorAccountVM.Password), "Donor");
+                        confirmWindow.Show();
                     }
                     else
                     {

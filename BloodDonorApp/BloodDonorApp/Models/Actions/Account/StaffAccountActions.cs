@@ -18,6 +18,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Cryptography;
+using System.Net.Mail;
+using System.Net;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -80,6 +82,37 @@ namespace BloodDonorApp.Models.Actions.Account
             return cipherText;
         }
 
+        private string GenerateCode()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[6];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            return finalString;
+        }
+
+        private void SendCodeViaEmail(string code, string mail)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "036998aA."),
+                EnableSsl = true,
+            };
+
+            string body = "[nu raspundeti acestui e-mail]\n\n\n" +
+                "Buna ziua!\n\n" +
+                "Codul de confirmare a adresei de mail este: " + code;
+
+            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Activare cont personal recoltare", body);
+        }
         public void AddMethod(object obj)
         {
             StaffAccountVM staffAccountVM = obj as StaffAccountVM;
@@ -128,12 +161,12 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        int idcont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1;
-                        context.Personal_Recoltare.Add(new Personal_Recoltare() { id_personal = context.Personal_Recoltare.OrderByDescending(p => p.id_personal).FirstOrDefault().id_personal + 1, email = staffAccountVM.Email, nume = staffAccountVM.Name, id_cont = idcont });
-                        context.Conts.Add(new Cont() { id_cont = idcont, email = staffAccountVM.Email, parola = Encrypt(staffAccountVM.Password), type = "Staff" });
-                        context.SaveChanges();
-                        staffAccountContext.Message = "Cont creat cu succes!";
-                        MessageBox.Show(staffAccountContext.Message);
+                        string code = GenerateCode();
+
+                        SendCodeViaEmail(code, staffAccountVM.Email);
+
+                        CodeConfirmStaffWindow confirmWindow = new CodeConfirmStaffWindow(code, staffAccountVM.Email, Encrypt(staffAccountVM.Password), "Staff", staffAccountVM.Name);
+                        confirmWindow.Show();
                     }
                     else
                     {
