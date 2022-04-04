@@ -148,7 +148,9 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DonorDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Account\ChangePasswordWindowVM.cs" />
     <Compile Include="ViewModels\Account\DonorAccountVM.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordWindowVM.cs" />
     <Compile Include="ViewModels\AddBenefitsVM.cs" />
     <Compile Include="ViewModels\ApproveWindowVM.cs" />
     <Compile Include="ViewModels\BenefitsWindowVM.cs" />
@@ -214,8 +216,17 @@
     <Compile Include="Views\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Login\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\CodeValidationWindow.xaml.cs">
+      <DependentUpon>CodeValidationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\DonorLoginWindow.xaml.cs">
       <DependentUpon>DonorLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\ForgotPasswordWindow.xaml.cs">
+      <DependentUpon>ForgotPasswordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\MedicLoginWindow.xaml.cs">
       <DependentUpon>MedicLoginWindow.xaml</DependentUpon>
@@ -333,7 +344,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Login\ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\CodeValidationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login\DonorLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\ForgotPasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -537,6 +560,11 @@
     <Resource Include="Images\enterCode.png" />
     <Resource Include="Images\Buttons\validateButton.png" />
     <Resource Include="Images\backgroundValidate.png" />
+    <Resource Include="Images\enterMail.png" />
+    <Resource Include="Images\Buttons\sendCodeButton.png" />
+    <Resource Include="Images\confirmPassword.png" />
+    <Resource Include="Images\newPassword.png" />
+    <Resource Include="Images\Buttons\forgotPasswordButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

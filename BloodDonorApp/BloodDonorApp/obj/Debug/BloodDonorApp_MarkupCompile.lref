@@ -7,10 +7,13 @@ FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Benef
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\ChangeStatusWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\CheckDonationsWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\CheckPartsWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\DetailsWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\DonateWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\HelpWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\HospitalAddWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\InfoWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Login\DonorLoginWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Login\ForgotPasswordWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Login\MedicLoginWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Login\StaffLoginWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\PatientAddWindow.xaml;;
@@ -25,8 +28,7 @@ FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Reque
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Register\StaffRegisterWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\BenefitIncreaseWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\StaffWindow.xaml;;
-FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\ThankYouWindow.xaml;;
-FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\InfoWindow.xaml;;
-FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\DetailsWindow.xaml;;
 FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\StatsOptionsWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\ThankYouWindow.xaml;;
+FD:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\Views\Login\ChangePasswordWindow.xaml;;
 

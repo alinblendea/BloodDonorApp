@@ -32,7 +32,7 @@
             <Image Source="/Images/loginAsStaff.png" HorizontalAlignment="Center"></Image>
 
         </WrapPanel>
-        <WrapPanel Margin="250,30,0,0">
+        <WrapPanel Margin="250,25,0,0">
             <Label Width="168" Foreground="DarkRed" FontFamily="Arial" FontSize="20" FontStyle="Italic" Content="Email:"/>
             <TextBox x:Name="txtMail" Width="146" HorizontalAlignment="Left"
                          Text ="" />
@@ -43,7 +43,7 @@
                          MaxLength="25" Text="" Foreground="White"/>
         </WrapPanel>
 
-        <WrapPanel  Margin="280,10,0,0">
+        <WrapPanel  Margin="280,10,231.6,0">
             <Button Margin="15" Width="100" Height="30" Command="{Binding LoginCommand}" BorderBrush="Black" BorderThickness="2">
                 <Image Source="/Images/Buttons/loginButton.png" Width="90"></Image>
                 <Button.Resources>
@@ -68,6 +68,16 @@
                         <Setter Property="CornerRadius" Value="12"/>
                     </Style>
                 </Button.Resources>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Margin="280,-20,231.6,0" HorizontalAlignment="Center" Width="282">
+            <Button Margin="15" Width="229" Height="30" Command="{Binding ForgotCommand}" BorderBrush="Black" BorderThickness="2">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
+                <Image Source="/Images/Buttons/forgotPasswordButton.png" Width="219"/>
             </Button>
         </WrapPanel>
     </StackPanel>

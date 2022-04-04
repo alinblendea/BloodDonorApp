@@ -252,6 +252,14 @@ namespace BloodDonorApp.Models.Actions.Account
             }
         }
 
+        public void ForgotMethod(object obj)
+        {
+            MedicLoginWindow mainWindow = (Application.Current.MainWindow as MedicLoginWindow);
+            Application.Current.MainWindow = new ForgotPasswordWindow();
+            Application.Current.MainWindow.Show();
+            mainWindow.Close();
+        }
+
         public void BackMethod(object obj)
         {
             MedicRegisterWindow mainWindow = (Application.Current.MainWindow as MedicRegisterWindow);

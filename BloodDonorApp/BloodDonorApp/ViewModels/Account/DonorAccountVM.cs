@@ -164,6 +164,19 @@ namespace BloodDonorApp.ViewModels.Account
             }
         }
 
+        private ICommand forgotCommand;
+        public ICommand ForgotCommand
+        {
+            get
+            {
+                if (forgotCommand == null)
+                {
+                    forgotCommand = new RelayCommand(pAct.ForgotMethod);
+                }
+                return forgotCommand;
+            }
+        }
+
         private ICommand exitCommand;
         public ICommand ExitCommand
         {

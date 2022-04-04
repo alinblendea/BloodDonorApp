@@ -140,3 +140,9 @@ D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Vi
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CodeConfirmMedicWindow.g.cs
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CodeConfirmStaffWindow.baml
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\CodeConfirmStaffWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ForgotPasswordWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\CodeValidationWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\CodeValidationWindow.baml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ForgotPasswordWindow.baml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ChangePasswordWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ChangePasswordWindow.baml
