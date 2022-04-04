@@ -20,6 +20,7 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.Net.Mail;
 using System.Net;
+using System.Net.NetworkInformation;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -80,6 +81,24 @@ namespace BloodDonorApp.Models.Actions.Account
                 }
             }
             return cipherText;
+        }
+
+        private bool CheckConnection()
+        {
+            try
+            {
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private string GenerateCode()
@@ -161,12 +180,19 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        string code = GenerateCode();
+                        if (CheckConnection())
+                        {
+                            string code = GenerateCode();
 
-                        SendCodeViaEmail(code, donorAccountVM.Email);
+                            SendCodeViaEmail(code, donorAccountVM.Email);
 
-                        CodeConfirmWindow confirmWindow = new CodeConfirmWindow(code, donorAccountVM.Email, Encrypt(donorAccountVM.Password), "Donor");
-                        confirmWindow.Show();
+                            CodeConfirmWindow confirmWindow = new CodeConfirmWindow(code, donorAccountVM.Email, Encrypt(donorAccountVM.Password), "Donor");
+                            confirmWindow.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nu exista conexiune la internet.");
+                        }
                     }
                     else
                     {

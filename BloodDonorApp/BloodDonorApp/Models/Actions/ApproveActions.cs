@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +22,24 @@ namespace BloodDonorApp.Models.Actions
         public ApproveActions(ApproveWindowVM formContext)
         {
             this.formContext = formContext;
+        }
+
+        private bool CheckConnection()
+        {
+            try
+            {
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void sendMail(string mail, string cnp, string date)
@@ -76,22 +95,29 @@ namespace BloodDonorApp.Models.Actions
                             }
                             else
                             {
-                                context.ApproveForm(formVM.DonorCnp, true);
+                                if (CheckConnection())
+                                {
+                                    context.ApproveForm(formVM.DonorCnp, true);
 
-                                context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail, nume_pacient = formVM.PatientName, grupa_sanguina = formVM.Grupa });
+                                    context.Donares.Add(new Donare() { id_donare = context.Donares.OrderByDescending(p => p.id_donare).FirstOrDefault().id_donare + 1, data = date, isDone = false, cnp_donator = formVM.DonorCnp, email = formVM.Mail, nume_pacient = formVM.PatientName, grupa_sanguina = formVM.Grupa });
 
-                                context.SaveChanges();
+                                    context.SaveChanges();
 
-                                ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
+                                    ApproveWindow mainWindow = (Application.Current.MainWindow as ApproveWindow);
 
-                                sendMail(formVM.Mail, formVM.DonorCnp, mainWindow.txtDate.Text);
+                                    sendMail(formVM.Mail, formVM.DonorCnp, mainWindow.txtDate.Text);
 
-                                formContext.FormsList = AllForms();
+                                    formContext.FormsList = AllForms();
 
-                                
-                                Application.Current.MainWindow = new ApproveWindow();
-                                Application.Current.MainWindow.Show();
-                                mainWindow.Close();
+
+                                    Application.Current.MainWindow = new ApproveWindow();
+                                    Application.Current.MainWindow.Show();
+                                    mainWindow.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Nu exista conexiune la internet. Nu s-a putut trimite mail cu data programarii.");
+                                }
                             }
                         }
                         else

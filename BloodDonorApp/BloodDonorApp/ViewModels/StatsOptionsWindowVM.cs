@@ -35,6 +35,17 @@ namespace BloodDonorApp.ViewModels
             switch (nr)
             {
                 case "1":
+                    var smtpClient = new SmtpClient("smtp.gmail.com")
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "036998aA."),
+                        EnableSsl = true,
+                    };
+
+                    string body = "[nu raspundeti acestui e-mail]\n\n\n" +
+                        "Deez nuts";
+
+                    smtpClient.Send("noresponse.blooddonorapp@gmail.com", "alinblendea1708@gmail.com", "Activare cont donator de sange", body);
                     break;
 
                 case "2":

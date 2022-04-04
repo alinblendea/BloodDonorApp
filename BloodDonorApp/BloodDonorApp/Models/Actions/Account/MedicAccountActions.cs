@@ -20,6 +20,7 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.Net.Mail;
 using System.Net;
+using System.Net.NetworkInformation;
 
 namespace BloodDonorApp.Models.Actions.Account
 {
@@ -80,6 +81,24 @@ namespace BloodDonorApp.Models.Actions.Account
                 }
             }
             return cipherText;
+        }
+
+        private bool CheckConnection()
+        {
+            try
+            {
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private string GenerateCode()
@@ -162,33 +181,40 @@ namespace BloodDonorApp.Models.Actions.Account
                     }
                     if (!alreadyExists)
                     {
-                        int idcont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1;
-                        int idspital = 0;
-                        bool foundSpital = false;
-
-                        List <Spital> spitale = context.Spitals.ToList();
-                        foreach(Spital spital in spitale)
+                        if (CheckConnection())
                         {
-                            if(medicAccountVM.Hospital.Equals(spital.denumire))
+                            int idcont = context.Conts.OrderByDescending(p => p.id_cont).FirstOrDefault().id_cont + 1;
+                            int idspital = 0;
+                            bool foundSpital = false;
+
+                            List<Spital> spitale = context.Spitals.ToList();
+                            foreach (Spital spital in spitale)
                             {
-                                foundSpital = true;
-                                idspital = spital.id_spital;
-                                break;
+                                if (medicAccountVM.Hospital.Equals(spital.denumire))
+                                {
+                                    foundSpital = true;
+                                    idspital = spital.id_spital;
+                                    break;
+                                }
                             }
-                        }
 
-                        if(!foundSpital)
+                            if (!foundSpital)
+                            {
+                                idspital = context.Spitals.OrderByDescending(p => p.id_spital).FirstOrDefault().id_spital + 1;
+                                context.Spitals.Add(new Spital() { id_spital = idspital, denumire = medicAccountVM.Hospital, judet = "BV" });
+                            }
+
+                            string code = GenerateCode();
+
+                            SendCodeViaEmail(code, medicAccountVM.Email);
+
+                            CodeConfirmMedicWindow confirmWindow = new CodeConfirmMedicWindow(code, medicAccountVM.Email, Encrypt(medicAccountVM.Password), "Medic", medicAccountVM.Name, idspital);
+                            confirmWindow.Show();
+                        }
+                        else
                         {
-                            idspital = context.Spitals.OrderByDescending(p => p.id_spital).FirstOrDefault().id_spital + 1;
-                            context.Spitals.Add(new Spital() { id_spital = idspital, denumire = medicAccountVM.Hospital, judet = "BV" });
+                            MessageBox.Show("Nu exista conexiune la internet.");
                         }
-
-                        string code = GenerateCode();
-
-                        SendCodeViaEmail(code, medicAccountVM.Email);
-
-                        CodeConfirmMedicWindow confirmWindow = new CodeConfirmMedicWindow(code, medicAccountVM.Email, Encrypt(medicAccountVM.Password), "Medic", medicAccountVM.Name, idspital);
-                        confirmWindow.Show();
                     }
                     else
                     {

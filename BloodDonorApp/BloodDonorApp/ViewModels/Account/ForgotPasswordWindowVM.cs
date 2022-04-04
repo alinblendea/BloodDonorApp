@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,24 @@ namespace BloodDonorApp.ViewModels.Account
                     openWindowCommand = new RelayCommand(OpenWindow);
                 }
                 return openWindowCommand;
+            }
+        }
+
+        private bool CheckConnection()
+        {
+            try
+            {
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
@@ -50,10 +69,16 @@ namespace BloodDonorApp.ViewModels.Account
 
                     if (found)
                     {
-                        
-                        Application.Current.MainWindow = new CodeValidationWindow(mainWindow1.txtMail.Text);
-                        Application.Current.MainWindow.Show();
-                        mainWindow1.Close();
+                        if (CheckConnection())
+                        {
+                            Application.Current.MainWindow = new CodeValidationWindow(mainWindow1.txtMail.Text);
+                            Application.Current.MainWindow.Show();
+                            mainWindow1.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nu exista conexiune la internet.");
+                        }
                     }
                     else
                     {
