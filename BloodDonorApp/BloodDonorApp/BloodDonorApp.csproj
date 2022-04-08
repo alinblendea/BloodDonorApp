@@ -565,6 +565,8 @@
     <Resource Include="Images\confirmPassword.png" />
     <Resource Include="Images\newPassword.png" />
     <Resource Include="Images\Buttons\forgotPasswordButton.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

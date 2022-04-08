@@ -94,8 +94,8 @@ warning 6002: The table/view 'BloodDonor.dbo.Denied_Donor' does not have a prima
           </Key>
           <Property Name="cnp_donator" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="nume" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="domiciliu" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="resedinta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="domiciliu" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="resedinta" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="telefon" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="grupa_sanguina" Type="varchar" MaxLength="50" />
@@ -485,8 +485,8 @@ FROM [dbo].[Denied_Donor] AS [Denied_Donor]</DefiningQuery>
           </Key>
           <Property Name="cnp_donator" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="domiciliu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="resedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="domiciliu" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resedinta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="grupa_sanguina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
