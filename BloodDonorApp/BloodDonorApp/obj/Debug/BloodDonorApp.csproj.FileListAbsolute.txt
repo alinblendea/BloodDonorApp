@@ -146,3 +146,12 @@ D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Vi
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ForgotPasswordWindow.baml
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ChangePasswordWindow.g.cs
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\Login\ChangePasswordWindow.baml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\BenefitsOfferedWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\BenefitsOfferedWindow.baml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\DotNetProjects.DataVisualization.Toolkit.dll
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.dll
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.Wpf.dll
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.pdb
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.xml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.Wpf.pdb
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.Wpf.xml
