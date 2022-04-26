@@ -49,6 +49,10 @@ namespace BloodDonorApp.ViewModels
                     break;
 
                 case "3":
+                    StatsOptionsWindow mainWindow3 = (Application.Current.MainWindow as StatsOptionsWindow);
+                    Application.Current.MainWindow = new VolumeDonatedWindow();
+                    Application.Current.MainWindow.Show();
+                    mainWindow3.Close();
                     break;
 
                 case "4":

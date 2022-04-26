@@ -291,6 +291,9 @@
     <Compile Include="Views\ThankYouWindow.xaml.cs">
       <DependentUpon>ThankYouWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VolumeDonatedWindow.xaml.cs">
+      <DependentUpon>VolumeDonatedWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -444,6 +447,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ThankYouWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VolumeDonatedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

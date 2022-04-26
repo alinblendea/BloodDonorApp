@@ -157,3 +157,5 @@ D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\Li
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\bin\Debug\LiveCharts.Wpf.xml
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\BenefitsRemainingWindow.g.cs
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\BenefitsRemainingWindow.baml
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\VolumeDonatedWindow.g.cs
+D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\obj\Debug\Views\VolumeDonatedWindow.baml
