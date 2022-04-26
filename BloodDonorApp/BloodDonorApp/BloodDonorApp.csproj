@@ -192,6 +192,9 @@
     <Compile Include="Views\BenefitsOfferedWindow.xaml.cs">
       <DependentUpon>BenefitsOfferedWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BenefitsRemainingWindow.xaml.cs">
+      <DependentUpon>BenefitsRemainingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BenefitsWindow.xaml.cs">
       <DependentUpon>BenefitsWindow.xaml</DependentUpon>
     </Compile>
@@ -309,6 +312,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BenefitsOfferedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BenefitsRemainingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -583,6 +590,8 @@
     <Resource Include="Images\Buttons\forgotPasswordButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Buttons\remainingBenefitsButton.png" />
+    <Resource Include="Images\Buttons\benefitsBudgetButton.png" />
     <Content Include="Models\DonorDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonorDatabase.edmx</DependentUpon>

@@ -14,7 +14,7 @@
             <Image Source="/Images/chooseOption.png" HorizontalAlignment="Center" Margin="62,49,61.6,283" Height="73"/>
         </WrapPanel>
         <Button Margin="294,158,299.6,225" Command="{Binding OpenWindowCommand}" CommandParameter="1" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/benefitsOfferedButton.png" Width="190" Height="27"></Image>
+            <Image Source="/Images/Buttons/benefitsBudgetButton.png" Width="190" Height="27"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>
@@ -22,7 +22,7 @@
             </Button.Resources>
         </Button>
         <Button Margin="294,200,299.6,183" Command="{Binding OpenWindowCommand}" CommandParameter="2" BorderBrush="Black" BorderThickness="2">
-            <Image Source="/Images/Buttons/benefitsTakenButton.png" Width="190" Height="27"></Image>
+            <Image Source="/Images/Buttons/remainingBenefitsButton.png" Width="190" Height="37"></Image>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="12"/>

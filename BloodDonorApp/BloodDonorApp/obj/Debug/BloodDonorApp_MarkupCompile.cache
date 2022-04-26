@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Facultate Alin\Licenta\BloodDonorApp\BloodDonorApp\BloodDonorApp\App.xaml
-36-1057019940
+37-2123686751
 259362905
-108-203157800
+109-1663390927
 212101537705
-MainWindow.xaml;Views\ApproveWindow.xaml;Views\BenefitAddWindow.xaml;Views\BenefitsOfferedWindow.xaml;Views\BenefitsWindow.xaml;Views\ChangeStatusWindow.xaml;Views\CheckDonationsWindow.xaml;Views\CheckPartsWindow.xaml;Views\CodeConfirmMedicWindow.xaml;Views\CodeConfirmStaffWindow.xaml;Views\CodeConfirmWindow.xaml;Views\DetailsWindow.xaml;Views\DonateWindow.xaml;Views\HelpWindow.xaml;Views\HospitalAddWindow.xaml;Views\InfoWindow.xaml;Views\Login\ChangePasswordWindow.xaml;Views\Login\CodeValidationWindow.xaml;Views\Login\DonorLoginWindow.xaml;Views\Login\ForgotPasswordWindow.xaml;Views\Login\MedicLoginWindow.xaml;Views\Login\StaffLoginWindow.xaml;Views\PatientAddWindow.xaml;Views\Register\DonorRegisterWindow.xaml;Views\DonorWindow.xaml;Views\Register\MedicRegisterWindow.xaml;Views\MedicWindow.xaml;Views\LoginMenu\DonorPreLoginWindow.xaml;Views\LoginMenu\MedicPreLoginWindow.xaml;Views\LoginMenu\StaffPreLoginWindow.xaml;Views\RequestWindow.xaml;Views\Register\StaffRegisterWindow.xaml;Views\BenefitIncreaseWindow.xaml;Views\StaffWindow.xaml;Views\StatsOptionsWindow.xaml;Views\ThankYouWindow.xaml;
+MainWindow.xaml;Views\ApproveWindow.xaml;Views\BenefitAddWindow.xaml;Views\BenefitsOfferedWindow.xaml;Views\BenefitsRemainingWindow.xaml;Views\BenefitsWindow.xaml;Views\ChangeStatusWindow.xaml;Views\CheckDonationsWindow.xaml;Views\CheckPartsWindow.xaml;Views\CodeConfirmMedicWindow.xaml;Views\CodeConfirmStaffWindow.xaml;Views\CodeConfirmWindow.xaml;Views\DetailsWindow.xaml;Views\DonateWindow.xaml;Views\HelpWindow.xaml;Views\HospitalAddWindow.xaml;Views\InfoWindow.xaml;Views\Login\ChangePasswordWindow.xaml;Views\Login\CodeValidationWindow.xaml;Views\Login\DonorLoginWindow.xaml;Views\Login\ForgotPasswordWindow.xaml;Views\Login\MedicLoginWindow.xaml;Views\Login\StaffLoginWindow.xaml;Views\PatientAddWindow.xaml;Views\Register\DonorRegisterWindow.xaml;Views\DonorWindow.xaml;Views\Register\MedicRegisterWindow.xaml;Views\MedicWindow.xaml;Views\LoginMenu\DonorPreLoginWindow.xaml;Views\LoginMenu\MedicPreLoginWindow.xaml;Views\LoginMenu\StaffPreLoginWindow.xaml;Views\RequestWindow.xaml;Views\Register\StaffRegisterWindow.xaml;Views\BenefitIncreaseWindow.xaml;Views\StaffWindow.xaml;Views\StatsOptionsWindow.xaml;Views\ThankYouWindow.xaml;
 
 False
 
