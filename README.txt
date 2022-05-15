@@ -1,3 +1,4 @@
+![a](https://github.com/alinblendea/BloodDonorApp/blob/main/banner.png "Title")
 
 Aplicatia va permite medicilor din spitale sa trimita cereri de anumite componente din sange. Donatorii vor completa un chestionar medical, iar personalul de la centrul de recoltare va putea verifica daca acestia sunt apti sau nu pentru donare.
 
