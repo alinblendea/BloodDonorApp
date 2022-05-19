@@ -1,0 +1,97 @@
+.school_background {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    position: absolute;
+    top: 100px;
+    width: 210;
+    height: 158;
+    transition: width 1s, height 1s;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: Copperplate Gothic;
+    font-size: 12
+}
+
+a:hover {
+    background-color: #041664;
+    color: white;
+}
+
+a.active {
+    background-color: #171581;
+}
+
+a.facebook {
+    background-color: transparent;
+}
+
+div.pagina {
+    background-color: #dddee7;
+    width: 800px;
+    border-style: outset;
+    padding: 50px;
+    margin: 80px;
+    box-shadow: 10px 10px 5px grey;
+    float: left;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none!important;
+    height: 500px;
+    width: 600px;
+}
+
+.mapouter {
+    border: 8px;
+    border-color: #041664;
+    border-style: solid;
+    margin: 50px;
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 600px;
+}
+
+.photo {
+    width: 180;
+    height: 128;
+    transition: width 1s, heigth 1s;
+}
+
+.photo:hover {
+    width: 210;
+    height: 158;
+}
+
+iframe {
+    transition: all linear 0.5s;
+    background-color: lightblue;
+    height: 350px;
+    width: 350px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.ng-hide {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    top: -200px;
+    left: 200px;
+}
