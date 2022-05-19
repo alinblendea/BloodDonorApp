@@ -1,3 +1,4 @@
+![Banner](https://github.com/alinblendea/BloodDonorApp/blob/main/banner.png)
 
 # Blood Donor App
 
@@ -28,6 +29,4 @@ TBA:
 
 Blendea Alin-Daniel:
 - [@alinblendea](https://www.github.com/alinblendea)
-
-![Logo](https://github.com/alinblendea/BloodDonorApp/blob/main/banner.png)
 
