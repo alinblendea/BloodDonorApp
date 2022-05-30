@@ -121,7 +121,7 @@ namespace BloodDonorApp.Models.Actions.Account
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "036998aA."),
+                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "03699874521aA"),
                 EnableSsl = true,
             };
 
