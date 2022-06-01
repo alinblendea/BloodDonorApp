@@ -83,6 +83,7 @@
     <Compile Include="Converters\RequestFormConvert.cs" />
     <Compile Include="Converters\StatusConvert.cs" />
     <Compile Include="Helpers\BaseVM.cs" />
+    <Compile Include="Helpers\VisualStudioProvider.cs" />
     <Compile Include="Models\Actions\Account\DonorAccountActions.cs" />
     <Compile Include="Models\Actions\Account\MedicAccountActions.cs" />
     <Compile Include="Models\Actions\ApproveActions.cs" />

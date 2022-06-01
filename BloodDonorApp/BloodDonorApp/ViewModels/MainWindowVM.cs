@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using BloodDonorApp.Commands;
+using BloodDonorApp.Helpers;
 using BloodDonorApp.Views;
 using BloodDonorApp.Views.LoginMenu;
 
@@ -58,10 +60,10 @@ namespace BloodDonorApp.ViewModels
                     break;
 
                 case "5":
-                    MainWindow mainWindow4 = (Application.Current.MainWindow as MainWindow);
-                    Application.Current.MainWindow = new HelpWindow();
-                    Application.Current.MainWindow.Show();
-                    mainWindow4.Close();
+                    var directory = VisualStudioProvider.TryGetSolutionDirectoryInfo();
+
+                    string file = directory.FullName.Substring(0, directory.FullName.LastIndexOf('\\') + 1) + "BloodDonorSite\\index.html";
+                    Process.Start(file);
                     break;
 
                 case "6":
