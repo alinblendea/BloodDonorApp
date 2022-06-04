@@ -1,0 +1,23 @@
+DOCUMENTATIE:
+-cele 3 stagii ale proiectului cu deadlines: 
+1) inceput sem1 pana la sfarsitul sem1 - functionalitati de baza, login, conexiune la baza de date, adaugare donatori si aprobare formulare, cereri de donare de sange
+2) inceput sem2 pana la prezentarea licentei - aplicatie fully functional care poate fi deja folosita in centrele de donare, dar doar in cate un centru, in acelasi timp cu celelalte, dar fara legatura intre centrele de donare
+3) prezentare licenta pana la ??? - aplicatie fully functional si secured, care poate fi folosita la nivel national, cu baza de date comuna si aplicatie mobile 
+
+!!!! Anne Frank: "No one has ever become poor by giving" !!!!
+
+???? Intro: despre inima, circulatia sangelui in corp, cat de mult parcurge intr-o zi si cat de important este sistemul circulator. "Ce se intampla, insa, atunci cand corpul nostru nu are suficient de mult sange, din cauza unui accident?"  ?????
+
+History of blood transfusion in the start of How do blood transfusions work teded
+Risk factors are universal, so there shouldn t be any discriminari regarding blood donations, indiferent de natii sau alte lucruri, avand in vedere si tehnologia super avansata care poate fi folosita pentru detectarea bolilor la donare
+It only takes one person to donate blood to save 3 people's lives
+
+-validari si encriptii
+
+-add the commit chart from github to the documentation for the 3 stages of developing the project
+
+-legat de blood types: there is no such thing as a unique person, chemically and biologically, why are there 8 blood types and how do they form & pregnancy complications legat de Rh & blood types differ by species for example dogs have more blood types (teded Why do blood types matter)
+
+-legat de blood donating si motive: cancer included (ex tedx why you should give it), nu doare donarea, poti dona pentru 3 persoane dintr-o singura donare
+
+-legat de why people refuse to donate: diferite cauze minore, neimportante, ex headaches, tvshows etc 
