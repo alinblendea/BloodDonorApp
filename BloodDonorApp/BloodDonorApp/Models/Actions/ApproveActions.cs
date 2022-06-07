@@ -55,10 +55,10 @@ namespace BloodDonorApp.Models.Actions
                 }
             }
 
-            var smtpClient = new SmtpClient("smtp.gmail.com")
+            var smtpClient = new SmtpClient("smtp.mail.yahoo.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "03699874521aA"),
+                Credentials = new NetworkCredential("alinblendea@yahoo.com", "pdbbuabfmgzxaoua"),
                 EnableSsl = true,
             };
 
@@ -67,7 +67,7 @@ namespace BloodDonorApp.Models.Actions
                 "Donatorul " + name +", CNP" + cnp + " fost programat/a la donare de sange in data de " + date + ".\n\n" +
                 "Va multumim pentru contributia dumneavoastra in salvarea vietilor omenesti!";
 
-            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Programare la donare de sange", body);
+            smtpClient.Send("alinblendea@yahoo.com", mail, "Programare la donare de sange", body);
         }
 
         public void AprobareMethod(object obj)

@@ -119,10 +119,10 @@ namespace BloodDonorApp.Models.Actions.Account
 
         private void SendCodeViaEmail(string code, string mail)
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
+            var smtpClient = new SmtpClient("smtp.mail.yahoo.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "03699874521aA"),
+                Credentials = new NetworkCredential("alinblendea@yahoo.com", "pdbbuabfmgzxaoua"),
                 EnableSsl = true,
             };
 
@@ -130,7 +130,7 @@ namespace BloodDonorApp.Models.Actions.Account
                 "Buna ziua!\n\n" +
                 "Codul de confirmare a adresei de mail este: " + code;
 
-            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Activare cont donator", body);
+            smtpClient.Send("alinblendea@yahoo.com", mail, "Activare cont donator", body);
         }
 
         public void AddMethod(object obj)

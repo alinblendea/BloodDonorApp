@@ -54,10 +54,10 @@ namespace BloodDonorApp.Views.Login
 
         private void SendMail(string mail, string code)
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
+            var smtpClient = new SmtpClient("smtp.mail.yahoo.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("noresponse.blooddonorapp@gmail.com", "03699874521aA"),
+                Credentials = new NetworkCredential("alinblendea@yahoo.com", "pdbbuabfmgzxaoua"),
                 EnableSsl = true,
             };
 
@@ -66,7 +66,7 @@ namespace BloodDonorApp.Views.Login
                 "Codul de resetare a parolei contului dumneavoastra este: " + code + "\n\n" + 
                 "Daca nu ati facut solicitarea schimbarii parolei, ignorati acest mail.";
 
-            smtpClient.Send("noresponse.blooddonorapp@gmail.com", mail, "Schimbare parola Blood Donor App", body);
+            smtpClient.Send("alinblendea@yahoo.com", mail, "Schimbare parola Blood Donor App", body);
         }
 
         private bool CheckCode(string entered)
